@@ -3,1154 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIS Technologies | Applied Integration Systems LLC | Defense & Enterprise Integration</title>
-
-  <style>
-    /* --- Modern Corporate Defense Contractor Theme --- */
-    :root {
-      --bg-core: #0a0e17;
-      --bg-surface: #111827;
-      --bg-card: #151f32;
-      --border-subtle: #22324d;
-      --border-focus: #38bdf8;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --accent-cyan: #38bdf8;
-      --accent-amber: #f59e0b;
-      --accent-emerald: #10b981;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-core);
-      color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* --- Header / Top Bar --- */
-    .top-compliance-bar {
-      background-color: #05080f;
-      border-bottom: 1px solid #1a2639;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      padding: 6px 0;
-    }
-
-    .compliance-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-family: monospace;
-    }
-
-    .compliance-content span {
-      color: var(--text-muted);
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      background-color: rgba(10, 14, 23, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-subtle);
-      z-index: 1000;
-      padding: 18px 0;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand-logo {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      color: #ffffff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .brand-logo span {
-      color: var(--accent-cyan);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 24px;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-cyan);
-    }
-
-    /* --- Hero Section --- */
-    .hero-section {
-      padding: 90px 0 80px 0;
-      border-bottom: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.06), transparent 50%);
-    }
-
-    .pill-badge {
-      display: inline-block;
-      padding: 5px 12px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background-color: rgba(56, 189, 248, 0.1);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 4px;
-      margin-bottom: 24px;
-    }
-
-    .hero-title {
-      font-size: 3.2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      max-width: 980px;
-    }
-
-    .hero-title span {
-      color: var(--accent-cyan);
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      max-width: 820px;
-      margin-bottom: 35px;
-      line-height: 1.6;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-cyan);
-      color: #040810;
-      padding: 13px 26px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background-color: #7dd3fc;
-    }
-
-    .btn-secondary {
-      background-color: var(--bg-surface);
-      color: var(--text-main);
-      padding: 13px 26px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      border: 1px solid var(--border-subtle);
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-    }
-
-    /* --- Corporate Stats Strip --- */
-    .stats-strip {
-      background-color: #070b14;
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 30px 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-
-    .stat-item h3 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-
-    .stat-item p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* --- Sections & Structural Headers --- */
-    .section-padding {
-      padding: 90px 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .section-header {
-      margin-bottom: 45px;
-    }
-
-    .section-header h2 {
-      font-size: 2.2rem;
-      letter-spacing: -0.02em;
-      margin: 12px 0 8px 0;
-      color: #ffffff;
-    }
-
-    .section-header p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 800px;
-    }
-
-    /* --- Capability / Company Profile Section --- */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .profile-bio p {
-      color: #cbd5e1;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .corporate-data-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 28px;
-    }
-
-    .corporate-data-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 16px;
-      color: #ffffff;
-      border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 10px;
-    }
-
-    .data-list {
-      list-style: none;
-    }
-
-    .data-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.9rem;
-    }
-
-    .data-label {
-      color: var(--text-dim);
-      font-family: monospace;
-    }
-
-    .data-val {
-      color: var(--text-main);
-      font-weight: 600;
-      font-family: monospace;
-    }
-
-    /* --- Featured Flagship (4U Flypack) --- */
-    .project-featured-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 36px;
-      margin-bottom: 40px;
-    }
-
-    .card-header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .category-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
-      font-weight: 700;
-    }
-
-    .project-featured-card h3 {
-      font-size: 1.7rem;
-      margin-top: 4px;
-      color: #ffffff;
-    }
-
-    .status-indicator.live {
-      font-size: 0.75rem;
-      color: var(--accent-emerald);
-      background-color: rgba(16, 185, 129, 0.1);
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-
-    .project-summary {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin: 12px 0 24px 0;
-      line-height: 1.7;
-    }
-
-    .project-summary strong {
-      color: #ffffff;
-    }
-
-    /* --- Schematic Viewer & Tabs --- */
-    .schematic-container {
-      background-color: #050810;
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 24px;
-      margin: 28px 0;
-      cursor: pointer;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .schematic-container:hover {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
-    }
-
-    .schematic-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .schematic-tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .tab-btn {
-      background: var(--bg-surface);
-      color: var(--text-muted);
-      border: 1px solid var(--border-subtle);
-      padding: 8px 18px;
-      font-family: monospace;
-      font-size: 0.85rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn:hover {
-      color: #ffffff;
-      border-color: var(--accent-cyan);
-    }
-
-    .tab-btn.active {
-      background: #1a273f;
-      color: var(--accent-cyan);
-      border-color: var(--accent-cyan);
-      font-weight: 700;
-    }
-
-    .zoom-hint {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background: var(--bg-surface);
-      padding: 6px 12px;
-      border-radius: 4px;
-      border: 1px solid var(--border-subtle);
-    }
-
-    .schematic-preview-box {
-      width: 100%;
-      min-height: 320px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #03060c;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #141c2c;
-    }
-
-    .schematic-img {
-      display: none;
-      width: 100%;
-      max-height: 540px;
-      object-fit: contain;
-    }
-
-    .schematic-img.active {
-      display: block;
-    }
-
-    /* --- Custom Software & Capabilities Grid --- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 28px;
-    }
-
-    .project-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-card h4 {
-      font-size: 1.3rem;
-      margin: 8px 0 14px 0;
-      color: #ffffff;
-    }
-
-    .project-card p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .feature-bullets {
-      list-style: none;
-      margin: 0 0 24px 0;
-    }
-
-    .feature-bullets li {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      margin-bottom: 10px;
-      position: relative;
-      padding-left: 20px;
-      line-height: 1.4;
-    }
-
-    .feature-bullets li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: var(--accent-cyan);
-    }
-
-    .tech-stack-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: auto;
-    }
-
-    .tech-pill {
-      font-family: monospace;
-      font-size: 0.75rem;
-      padding: 4px 9px;
-      border-radius: 4px;
-      background-color: #090d16;
-      border: 1px solid var(--border-subtle);
-      color: #cbd5e1;
-    }
-
-    /* --- Contact Section & Formspree AJAX --- */
-    .contact-wrapper {
-      max-width: 680px;
-      margin: 0 auto;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 22px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #cbd5e1;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      background-color: #060911;
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 13px 15px;
-      color: #ffffff;
-      font-size: 0.95rem;
-      transition: border-color 0.2s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-cyan);
-    }
-
-    .form-status {
-      margin-top: 15px;
-      font-size: 0.9rem;
-      display: none;
-    }
-
-    .form-status.success {
-      display: block;
-      color: var(--accent-emerald);
-    }
-
-    .form-status.error {
-      display: block;
-      color: #ef4444;
-    }
-
-    /* --- Lightbox Modal --- */
-    .schematic-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background-color: rgba(4, 7, 13, 0.97);
-      backdrop-filter: blur(12px);
-    }
-
-    .modal-controls {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      display: flex;
-      gap: 10px;
-      z-index: 100000;
-    }
-
-    .modal-controls button {
-      background: var(--bg-surface);
-      color: var(--text-main);
-      border: 1px solid var(--border-subtle);
-      padding: 8px 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .modal-controls button:hover {
-      background: #1a273f;
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-    }
-
-    .modal-controls .close-btn {
-      background: #7f1d1d;
-      border-color: #991b1b;
-    }
-
-    .modal-controls .close-btn:hover {
-      background: #dc2626;
-      color: #ffffff;
-    }
-
-    .modal-viewport {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      cursor: grab;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-viewport:active {
-      cursor: grabbing;
-    }
-
-    .modal-canvas {
-      transform-origin: center center;
-      transition: transform 0.05s linear;
-      user-select: none;
-    }
-
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      background-color: #040710;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    @media (max-width: 860px) {
-      .hero-title { font-size: 2.3rem; }
-      .profile-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>AIS Technologies | Precision Systems Engineering & Integration</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-  <!-- ============================================================ -->
-  <!-- TOP CONTRACTOR COMPLIANCE HEADER                             -->
-  <!-- ============================================================ -->
-  <div class="top-compliance-bar">
-    <div class="container compliance-content">
+  <!-- COMPLIANCE BANNER -->
+  <aside class="compliance-bar">
+    <div class="container compliance-grid">
       <div>ENTITY: <span>Applied Integration Systems LLC (dba AIS Technologies)</span></div>
-      <div>CORE DISCIPLINES: <span>IT Infrastructure • AV/VTC Modernization • Edge Compute</span></div>
+      <div>CORE: <span>Tactical Edge IT • Enterprise AV/VTC • Signal Engineering</span></div>
       <div>LOCATION: <span>Morganton, NC • US Veteran Owned</span></div>
     </div>
-  </div>
+  </aside>
 
-  <!-- ============================================================ -->
-  <!-- MAIN NAVIGATION                                              -->
-  <!-- ============================================================ -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="#" class="brand-logo">AIS <span>TECHNOLOGIES</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">Corporate Profile</a></li>
-        <li><a href="#flagship-flypack">Tactical Flypack</a></li>
-        <li><a href="#custom-software">Capabilities</a></li>
-        <li><a href="#contact">Direct RFQ</a></li>
-      </ul>
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="container nav-layout">
+      <a href="#" class="brand">AIS <span>TECHNOLOGIES</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">Corporate Profile</a></li>
+          <li><a href="#flagship">Tactical Flypack</a></li>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#contact">Contact / RFQ</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- ============================================================ -->
-  <!-- HERO SECTION                                                 -->
-  <!-- ============================================================ -->
-  <section class="hero-section">
-    <div class="container">
-      <span class="pill-badge">Defense Contracting • Enterprise AV/VTC • Rapid Deployments</span>
-      <h1 class="hero-title">
-        Engineered Systems Integration &amp; <span>Software-Defined Edge Infrastructure</span>
-      </h1>
-      <p class="hero-subtitle">
-        Delivering turnkey, mission-ready tactical edge platforms, enterprise network commissioning, and custom digital signal distribution for commercial and defense applications.
-      </p>
-      <div class="hero-cta-group">
-        <a href="#flagship-flypack" class="btn-primary">Inspect System Schematics</a>
-        <a href="#contact" class="btn-secondary">Request Capability Briefing</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- EXECUTIVE STATS STRIP                                        -->
-  <!-- ============================================================ -->
-  <section class="stats-strip">
-    <div class="container stats-grid">
-      <div class="stat-item">
-        <h3>100% Zero-Fail</h3>
-        <p>Live Audio/Video &amp; Command Uplinks</p>
-      </div>
-      <div class="stat-item">
-        <h3>Sub-10ms</h3>
-        <p>Dynamic DSP &amp; Video Routing Latency</p>
-      </div>
-      <div class="stat-item">
-        <h3>802.1Q / Dante</h3>
-        <p>Deterministic Multicast QoS Architecture</p>
-      </div>
-      <div class="stat-item">
-        <h3>Turnkey</h3>
-        <p>Rapid 4U Shock-Mounted Deployment</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- ABOUT & CORPORATE PROFILE                                    -->
-  <!-- ============================================================ -->
-  <section id="about" class="section-padding">
-    <div class="container">
-      <div class="section-header">
-        <span class="pill-badge">Past Performance &amp; Engineering Focus</span>
-        <h2>Disciplined Systems Engineering</h2>
-        <p>Built upon military signal support discipline, field-proven live production, and rigorous federal compliance.</p>
-      </div>
-
-      <div class="profile-grid">
-        <div class="profile-bio">
-          <p>
-            Founded by a U.S. Army veteran and Signal Support Systems Specialist (25U), <strong>Applied Integration Systems LLC (dba AIS Technologies)</strong> bridges bare-metal hardware integration, secure digital signal distribution, and high-reliability edge computing.
-          </p>
-          <p>
-            Whether engineering conference room modernizations compliant with TAA and DoDIN APL standards or deploying tactical edge flypacks to remote operations, our systems are built around deterministic signal flow, clean 120V power conditioning, and containerized microservice architectures.
-          </p>
-          <p>
-            We manage the entire lifecycle: CAD/schematic modeling, precision CNC bulkhead fabrication, shielded MIL-spec cable looming, and automated subnet commissioning.
-          </p>
-        </div>
-
-        <div class="corporate-data-card">
-          <h3>Contracting &amp; Technical Baseline</h3>
-          <ul class="data-list">
-            <li>
-              <span class="data-label">Legal Entity:</span>
-              <span class="data-val">Applied Integration Systems LLC</span>
-            </li>
-            <li>
-              <span class="data-label">Trade Name:</span>
-              <span class="data-val">AIS Technologies</span>
-            </li>
-            <li>
-              <span class="data-label">Enterprise Focus:</span>
-              <span class="data-val">AV/VTC, Edge IT, Signal Eng.</span>
-            </li>
-            <li>
-              <span class="data-label">Signal Protocols:</span>
-              <span class="data-val">Dante, AES67, 12G-SDI, NDI</span>
-            </li>
-            <li>
-              <span class="data-label">Network Standards:</span>
-              <span class="data-val">802.1Q, IEEE 1588 PTP, IGMPv3</span>
-            </li>
-            <li>
-              <span class="data-label">Operating Location:</span>
-              <span class="data-val">Morganton, North Carolina</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- FLAGSHIP SYSTEM & SCHEMATICS VIEWER                         -->
-  <!-- ============================================================ -->
-  <section id="flagship-flypack" class="section-padding" style="background-color: #060a12;">
-    <div class="container">
-      
-      <div class="section-header">
-        <span class="pill-badge">Tactical Edge Hardware</span>
-        <h2>Universal Edge Operations Center (4U Flypack)</h2>
-        <p>A standardized shock-mounted platform capable of instantaneous operational role-switching.</p>
-      </div>
-
-      <div class="project-featured-card">
-        <div class="card-header-bar">
-          <div>
-            <span class="category-tag">Integrated Hardware / Software-Defined Platform</span>
-            <h3>Universal Edge Operations Center (UEOC-4U)</h3>
-          </div>
-          <span class="status-indicator live">Architecture Complete</span>
-        </div>
-        
-        <p class="project-summary">
-          Engineered for rapid field deployment, the UEOC-4U operates across three distinct operational profiles: 
-          <strong>Live Audio/Video Broadcast</strong>, <strong>Incident Command System (ICS)</strong>, and 
-          <strong>Tactical Defense Operations</strong>. Featuring a 16-port Neutrik D-Series isolated bulkhead, 
-          Belden 4855R 12G-SDI cabling, Mogami analog audio pairs, and a true online double-conversion UPS for zero-gap power switching.
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <span class="badge">Federal Contracting • Tactical AV/VTC • Rapid Deployments</span>
+        <h1 class="hero-title">
+          Engineered Systems Integration &amp; <span>Software-Defined Edge Infrastructure</span>
+        </h1>
+        <p class="hero-desc">
+          Delivering turnkey, mission-ready tactical edge platforms, enterprise network commissioning, and custom digital signal distribution for commercial and defense applications.
         </p>
+        <div class="hero-actions">
+          <a href="#flagship" class="btn btn-primary">Inspect System Schematics</a>
+          <a href="#contact" class="btn btn-secondary">Request Capability Briefing</a>
+        </div>
+      </div>
+    </section>
 
-        <!-- DUAL-SCHEMATIC TABBED SHOWCASE -->
-        <div class="schematic-container" id="schematic-wrapper" title="Click image to open interactive full-screen zoom">
-          <div class="schematic-toolbar">
-            <div class="schematic-tabs" role="tablist">
-              <button type="button" class="tab-btn active" data-target="schematic-interconnect">
-                Hardware Interconnect &amp; Signal Flow
-              </button>
-              <button type="button" class="tab-btn" data-target="schematic-orchestration">
-                Software Profile &amp; Network Orchestration
-              </button>
+    <!-- METRICS STRIP -->
+    <section class="metrics-bar">
+      <div class="container metrics-grid">
+        <div class="metric-card">
+          <span class="metric-val">100% Zero-Fail</span>
+          <span class="metric-lbl">Live Broadcast &amp; Command Uplinks</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val">Sub-10ms</span>
+          <span class="metric-lbl">Real-Time DSP &amp; Video Latency</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val">802.1Q / Dante</span>
+          <span class="metric-lbl">Deterministic Multicast QoS Architecture</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val">Turnkey 4U</span>
+          <span class="metric-lbl">Shock-Mounted Mobile Operations Center</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORPORATE PROFILE -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="badge">Past Performance &amp; Engineering Focus</span>
+          <h2>Disciplined Systems Engineering</h2>
+          <p>Built upon military signal support discipline, live event production, and rigorous federal compliance.</p>
+        </div>
+
+        <div class="profile-layout">
+          <div class="profile-narrative">
+            <p>
+              Founded by a U.S. Army veteran and Signal Support Systems Specialist (25U), <strong>Applied Integration Systems LLC (dba AIS Technologies)</strong> bridges bare-metal hardware integration, secure digital signal distribution, and high-reliability edge computing.
+            </p>
+            <p>
+              Whether engineering conference room modernizations compliant with TAA and DoDIN APL standards or deploying tactical edge flypacks to remote operations, our systems are built around deterministic signal flow, clean 120V power conditioning, and containerized microservice architectures.
+            </p>
+            <p>
+              We manage the entire lifecycle: CAD/schematic modeling, precision CNC bulkhead fabrication, shielded MIL-spec cable looming, and automated subnet commissioning.
+            </p>
+          </div>
+
+          <div class="profile-card">
+            <h3>Contracting &amp; Technical Baseline</h3>
+            <ul class="baseline-list">
+              <li><span>Legal Entity</span><strong>Applied Integration Systems LLC</strong></li>
+              <li><span>Trade Name</span><strong>AIS Technologies</strong></li>
+              <li><span>Enterprise Focus</span><strong>AV/VTC, Edge IT, Signal Eng.</strong></li>
+              <li><span>Protocols</span><strong>Dante, AES67, 12G-SDI, NDI</strong></li>
+              <li><span>Networking</span><strong>802.1Q, IEEE 1588 PTP, IGMPv3</strong></li>
+              <li><span>Location</span><strong>Morganton, North Carolina</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAGSHIP: 4U FLYPACK SCHEMATIC VIEWER -->
+    <section id="flagship" class="section section-dark">
+      <div class="container">
+        <div class="section-heading">
+          <span class="badge">Tactical Edge Hardware</span>
+          <h2>Universal Edge Operations Center (4U Flypack)</h2>
+          <p>Standardized shock-mounted platform engineered for instantaneous multi-mission role switching.</p>
+        </div>
+
+        <div class="flypack-card">
+          <div class="card-bar">
+            <div>
+              <span class="tag">Hardware / Software-Defined Platform</span>
+              <h3>Universal Edge Operations Center (UEOC-4U)</h3>
             </div>
-            <span class="zoom-hint">🔍 Click to Expand &amp; Zoom</span>
+            <span class="status-live">Architecture Complete</span>
           </div>
 
-          <div class="schematic-preview-box">
-            <!-- Diagram 1: Hardware Interconnect -->
-            <img 
-              id="schematic-interconnect" 
-              class="schematic-img active" 
-              src="./assets/images/harware%20interconnect%20%26%20signal%20flow.png" 
-              alt="Hardware Interconnect and Signal Flow Schematic" 
-            />
-
-            <!-- Diagram 2: Software Orchestration -->
-            <img 
-              id="schematic-orchestration" 
-              class="schematic-img" 
-              src="./assets/images/software%20profile%20and%20network%20orchestrastion.png" 
-              alt="Software Profile and Network Orchestration Architecture" 
-            />
-          </div>
-        </div>
-
-        <div class="tech-stack-row">
-          <span class="tech-pill">Docker / Proxmox</span>
-          <span class="tech-pill">802.1Q VLANs</span>
-          <span class="tech-pill">12G-SDI / SMPTE ST 2082</span>
-          <span class="tech-pill">Dante / AES67</span>
-          <span class="tech-pill">Neutrik D-Series</span>
-          <span class="tech-pill">True Online UPS</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- CUSTOM SOFTWARE & CAPABILITIES                               -->
-  <!-- ============================================================ -->
-  <section id="custom-software" class="section-padding">
-    <div class="container">
-      
-      <div class="section-header">
-        <span class="pill-badge">Software Engineering &amp; Tooling</span>
-        <h2>Specialized Software &amp; Integration Engines</h2>
-        <p>Custom diagnostics, DSP protocol bridges, and resilient edge applications designed for contested environments.</p>
-      </div>
-
-      <div class="projects-grid">
-        
-        <!-- PROJECT 1: AV/VTC DIAGNOSTIC SUITE -->
-        <div class="project-card">
-          <div class="card-top">
-            <span class="category-tag">Enterprise Network Systems</span>
-            <h4>Enterprise AV/VTC Diagnostic &amp; Commissioning Suite</h4>
-          </div>
-          <p>
-            Automated subnet discovery, IEEE 1588 PTP clock drift validation, and multicast QoS audit engine. 
-            Verifies network baseline health for Dante/AES67 digital audio and NDI video streams before site sign-off.
+          <p class="card-summary">
+            Engineered for rapid field deployment, the UEOC-4U operates across three distinct operational profiles: 
+            <strong>Live Audio/Video Broadcast</strong>, <strong>Incident Command System (ICS)</strong>, and 
+            <strong>Tactical Defense Operations</strong>. Featuring a 16-port Neutrik D-Series isolated bulkhead, 
+            Belden 4855R 12G-SDI cabling, Mogami analog audio pairs, and an online double-conversion UPS for zero-gap power switching.
           </p>
-          <ul class="feature-bullets">
-            <li>Automated IGMP Snooping and multicast boundary verification.</li>
-            <li>Sub-millisecond packet jitter and network buffer analysis.</li>
-            <li>Generates compliance PDF audit inspection certificates for clients.</li>
-          </ul>
-          <div class="tech-stack-row">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">Raw Sockets</span>
-            <span class="tech-pill">Dante / AES67</span>
-            <span class="tech-pill">QoS Analysis</span>
+
+          <!-- TABBED VIEWER -->
+          <div class="viewer-box" id="schematic-viewer" title="Click to open interactive zoom">
+            <div class="viewer-controls">
+              <div class="tab-group" role="tablist">
+                <button type="button" class="tab-btn active" data-target="diagram-interconnect">
+                  Hardware Interconnect &amp; Signal Flow
+                </button>
+                <button type="button" class="tab-btn" data-target="diagram-orchestration">
+                  Software Profile &amp; Network Orchestration
+                </button>
+              </div>
+              <span class="zoom-indicator">🔍 Click to Expand &amp; Zoom</span>
+            </div>
+
+            <div class="viewer-display">
+              <img 
+                id="diagram-interconnect" 
+                class="diagram-img active" 
+                src="./assets/images/flypack-interconnect.png" 
+                alt="Hardware Interconnect and Signal Flow Schematic" 
+              />
+              <img 
+                id="diagram-orchestration" 
+                class="diagram-img" 
+                src="./assets/images/flypack-orchestration.png" 
+                alt="Software Profile and Network Orchestration Architecture" 
+              />
+            </div>
+          </div>
+
+          <div class="pills-row">
+            <span class="pill">Docker / Proxmox</span>
+            <span class="pill">802.1Q VLANs</span>
+            <span class="pill">12G-SDI / SMPTE ST 2082</span>
+            <span class="pill">Dante / AES67</span>
+            <span class="pill">Neutrik D-Series</span>
+            <span class="pill">Online Double-Conversion UPS</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- PROJECT 2: AUDIO-REACTIVE LIGHTING -->
-        <div class="project-card">
-          <div class="card-top">
-            <span class="category-tag">Hardware / Protocol Bridge</span>
-            <h4>Audio-Reactive Environmental Lighting &amp; Telemetry Engine</h4>
-          </div>
-          <p>
-            High-performance bridge linking incoming live audio streams to DMX512, Art-Net, and sACN lighting fixtures 
-            with real-time FFT spectrum isolation and automated failsafe fallback.
-          </p>
-          <ul class="feature-bullets">
-            <li>Multi-band transient and frequency separation via real-time DSP.</li>
-            <li>Autonomous heartbeat switch to warm wash if audio drops.</li>
-            <li>Sub-10ms latency loop over UDP Art-Net broadcast interfaces.</li>
-          </ul>
-          <div class="tech-stack-row">
-            <span class="tech-pill">C++ / JUCE</span>
-            <span class="tech-pill">Art-Net / DMX512</span>
-            <span class="tech-pill">Embedded Microcontrollers</span>
-            <span class="tech-pill">WebGL Preview</span>
-          </div>
+    <!-- CAPABILITIES GRID -->
+    <section id="capabilities" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="badge">Software Engineering &amp; Tooling</span>
+          <h2>Specialized Software &amp; Integration Engines</h2>
+          <p>Custom diagnostics, DSP protocol bridges, and resilient edge applications designed for contested environments.</p>
         </div>
 
-        <!-- PROJECT 3: OFFLINE-FIRST FIELD TRACKER -->
-        <div class="project-card">
-          <div class="card-top">
-            <span class="category-tag">Edge Mobile Application</span>
-            <h4>Resilient Offline-First Mobile Asset &amp; Field Ops Tracker</h4>
-          </div>
-          <p>
-            Ruggedized, low-draw cross-platform application designed for incident command posts and remote field logistics 
-            where cellular coverage is zero or contested.
-          </p>
-          <ul class="feature-bullets">
-            <li>Local SQLite / Hive database with CRDT background sync on reconnection.</li>
-            <li>Integrated camera QR / barcode scanning for rapid hardware checkouts.</li>
-            <li>Optimized OLED high-contrast dark mode for field battery preservation.</li>
-          </ul>
-          <div class="tech-stack-row">
-            <span class="tech-pill">Flutter / Dart</span>
-            <span class="tech-pill">Offline SQLite</span>
-            <span class="tech-pill">Conflict-Free Sync</span>
-            <span class="tech-pill">QR Scanning</span>
-          </div>
+        <div class="capabilities-grid">
+          <!-- CARD 1 -->
+          <article class="cap-card">
+            <span class="tag">Enterprise Network Systems</span>
+            <h3>Enterprise AV/VTC Diagnostic &amp; Commissioning Suite</h3>
+            <p>
+              Automated subnet discovery, IEEE 1588 PTP clock drift validation, and multicast QoS audit engine. 
+              Verifies baseline network health for Dante/AES67 digital audio and NDI video streams prior to site acceptance.
+            </p>
+            <ul class="bullet-list">
+              <li>Automated IGMP Snooping and multicast boundary verification.</li>
+              <li>Sub-millisecond packet jitter and network buffer analysis.</li>
+              <li>Generates compliance PDF audit inspection certificates for clients.</li>
+            </ul>
+            <div class="pills-row">
+              <span class="pill">Python</span>
+              <span class="pill">Raw Sockets</span>
+              <span class="pill">Dante / AES67</span>
+              <span class="pill">QoS Analysis</span>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="cap-card">
+            <span class="tag">Hardware / Protocol Bridge</span>
+            <h3>Audio-Reactive Environmental Lighting Engine</h3>
+            <p>
+              High-performance bridge linking incoming live audio streams to DMX512, Art-Net, and sACN lighting fixtures 
+              with real-time FFT spectrum isolation and automated failsafe fallback.
+            </p>
+            <ul class="bullet-list">
+              <li>Multi-band transient and frequency separation via real-time DSP.</li>
+              <li>Autonomous heartbeat switch to warm wash if audio signal drops.</li>
+              <li>Sub-10ms latency loop over UDP Art-Net broadcast interfaces.</li>
+            </ul>
+            <div class="pills-row">
+              <span class="pill">C++ / JUCE</span>
+              <span class="pill">Art-Net / DMX512</span>
+              <span class="pill">Embedded Microcontrollers</span>
+              <span class="pill">WebGL</span>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="cap-card">
+            <span class="tag">Edge Mobile Application</span>
+            <h3>Resilient Offline-First Mobile Asset &amp; Field Ops Tracker</h3>
+            <p>
+              Ruggedized, low-draw cross-platform application designed for incident command posts and remote field logistics 
+              where cellular coverage is zero or contested.
+            </p>
+            <ul class="bullet-list">
+              <li>Local SQLite / Hive database with CRDT background sync on reconnection.</li>
+              <li>Integrated camera QR / barcode scanning for rapid hardware checkouts.</li>
+              <li>Optimized OLED high-contrast dark mode for field battery preservation.</li>
+            </ul>
+            <div class="pills-row">
+              <span class="pill">Flutter / Dart</span>
+              <span class="pill">Offline SQLite</span>
+              <span class="pill">Conflict-Free Sync</span>
+              <span class="pill">QR Scanning</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="section section-dark">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="badge">Direct Communication</span>
+          <h2>Initiate an Integration Project or RFQ</h2>
+          <p>Inquire regarding system builds, technical consultations, or prime/subcontracting partnerships.</p>
         </div>
 
+        <div class="form-wrapper">
+          <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <div class="field-group">
+              <label for="name">Name / Organization / Agency</label>
+              <input type="text" id="name" name="name" required placeholder="e.g. John Doe / Organization Name" />
+            </div>
+            <div class="field-group">
+              <label for="email">Direct Contact Email</label>
+              <input type="email" id="email" name="_replyto" required placeholder="you@agency.gov or you@company.com" />
+            </div>
+            <div class="field-group">
+              <label for="message">Project Requirements / Scope of Work</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Describe technical scope, timeline, hardware specifications, or RFQ details..."></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-block">
+              Send Communication
+            </button>
+            <div id="form-status" class="status-msg"></div>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ============================================================ -->
-  <!-- CONTACT SECTION (FORMSPREE AJAX)                             -->
-  <!-- ============================================================ -->
-  <section id="contact" class="section-padding" style="background-color: #060a12;">
-    <div class="container">
-      <div class="section-header" style="text-align: center;">
-        <span class="pill-badge">Direct Communication</span>
-        <h2>Initiate an Integration Project or RFQ</h2>
-        <p>Inquire regarding system builds, technical consultations, or prime/subcontracting partnerships.</p>
-      </div>
-
-      <div class="contact-wrapper">
-        <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint key -->
-        <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-          <div class="form-group">
-            <label for="name">Name / Organization / Agency</label>
-            <input type="text" id="name" name="name" required placeholder="e.g. John Doe / Organization Name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Direct Contact Email</label>
-            <input type="email" id="email" name="_replyto" required placeholder="you@agency.gov or you@company.com" />
-          </div>
-          <div class="form-group">
-            <label for="message">Project Requirements / Scope of Work</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Describe technical scope, timeline, hardware specifications, or RFQ details..."></textarea>
-          </div>
-          <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%;">
-            Send Communication
-          </button>
-          <div id="form-status" class="form-status"></div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- FULLSCREEN PAN & ZOOM LIGHTBOX MODAL                         -->
-  <!-- ============================================================ -->
-  <div id="schematic-modal" class="schematic-modal" aria-hidden="true">
-    <div class="modal-controls">
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-controls">
       <button id="zoom-in" type="button" title="Zoom In">+</button>
       <button id="zoom-out" type="button" title="Zoom Out">−</button>
       <button id="zoom-reset" type="button" title="Reset View">Reset</button>
-      <button id="close-modal" type="button" class="close-btn" title="Close">✕</button>
+      <button id="close-modal" type="button" class="btn-close" title="Close">✕</button>
     </div>
-    <div id="modal-pan-viewport" class="modal-viewport">
-      <div id="modal-content" class="modal-canvas"></div>
+    <div id="lightbox-viewport" class="lightbox-viewport">
+      <div id="lightbox-canvas" class="lightbox-canvas"></div>
     </div>
   </div>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; 2026 Applied Integration Systems LLC (dba AIS Technologies). Precision Systems Engineering.</p>
     </div>
   </footer>
 
-  <!-- ============================================================ -->
-  <!-- INTEGRATED JAVASCRIPT (TABS, ZOOM, FORMSPREE)                -->
-  <!-- ============================================================ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Dual-Tab Schematic Switching
-      const tabs = document.querySelectorAll('.tab-btn');
-      const images = document.querySelectorAll('.schematic-img');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-          e.stopPropagation();
-          tabs.forEach(t => t.classList.remove('active'));
-          images.forEach(img => img.classList.remove('active'));
-
-          tab.classList.add('active');
-          const targetId = tab.getAttribute('data-target');
-          const targetImg = document.getElementById(targetId);
-          if (targetImg) targetImg.classList.add('active');
-        });
-      });
-
-      // 2. Interactive Pan & Zoom Lightbox
-      const wrapper = document.getElementById('schematic-wrapper');
-      const modal = document.getElementById('schematic-modal');
-      const modalContent = document.getElementById('modal-content');
-      const viewport = document.getElementById('modal-pan-viewport');
-      const closeModal = document.getElementById('close-modal');
-      const zoomInBtn = document.getElementById('zoom-in');
-      const zoomOutBtn = document.getElementById('zoom-out');
-      const zoomResetBtn = document.getElementById('zoom-reset');
-
-      let scale = 1;
-      let translateX = 0;
-      let translateY = 0;
-      let isDragging = false;
-      let startX = 0;
-      let startY = 0;
-
-      function applyTransform() {
-        modalContent.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-      }
-
-      function resetView() {
-        scale = 1;
-        translateX = 0;
-        translateY = 0;
-        applyTransform();
-      }
-
-      wrapper.addEventListener('click', () => {
-        const activeImg = document.querySelector('.schematic-img.active');
-        if (activeImg && activeImg.src) {
-          modalContent.innerHTML = `
-            <img 
-              src="${activeImg.src}" 
-              alt="Expanded Schematic" 
-              style="max-width: 90vw; max-height: 85vh; object-fit: contain; pointer-events: none; display: block;" 
-            />
-          `;
-          modal.style.display = 'block';
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-          resetView();
-        }
-      });
-
-      function hideModal() {
-        modal.style.display = 'none';
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        modalContent.innerHTML = '';
-      }
-
-      closeModal.addEventListener('click', hideModal);
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') hideModal();
-      });
-
-      zoomInBtn.addEventListener('click', () => {
-        scale = Math.min(scale * 1.3, 5);
-        applyTransform();
-      });
-
-      zoomOutBtn.addEventListener('click', () => {
-        scale = Math.max(scale / 1.3, 0.4);
-        applyTransform();
-      });
-
-      zoomResetBtn.addEventListener('click', resetView);
-
-      viewport.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        const factor = e.deltaY < 0 ? 1.15 : 0.85;
-        scale = Math.min(Math.max(scale * factor, 0.4), 5);
-        applyTransform();
-      }, { passive: false });
-
-      viewport.addEventListener('mousedown', (e) => {
-        if (e.target.closest('.modal-controls')) return;
-        isDragging = true;
-        startX = e.clientX - translateX;
-        startY = e.clientY - translateY;
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        translateX = e.clientX - startX;
-        translateY = e.clientY - startY;
-        applyTransform();
-      });
-
-      window.addEventListener('mouseup', () => {
-        isDragging = false;
-      });
-
-      // 3. Formspree AJAX Submission
-      const form = document.getElementById('contact-form');
-      const status = document.getElementById('form-status');
-      const submitBtn = document.getElementById('submit-btn');
-
-      if (form) {
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          submitBtn.disabled = true;
-          submitBtn.innerText = 'Transmitting...';
-          status.className = 'form-status';
-          status.style.display = 'none';
-
-          const data = new FormData(form);
-          try {
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: data,
-              headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-              status.className = 'form-status success';
-              status.innerText = 'Transmission received. AIS Technologies will respond shortly.';
-              form.reset();
-            } else {
-              const resData = await response.json();
-              status.className = 'form-status error';
-              status.innerText = resData.errors ? resData.errors.map(err => err.message).join(', ') : 'Transmission error. Please try again.';
-            }
-          } catch (err) {
-            status.className = 'form-status error';
-            status.innerText = 'Network error. Please check your connection.';
-          } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerText = 'Send Communication';
-            status.style.display = 'block';
-          }
-        });
-      }
-    });
-  </script>
+  <script src="./scripts.js"></script>
 </body>
 </html>
