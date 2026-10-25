@@ -1,132 +1,203 @@
-/* --- Contact Section --- */
-.form-wrapper {
-  max-width: 660px;
-  margin: 0 auto;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 36px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
+/* ==========================================================================
+   AIS TECHNOLOGIES - SCRIPTS.JS
+   - Dual-tab schematic switching
+   - Fullscreen Lightbox with Pan & Zoom (Clean Toggle)
+   - Formspree AJAX Submission
+   ========================================================================== */
 
-.field-group {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-.field-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #cbd5e1;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+  // --- 1. Dual-Tab Schematic Switching ---
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const diagrams = document.querySelectorAll('.diagram-img');
 
-.field-group input,
-.field-group textarea {
-  width: 100%;
-  display: block;
-  background-color: var(--bg-deep);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  padding: 12px 14px;
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-family: inherit;
-  transition: border-color 0.2s ease;
-}
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevents opening the zoom modal when switching tabs
+      
+      tabButtons.forEach(b => b.classList.remove('active'));
+      diagrams.forEach(d => d.classList.remove('active'));
 
-.field-group input:focus,
-.field-group textarea:focus {
-  outline: none;
-  border-color: var(--cyan);
-}
+      btn.classList.add('active');
+      const targetId = btn.getAttribute('data-target');
+      const targetDiagram = document.getElementById(targetId);
+      if (targetDiagram) {
+        targetDiagram.classList.add('active');
+      }
+    });
+  });
 
-.status-msg {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  display: none;
-}
+  // --- 2. Interactive Pan & Zoom Lightbox ---
+  const viewerBox = document.getElementById('schematic-viewer');
+  const lightbox = document.getElementById('lightbox');
+  const canvas = document.getElementById('lightbox-canvas');
+  const viewport = document.getElementById('lightbox-viewport');
+  const closeBtn = document.getElementById('close-modal');
+  const zoomInBtn = document.getElementById('zoom-in');
+  const zoomOutBtn = document.getElementById('zoom-out');
+  const zoomResetBtn = document.getElementById('zoom-reset');
 
-.status-msg.success {
-  display: block;
-  color: var(--emerald);
-}
+  let scale = 1;
+  let translateX = 0;
+  let translateY = 0;
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
 
-.status-msg.error {
-  display: block;
-  color: #ef4444;
-}
+  function updateTransform() {
+    if (canvas) {
+      canvas.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    }
+  }
 
-/* --- Lightbox Modal (Strictly Hidden Until Triggered) --- */
-.lightbox-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99999;
-  background-color: rgba(4, 7, 13, 0.97);
-  backdrop-filter: blur(12px);
-}
+  function resetView() {
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+    updateTransform();
+  }
 
-.lightbox-controls {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  display: flex;
-  gap: 10px;
-  z-index: 100000;
-}
+  // Open Lightbox
+  if (viewerBox && lightbox && canvas) {
+    viewerBox.addEventListener('click', () => {
+      const activeDiagram = document.querySelector('.diagram-img.active');
+      if (activeDiagram && activeDiagram.src) {
+        canvas.innerHTML = `
+          <img 
+            src="${activeDiagram.src}" 
+            alt="Expanded System Schematic" 
+            style="max-width: 90vw; max-height: 85vh; object-fit: contain; pointer-events: none; display: block;" 
+          />
+        `;
+        lightbox.style.setProperty('display', 'block', 'important');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        resetView();
+      }
+    });
+  }
 
-.lightbox-controls button {
-  background: var(--bg-surface);
-  color: var(--text-main);
-  border: 1px solid var(--border-subtle);
-  padding: 8px 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+  // Close Lightbox
+  function hideLightbox() {
+    if (lightbox && canvas) {
+      lightbox.style.setProperty('display', 'none', 'important');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      canvas.innerHTML = '';
+    }
+  }
 
-.lightbox-controls button:hover {
-  background: #19273c;
-  border-color: var(--cyan);
-  color: var(--cyan);
-}
+  if (closeBtn) closeBtn.addEventListener('click', hideLightbox);
 
-.lightbox-controls .btn-close {
-  background: #7f1d1d;
-  border-color: #991b1b;
-}
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hideLightbox();
+  });
 
-.lightbox-controls .btn-close:hover {
-  background: #dc2626;
-  color: #ffffff;
-}
+  // Zoom Controls
+  if (zoomInBtn) {
+    zoomInBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scale = Math.min(scale * 1.3, 5);
+      updateTransform();
+    });
+  }
 
-.lightbox-viewport {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  cursor: grab;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  if (zoomOutBtn) {
+    zoomOutBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scale = Math.max(scale / 1.3, 0.4);
+      updateTransform();
+    });
+  }
 
-.lightbox-viewport:active {
-  cursor: grabbing;
-}
+  if (zoomResetBtn) {
+    zoomResetBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resetView();
+    });
+  }
 
-.lightbox-canvas {
-  transform-origin: center center;
-  transition: transform 0.05s linear;
-  user-select: none;
-}
+  // Mouse Wheel Zoom
+  if (viewport) {
+    viewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const factor = e.deltaY < 0 ? 1.15 : 0.85;
+      scale = Math.min(Math.max(scale * factor, 0.4), 5);
+      updateTransform();
+    }, { passive: false });
+
+    // Drag to Pan
+    viewport.addEventListener('mousedown', (e) => {
+      if (e.target.closest('.lightbox-controls')) return;
+      isDragging = true;
+      startX = e.clientX - translateX;
+      startY = e.clientY - translateY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      translateX = e.clientX - startX;
+      translateY = e.clientY - startY;
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  }
+
+  // --- 3. Formspree AJAX Submission ---
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  const submitButton = document.getElementById('submit-btn');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.innerText = 'Transmitting...';
+      }
+      if (formStatus) {
+        formStatus.className = 'status-msg';
+        formStatus.style.display = 'none';
+      }
+
+      const formData = new FormData(contactForm);
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          if (formStatus) {
+            formStatus.className = 'status-msg success';
+            formStatus.innerText = 'Transmission received. AIS Technologies will respond shortly.';
+            formStatus.style.display = 'block';
+          }
+          contactForm.reset();
+        } else {
+          const result = await response.json();
+          if (formStatus) {
+            formStatus.className = 'status-msg error';
+            formStatus.innerText = result.errors ? result.errors.map(err => err.message).join(', ') : 'Transmission error. Please try again.';
+            formStatus.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        if (formStatus) {
+          formStatus.className = 'status-msg error';
+          formStatus.innerText = 'Network error. Please verify your connection.';
+          formStatus.style.display = 'block';
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.innerText = 'Send Communication';
+        }
+      }
+    });
+  }
+});

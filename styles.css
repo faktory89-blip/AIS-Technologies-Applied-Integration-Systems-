@@ -436,3 +436,78 @@ body {
   margin-bottom: 10px;
   position: relative;
   padding-left
+/* ==========================================================================
+   CONTACT FORM & LIGHTBOX RECOVERY FIX
+   ========================================================================== */
+
+#contact .form-wrapper {
+  max-width: 660px !important;
+  margin: 0 auto !important;
+  background-color: #111827 !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 8px !important;
+  padding: 36px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  display: block !important;
+}
+
+#contact .field-group {
+  margin-bottom: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+#contact .field-group label {
+  display: block !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  color: #cbd5e1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+#contact .field-group input,
+#contact .field-group textarea {
+  width: 100% !important;
+  display: block !important;
+  background-color: #05080f !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 6px !important;
+  padding: 12px 14px !important;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  font-family: inherit !important;
+  box-sizing: border-box !important;
+}
+
+#contact .field-group input:focus,
+#contact .field-group textarea:focus {
+  outline: none !important;
+  border-color: #38bdf8 !important;
+}
+
+#contact .btn-block {
+  width: 100% !important;
+  display: block !important;
+  padding: 14px 24px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+/* Ensure lightbox controls never render on page bottom */
+.lightbox-modal {
+  display: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999 !important;
+  background-color: rgba(4, 7, 13, 0.97) !important;
+  backdrop-filter: blur(12px) !important;
+}
