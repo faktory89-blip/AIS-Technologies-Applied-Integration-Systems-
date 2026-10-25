@@ -1,3 +1,7 @@
+/* ==========================================================================
+   AIS TECHNOLOGIES - CORPORATE DEFENSE CONTRACTOR THEME
+   ========================================================================== */
+
 :root {
   --bg-core: #090d16;
   --bg-surface: #111827;
@@ -37,26 +41,7 @@ body {
   padding: 0 24px;
 }
 
-.compliance-bar {
-  background-color: var(--bg-deep);
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  padding: 6px 0;
-}
-
-.compliance-grid {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-family: monospace;
-}
-
-.compliance-grid span {
-  color: var(--text-muted);
-}
-
+/* --- Navigation --- */
 .site-header {
   position: sticky;
   top: 0;
@@ -103,10 +88,12 @@ body {
   color: var(--cyan);
 }
 
+/* --- Hero (Centered) --- */
 .hero-section {
-  padding: 90px 0 80px 0;
+  padding: 100px 0 90px 0;
   border-bottom: 1px solid var(--border-subtle);
-  background: radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.06), transparent 50%);
+  background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.08), transparent 60%);
+  text-align: center;
 }
 
 .badge {
@@ -132,6 +119,11 @@ body {
   max-width: 960px;
 }
 
+.hero-title-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-title span {
   color: var(--cyan);
 }
@@ -144,12 +136,22 @@ body {
   line-height: 1.6;
 }
 
+.hero-desc-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 
+.hero-actions-center {
+  justify-content: center;
+}
+
+/* --- Buttons --- */
 .btn {
   padding: 12px 24px;
   font-weight: 700;
@@ -186,34 +188,7 @@ body {
   width: 100%;
 }
 
-.metrics-bar {
-  background-color: var(--bg-deep);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 28px 0;
-}
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.metric-card .metric-val {
-  display: block;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #ffffff;
-}
-
-.metric-card .metric-lbl {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 4px;
-}
-
+/* --- Generic Section Structure --- */
 .section {
   padding: 90px 0;
   border-bottom: 1px solid var(--border-subtle);
@@ -244,6 +219,12 @@ body {
   text-align: center;
 }
 
+.text-center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Profile Layout --- */
 .profile-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -293,6 +274,7 @@ body {
   color: var(--text-main);
 }
 
+/* --- Flagship Flypack Card --- */
 .flypack-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -339,6 +321,11 @@ body {
   margin: 12px 0 24px 0;
 }
 
+.card-summary strong {
+  color: #ffffff;
+}
+
+/* --- Schematic Viewer & Tabs --- */
 .viewer-box {
   background-color: var(--bg-deep);
   border: 1px solid var(--border-subtle);
@@ -425,6 +412,7 @@ body {
   display: block;
 }
 
+/* --- Capabilities Grid --- */
 .capabilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -464,167 +452,4 @@ body {
   color: #cbd5e1;
   margin-bottom: 10px;
   position: relative;
-  padding-left: 20px;
-  line-height: 1.4;
-}
-
-.bullet-list li::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: var(--cyan);
-}
-
-.pills-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
-}
-
-.pill {
-  font-family: monospace;
-  font-size: 0.75rem;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: var(--bg-deep);
-  border: 1px solid var(--border-subtle);
-  color: #cbd5e1;
-}
-
-.form-wrapper {
-  max-width: 660px;
-  margin: 0 auto;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 36px;
-}
-
-.field-group {
-  margin-bottom: 20px;
-}
-
-.field-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #cbd5e1;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.field-group input,
-.field-group textarea {
-  width: 100%;
-  background-color: var(--bg-deep);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  padding: 12px 14px;
-  color: #ffffff;
-  font-size: 0.95rem;
-  transition: border-color 0.2s ease;
-}
-
-.field-group input:focus,
-.field-group textarea:focus {
-  outline: none;
-  border-color: var(--cyan);
-}
-
-.status-msg {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  display: none;
-}
-
-.status-msg.success {
-  display: block;
-  color: var(--emerald);
-}
-
-.status-msg.error {
-  display: block;
-  color: #ef4444;
-}
-
-.lightbox-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  background-color: rgba(4, 7, 13, 0.97);
-  backdrop-filter: blur(12px);
-}
-
-.lightbox-controls {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  display: flex;
-  gap: 10px;
-  z-index: 100000;
-}
-
-.lightbox-controls button {
-  background: var(--bg-surface);
-  color: var(--text-main);
-  border: 1px solid var(--border-subtle);
-  padding: 8px 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.lightbox-controls button:hover {
-  background: #19273c;
-  border-color: var(--cyan);
-  color: var(--cyan);
-}
-
-.lightbox-controls .btn-close {
-  background: #7f1d1d;
-  border-color: #991b1b;
-}
-
-.lightbox-controls .btn-close:hover {
-  background: #dc2626;
-  color: #ffffff;
-}
-
-.lightbox-viewport {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  cursor: grab;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-viewport:active {
-  cursor: grabbing;
-}
-
-.lightbox-canvas {
-  transform-origin: center center;
-  transition: transform 0.05s linear;
-  user-select: none;
-}
-
-.site-footer {
-  padding: 40px 0;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  background-color: var(--bg-deep);
-  border-top: 1px solid var(--border-subtle);
-}
-
-@media (max-width: 860px) {
-  .hero-title { font-size: 2.3rem; }
-  .profile-layout { grid-template-columns: 1fr; }
-}
+  padding-left
