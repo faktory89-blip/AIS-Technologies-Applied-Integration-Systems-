@@ -484,3 +484,167 @@ html {
     padding: 1.5rem;
   }
 }
+/* --- High-Contrast Projects Section Styling --- */
+.projects-section {
+  padding: 80px 20px;
+  background-color: #000000;
+  color: #f8fafc;
+}
+
+.projects-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.section-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: #1e293b;
+  color: #38bdf8;
+  border-radius: 4px;
+}
+
+/* Featured Card */
+.project-featured-card {
+  background-color: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.card-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.category-tag {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.project-featured-card h3 {
+  font-size: 1.6rem;
+  margin-top: 5px;
+  color: #ffffff;
+}
+
+.status-indicator.live {
+  font-size: 0.75rem;
+  color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.schematic-container {
+  background-color: #030712;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 25px 0;
+  overflow-x: auto;
+}
+
+.schematic-tabs .tab-label {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+  padding-bottom: 4px;
+}
+
+/* 3-Column Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background-color: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h4 {
+  font-size: 1.25rem;
+  margin: 6px 0 12px 0;
+  color: #ffffff;
+}
+
+.project-card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.feature-bullets {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.feature-bullets li {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.feature-bullets li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
+}
+
+/* Tech Stack Pills */
+.tech-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tech-pill {
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  color: #e2e8f0;
+}

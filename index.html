@@ -9,6 +9,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Native Mermaid Vector Rendering Engine -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.mmin.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      darkMode: true,
+      background: '#0d1117',
+      primaryColor: '#1e293b',
+      primaryTextColor: '#f8fafc',
+      primaryBorderColor: '#38bdf8',
+      lineColor: '#64748b',
+      secondaryColor: '#064e3b',
+      tertiaryColor: '#1e1e1e'
+    }
+  });
+</script>
 </head>
 <body>
 
@@ -98,43 +116,166 @@
     </div>
   </section>
 
-  <!-- Software & Custom Applications -->
-  <section id="software" class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">SYSTEMS TOOLING</span>
-        <h2>Custom Software & Operational Applications</h2>
-        <p>A true systems integrator develops the software that controls the hardware. AIS delivers tailored utilities, field tools, and control software.</p>
+  <!-- ============================================================ -->
+<!-- FLAGSHIP ENGINEERING PROJECTS & SYSTEMS INTEGRATION          -->
+<!-- ============================================================ -->
+<section id="engineering-projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Systems Engineering & Deployment</span>
+      <h2>Operational Capabilities & Custom Software</h2>
+      <p>Mission-ready software, ruggedized network infrastructure, and real-time digital signal processing.</p>
+    </div>
+
+    <!-- FEATURED FLAGSHIP: TACTICAL FLYPACK -->
+    <div class="project-featured-card">
+      <div class="card-header-bar">
+        <div>
+          <span class="category-tag">Hardware / Software-Defined Edge</span>
+          <h3>Universal Edge Operations Center (Tactical Flypack)</h3>
+        </div>
+        <span class="status-indicator live">Architecture Complete</span>
+      </div>
+      <p class="project-summary">
+        A single, standardized 4U shock-mounted hardware platform capable of instant operational role-switching between <strong>Live Audio/Video Production</strong>, <strong>Incident Command (ICS)</strong>, and <strong>Tactical Field Operations</strong> via containerized microservice profiles and dynamic 802.1Q VLAN switching.
+      </p>
+
+      <!-- EMBEDDED SYSTEM SCHEMATICS -->
+      <div class="schematic-container">
+        <div class="schematic-tabs">
+          <span class="tab-label">System Interconnect & Signal Flow</span>
+        </div>
+        <pre class="mermaid">
+flowchart LR
+    classDef bulkhead fill:#161b22,stroke:#ffffff,stroke-width:1.5px,color:#fff;
+    classDef hardware fill:#0f172a,stroke:#38bdf8,stroke-width:1.5px,color:#fff;
+    classDef power fill:#2a1b0a,stroke:#f59e0b,stroke-width:1.5px,color:#fff;
+    classDef software fill:#064e3b,stroke:#10b981,stroke-width:1.5px,color:#fff;
+
+    subgraph Bulkhead ["1U Bulkhead Interface (16-Port Panel)"]
+        direction TB
+        P1["P01-02: Dual WAN (EtherCON)"]:::bulkhead
+        P3["P03-04: PoE+ Tactical Drops"]:::bulkhead
+        P5["P05-08: 12G-SDI Video (BNC)"]:::bulkhead
+        P9["P09-12: Audio I/O (Combo/XLR)"]:::bulkhead
+        P16["P16: PowerCON TRUE1 (120V)"]:::power
+    end
+
+    subgraph Internal_Core ["Internal 19-Inch Core Chassis"]
+        direction TB
+        Router["Multi-WAN 5G/LTE Gateway"]:::hardware
+        Switch["16-Port Managed PoE+ Switch"]:::hardware
+        Capture["PCIe 4-Ch SDI Capture Node"]:::hardware
+        AudioDSP["2x2 Balanced Audio DSP"]:::hardware
+        Compute["1U Server Node (x86 / 64GB)"]:::hardware
+        UPS["1U Online Double-Conversion UPS"]:::power
+    end
+
+    subgraph Orchestration ["Software-Defined Engine"]
+        Docker["Containerized Microservices & Virtual Matrix"]:::software
+    end
+
+    P1 -->|Cat6A STP| Router
+    Router -->|Uplink Trunk| Switch
+    Switch -->|PoE+ 30W| P3
+    Switch <-->|Dual 1GbE / Mgmt| Compute
+
+    P5 -->|Belden 4855R 75Ω| Capture
+    Capture <-->|PCIe Bus| Compute
+
+    P9 -->|Mogami W2944| AudioDSP
+    AudioDSP <-->|USB 3.2 Bus| Compute
+
+    P16 -->|120V AC SOOW| UPS
+    UPS -.->|Clean AC / 12V DC| Compute
+    UPS -.->|Clean AC / 12V DC| Switch
+
+    Compute <--> Docker
+        </pre>
       </div>
 
-      <div class="grid-cards">
-        <div class="card card-tech">
-          <div class="tech-badge">Cross-Platform / Dart</div>
-          <h3>Aegis OmniSync</h3>
-          <p>Cross-platform virtual assistant and field deployment framework featuring AR guidance projection, persistent local memory retrieval, and real-time operational interfaces.</p>
-        </div>
-
-        <div class="card card-tech">
-          <div class="tech-badge">Electron / React / Node</div>
-          <h3>Laser Web Engine</h3>
-          <p>Desktop hardware controller with material profile presets, real-time canvas coordination, and machine communication protocols for computer-aided fabrication tools.</p>
-        </div>
-
-        <div class="card card-tech">
-          <div class="tech-badge">Python / Pygame / WebGL</div>
-          <h3>LaserCore Pro</h3>
-          <p>Audio-reactive real-time signal analysis and visualization software designed for synchronized live production environments and multi-channel stage hardware.</p>
-        </div>
-
-        <div class="card card-tech">
-          <div class="tech-badge">Web Audio API / JS</div>
-          <h3>SignalCraft Field Lab</h3>
-          <p>Interactive signal processing and acoustic frequency analyzer built for audio engineers to diagnose room resonance, balance loads, and model signal chains in real-time.</p>
-        </div>
+      <div class="tech-stack-row">
+        <span class="tech-pill">Docker / Proxmox</span>
+        <span class="tech-pill">802.1Q VLANs</span>
+        <span class="tech-pill">12G-SDI / SMPTE ST 2082</span>
+        <span class="tech-pill">Dante / AES67</span>
+        <span class="tech-pill">FastAPI</span>
+        <span class="tech-pill">True Online UPS</span>
       </div>
     </div>
-  </section>
 
+    <!-- 3-COLUMN PROJECT GRID FOR REMAINING PROJECTS -->
+    <div class="projects-grid">
+      
+      <!-- PROJECT 2: AV/VTC DIAGNOSTIC TOOL -->
+      <div class="project-card">
+        <div class="card-top">
+          <span class="category-tag">Enterprise Network Systems</span>
+          <h4>Enterprise AV/VTC Diagnostic & Commissioning Suite</h4>
+        </div>
+        <p>
+          Automated subnet discovery, IEEE 1588 PTP clock drift validation, and multicast QoS audit engine. Verifies network baseline health for Dante/AES67 digital audio and NDI video streams before site sign-off.
+        </p>
+        <ul class="feature-bullets">
+          <li>Automated IGMP Snooping and multicast boundary verification.</li>
+          <li>Sub-millisecond packet jitter and network buffer analysis.</li>
+          <li>Generates compliance PDF audit inspection certificates for clients.</li>
+        </ul>
+        <div class="tech-stack-row">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Raw Sockets</span>
+          <span class="tech-pill">Dante / AES67</span>
+          <span class="tech-pill">QoS Analysis</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 3: AUDIO-REACTIVE LIGHTING -->
+      <div class="project-card">
+        <div class="card-top">
+          <span class="category-tag">Hardware / Protocol Bridge</span>
+          <h4>Audio-Reactive Environmental Lighting & Telemetry Engine</h4>
+        </div>
+        <p>
+          High-performance bridge linking incoming live audio streams to DMX512, Art-Net, and sACN lighting fixtures with real-time FFT spectrum isolation and automated failsafe fallback.
+        </p>
+        <ul class="feature-bullets">
+          <li>Multi-band transient and frequency separation via real-time DSP.</li>
+          <li>Autonomous heartbeat switch to warm wash if audio drops.</li>
+          <li>Sub-10ms latency loop over UDP Art-Net broadcast interfaces.</li>
+        </ul>
+        <div class="tech-stack-row">
+          <span class="tech-pill">C++ / JUCE</span>
+          <span class="tech-pill">Art-Net / DMX512</span>
+          <span class="tech-pill">Embedded Microcontrollers</span>
+          <span class="tech-pill">WebGL Preview</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 4: OFFLINE-FIRST FIELD OPS TRACKER -->
+      <div class="project-card">
+        <div class="card-top">
+          <span class="category-tag">Edge Mobile Application</span>
+          <h4>Resilient Offline-First Mobile Asset & Field Ops Tracker</h4>
+        </div>
+        <p>
+          Ruggedized, low-draw cross-platform application designed for incident command posts and remote field logistics where LTE/cellular coverage is zero or contested.
+        </p>
+        <ul class="feature-bullets">
+          <li>Local SQLite / Hive database with CRDT background sync on reconnection.</li>
+          <li>Integrated camera QR / barcode scanning for rapid hardware checkouts.</li>
+          <li>Optimized OLED high-contrast dark mode for field battery preservation.</li>
+        </ul>
+        <div class="tech-stack-row">
+          <span class="tech-pill">Flutter / Dart</span>
+          <span class="tech-pill">Offline SQLite</span>
+          <span class="tech-pill">Conflict-Free Sync</span>
+          <span class="tech-pill">QR Scanning</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- Federal & Procurement Data -->
   <section id="government" class="section">
     <div class="container">
