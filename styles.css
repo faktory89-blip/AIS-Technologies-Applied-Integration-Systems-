@@ -87,27 +87,19 @@ body {
 .nav-links a:hover {
   color: var(--cyan);
 }
-
-/* --- Hero (Centered) --- */
+/* --- Hero (Centered Alignment) --- */
 .hero-section {
   padding: 100px 0 90px 0;
   border-bottom: 1px solid var(--border-subtle);
   background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.08), transparent 60%);
-  text-align: center;
+  width: 100%;
 }
 
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background-color: rgba(56, 189, 248, 0.08);
-  color: var(--cyan);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  border-radius: 4px;
-  margin-bottom: 20px;
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-title {
@@ -117,11 +109,6 @@ body {
   line-height: 1.15;
   margin-bottom: 20px;
   max-width: 960px;
-}
-
-.hero-title-center {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-title span {
@@ -136,14 +123,10 @@ body {
   line-height: 1.6;
 }
 
-.hero-desc-center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .hero-actions {
   display: flex;
   gap: 16px;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
