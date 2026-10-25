@@ -511,3 +511,171 @@ body {
   background-color: rgba(4, 7, 13, 0.97) !important;
   backdrop-filter: blur(12px) !important;
 }
+/* ==========================================================================
+   RESPONSIVE MOBILE OVERRIDES (PHONES & TABLETS)
+   ========================================================================== */
+
+/* Prevent horizontal page spill */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  /* Container Padding */
+  .container {
+    padding: 0 16px !important;
+  }
+
+  /* Navigation: Stack or Wrap cleanly */
+  .nav-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 18px;
+    padding: 0;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 50px 0 45px 0 !important;
+  }
+
+  .badge {
+    font-size: 0.7rem !important;
+    line-height: 1.3;
+    padding: 6px 10px !important;
+  }
+
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Section Padding & Typography */
+  .section {
+    padding: 55px 0 !important;
+  }
+
+  .section-heading h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .section-heading p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Profile Section */
+  .profile-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .profile-card {
+    padding: 20px 16px !important;
+  }
+
+  .baseline-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    font-size: 0.85rem;
+  }
+
+  /* 4U Flypack Card & Schematics */
+  .flypack-card {
+    padding: 20px 16px !important;
+  }
+
+  .card-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .flypack-card h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .viewer-box {
+    padding: 12px !important;
+    margin: 16px 0 !important;
+  }
+
+  .viewer-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .tab-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .zoom-indicator {
+    text-align: center;
+  }
+
+  .viewer-display {
+    min-height: 200px !important;
+  }
+
+  .diagram-img {
+    max-height: 260px !important;
+  }
+
+  /* Capabilities Grid (Stack Single-Column) */
+  .capabilities-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .cap-card {
+    padding: 20px 16px !important;
+  }
+
+  .cap-card h3 {
+    font-size: 1.15rem !important;
+  }
+
+  /* Contact Form */
+  #contact div[style*="max-width: 680px"] {
+    padding: 24px 16px !important;
+  }
+}
