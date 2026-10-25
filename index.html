@@ -4,7 +4,535 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIS Technologies | Precision Systems Engineering & Integration</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* --- Base Reset & High-Contrast Super Black Styling --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #000000;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- Navigation Bar --- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1e293b;
+      z-index: 1000;
+      padding: 18px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .brand-logo span {
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* --- Hero Section --- */
+    .hero-section {
+      padding: 100px 0 80px 0;
+      border-bottom: 1px solid #111827;
+    }
+
+    .hero-badge {
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    .hero-title span {
+      color: #38bdf8;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      max-width: 750px;
+      margin-bottom: 35px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #38bdf8;
+      color: #000000;
+      padding: 12px 24px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #7dd3fc;
+    }
+
+    .btn-secondary {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    /* --- Sections & Headings --- */
+    .section-padding {
+      padding: 90px 0;
+      border-bottom: 1px solid #111827;
+    }
+
+    .dark-accent {
+      background-color: #040711;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: #111827;
+      color: #38bdf8;
+      border-radius: 4px;
+      border: 1px solid #1f2937;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      margin: 12px 0 6px 0;
+      color: #ffffff;
+    }
+
+    .section-header p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+    }
+
+    .about-text-block p {
+      color: #cbd5e1;
+      max-width: 850px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* --- Featured Project Card --- */
+    .project-featured-card {
+      background-color: #080c14;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .card-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .category-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .project-featured-card h3 {
+      font-size: 1.6rem;
+      margin-top: 4px;
+      color: #ffffff;
+    }
+
+    .status-indicator.live {
+      font-size: 0.75rem;
+      color: #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .project-summary {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin: 10px 0 20px 0;
+    }
+
+    .project-summary strong {
+      color: #e2e8f0;
+    }
+
+    /* --- Schematic Box & Tab Switcher --- */
+    .schematic-container {
+      background-color: #030712;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .schematic-container:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+    }
+
+    .schematic-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .schematic-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #0f172a;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      padding: 8px 16px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: #ffffff;
+      border-color: #38bdf8;
+    }
+
+    .tab-btn.active {
+      background: #1e293b;
+      color: #38bdf8;
+      border-color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .zoom-hint {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      background: #0f172a;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid #1e293b;
+    }
+
+    .schematic-preview-box {
+      width: 100%;
+      min-height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #030712;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .schematic-img {
+      display: none;
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+    }
+
+    .schematic-img.active {
+      display: block;
+    }
+
+    /* --- Projects Grid --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background-color: #080c14;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card h4 {
+      font-size: 1.25rem;
+      margin: 6px 0 12px 0;
+      color: #ffffff;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .feature-bullets {
+      list-style: none;
+      margin: 0 0 20px 0;
+    }
+
+    .feature-bullets li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.4;
+    }
+
+    .feature-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+    }
+
+    .tech-stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .tech-pill {
+      font-family: monospace;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background-color: #0d1117;
+      border: 1px solid #1f2937;
+      color: #cbd5e1;
+    }
+
+    /* --- Contact Section & AJAX Form --- */
+    .contact-wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+      background-color: #080c14;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background-color: #030712;
+      border: 1px solid #1f2937;
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #38bdf8;
+    }
+
+    .form-status {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      color: #10b981;
+    }
+
+    .form-status.error {
+      display: block;
+      color: #ef4444;
+    }
+
+    /* --- Fullscreen Lightbox Modal --- */
+    .schematic-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background-color: rgba(0, 0, 0, 0.96);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-controls {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      display: flex;
+      gap: 8px;
+      z-index: 100000;
+    }
+
+    .modal-controls button {
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-controls button:hover {
+      background: #1e293b;
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    .modal-controls .close-btn {
+      background: #7f1d1d;
+      border-color: #991b1b;
+    }
+
+    .modal-controls .close-btn:hover {
+      background: #dc2626;
+      color: #ffffff;
+    }
+
+    .modal-viewport {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      cursor: grab;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-viewport:active {
+      cursor: grabbing;
+    }
+
+    .modal-canvas {
+      transform-origin: center center;
+      transition: transform 0.05s linear;
+      user-select: none;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid #111827;
+    }
+  </style>
 </head>
 <body>
 
@@ -108,18 +636,16 @@
             <img 
               id="schematic-interconnect" 
               class="schematic-img active" 
-              src="assets/images/harware%20interconnect%20%26%20signal%20flow.png" 
+              src="./assets/images/harware%20interconnect%20%26%20signal%20flow.png" 
               alt="Hardware Interconnect and Signal Flow Schematic" 
-              loading="lazy"
             />
 
             <!-- Diagram 2: Software Profile & Orchestration -->
             <img 
               id="schematic-orchestration" 
               class="schematic-img" 
-              src="assets/images/software%20profile%20and%20network%20orchestrastion.png" 
+              src="./assets/images/software%20profile%20and%20network%20orchestrastion.png" 
               alt="Software Profile and Network Orchestration Architecture" 
-              loading="lazy"
             />
           </div>
         </div>
@@ -236,8 +762,7 @@
       </div>
 
       <div class="contact-wrapper">
-        <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint key -->
-        <form id="contact-form" action="https://formspree.io/f/myekvlyw" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
           <div class="form-group">
             <label for="name">Name / Organization</label>
             <input type="text" id="name" name="name" required placeholder="e.g. John Doe / Organization Name" />
@@ -280,6 +805,163 @@
     </div>
   </footer>
 
-  <script src="assets/js/viewer.js"></script>
+  <!-- ============================================================ -->
+  <!-- INTEGRATED JAVASCRIPT                                        -->
+  <!-- ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Tab Switching
+      const tabs = document.querySelectorAll('.tab-btn');
+      const images = document.querySelectorAll('.schematic-img');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.stopPropagation();
+          tabs.forEach(t => t.classList.remove('active'));
+          images.forEach(img => img.classList.remove('active'));
+
+          tab.classList.add('active');
+          const targetId = tab.getAttribute('data-target');
+          const targetImg = document.getElementById(targetId);
+          if (targetImg) targetImg.classList.add('active');
+        });
+      });
+
+      // 2. Lightbox Zoom / Pan
+      const wrapper = document.getElementById('schematic-wrapper');
+      const modal = document.getElementById('schematic-modal');
+      const modalContent = document.getElementById('modal-content');
+      const viewport = document.getElementById('modal-pan-viewport');
+      const closeModal = document.getElementById('close-modal');
+      const zoomInBtn = document.getElementById('zoom-in');
+      const zoomOutBtn = document.getElementById('zoom-out');
+      const zoomResetBtn = document.getElementById('zoom-reset');
+
+      let scale = 1;
+      let translateX = 0;
+      let translateY = 0;
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+
+      function applyTransform() {
+        modalContent.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+      }
+
+      function resetView() {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+        applyTransform();
+      }
+
+      wrapper.addEventListener('click', () => {
+        const activeImg = document.querySelector('.schematic-img.active');
+        if (activeImg && activeImg.src) {
+          modalContent.innerHTML = `
+            <img 
+              src="${activeImg.src}" 
+              alt="Expanded Schematic" 
+              style="max-width: 90vw; max-height: 85vh; object-fit: contain; pointer-events: none; display: block;" 
+            />
+          `;
+          modal.style.display = 'block';
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          resetView();
+        }
+      });
+
+      function hideModal() {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        modalContent.innerHTML = '';
+      }
+
+      closeModal.addEventListener('click', hideModal);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideModal();
+      });
+
+      zoomInBtn.addEventListener('click', () => {
+        scale = Math.min(scale * 1.3, 5);
+        applyTransform();
+      });
+
+      zoomOutBtn.addEventListener('click', () => {
+        scale = Math.max(scale / 1.3, 0.4);
+        applyTransform();
+      });
+
+      zoomResetBtn.addEventListener('click', resetView);
+
+      viewport.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.15 : 0.85;
+        scale = Math.min(Math.max(scale * factor, 0.4), 5);
+        applyTransform();
+      }, { passive: false });
+
+      viewport.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.modal-controls')) return;
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        applyTransform();
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // 3. Formspree AJAX
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Transmitting...';
+          status.className = 'form-status';
+          status.style.display = 'none';
+
+          const data = new FormData(form);
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+              status.className = 'form-status success';
+              status.innerText = 'Transmission received. AIS Technologies will respond shortly.';
+              form.reset();
+            } else {
+              const resData = await response.json();
+              status.className = 'form-status error';
+              status.innerText = resData.errors ? resData.errors.map(err => err.message).join(', ') : 'Transmission error. Please try again.';
+            }
+          } catch (err) {
+            status.className = 'form-status error';
+            status.innerText = 'Network error. Please check your connection.';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send Communication';
+            status.style.display = 'block';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
