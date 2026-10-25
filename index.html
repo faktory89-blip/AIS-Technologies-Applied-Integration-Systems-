@@ -6,11 +6,15 @@
   <title>AIS Technologies | Systems Engineering & Integration</title>
 
   <style>
-    /* --- Base Reset & Dark High-Contrast Theme --- */
+    /* --- Base Reset & High-Contrast Super Black Styling --- */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -21,21 +25,149 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .projects-section {
-      padding: 60px 20px 100px 20px;
-      background-color: #000000;
-    }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- Navigation Bar --- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1e293b;
+      z-index: 1000;
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .brand-logo span {
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* --- Hero Section --- */
+    .hero-section {
+      padding: 100px 0 80px 0;
+      border-bottom: 1px solid #111827;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: #0f172a;
+      color: #38bdf8;
+      border-radius: 4px;
+      border: 1px solid #1e293b;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    .hero-title span {
+      color: #38bdf8;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      max-width: 750px;
+      margin-bottom: 35px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #38bdf8;
+      color: #000000;
+      padding: 12px 24px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #7dd3fc;
+    }
+
+    .btn-secondary {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    /* --- Common Section Headers --- */
+    .section-padding {
+      padding: 90px 0;
+      border-bottom: 1px solid #111827;
     }
 
     .section-header {
       margin-bottom: 40px;
     }
 
-    .badge {
+    .section-badge {
       display: inline-block;
       padding: 4px 10px;
       font-size: 0.75rem;
@@ -60,12 +192,12 @@
       font-size: 1.05rem;
     }
 
-    /* --- Featured Project Card --- */
+    /* --- Featured Project & Schematics Viewer --- */
     .project-featured-card {
       background-color: #080c14;
       border: 1px solid #1e293b;
       border-radius: 8px;
-      padding: 30px;
+      padding: 32px;
       margin-bottom: 40px;
     }
 
@@ -111,7 +243,6 @@
       color: #e2e8f0;
     }
 
-    /* --- Schematic Container & Tabbed View --- */
     .schematic-container {
       background-color: #030712;
       border: 1px solid #1f2937;
@@ -248,7 +379,6 @@
       color: #38bdf8;
     }
 
-    /* --- Tech Stack Pills --- */
     .tech-stack-row {
       display: flex;
       flex-wrap: wrap;
@@ -264,6 +394,64 @@
       background-color: #0d1117;
       border: 1px solid #1f2937;
       color: #cbd5e1;
+    }
+
+    /* --- Contact Section & AJAX Form --- */
+    .contact-wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+      background-color: #080c14;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background-color: #030712;
+      border: 1px solid #1f2937;
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #38bdf8;
+    }
+
+    .form-status {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      color: #10b981;
+    }
+
+    .form-status.error {
+      display: block;
+      color: #ef4444;
     }
 
     /* --- Lightbox Modal --- */
@@ -332,18 +520,75 @@
       transition: transform 0.05s linear;
       user-select: none;
     }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid #111827;
+    }
   </style>
 </head>
 <body>
 
   <!-- ============================================================ -->
-  <!-- FLAGSHIP PROJECTS & SYSTEMS INTEGRATION                      -->
+  <!-- NAVIGATION BAR                                               -->
   <!-- ============================================================ -->
-  <section id="engineering-projects" class="projects-section">
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">AIS <span>TECHNOLOGIES</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#engineering-projects">Systems & Schematics</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION                                                 -->
+  <!-- ============================================================ -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="hero-badge">Integration • Network Engineering • Edge Computing</span>
+      <h1 class="hero-title">
+        Ruggedized Systems Integration &amp; <span>Software-Defined Edge Infrastructure</span>
+      </h1>
+      <p class="hero-subtitle">
+        Bridging bare-metal physical architecture, mission-critical audio/video routing, and enterprise edge computing for defense, emergency response, and live operations.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#engineering-projects" class="btn-primary">Explore Engineering Schematics</a>
+        <a href="#contact" class="btn-secondary">Request Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ABOUT SECTION                                                -->
+  <!-- ============================================================ -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Core Foundation</span>
+        <h2>Disciplined Systems Engineering</h2>
+        <p>Combining field-tested military signal support disciplines with modern software-defined integration.</p>
+      </div>
+      <p style="color: #cbd5e1; max-width: 850px; font-size: 1.05rem; line-height: 1.7;">
+        AIS Technologies designs, engineers, and fabricates deployable mission-critical edge solutions. From isolated D-series patch bulkheads and online power conditioning to automated 802.1Q network isolation and containerized operational matrices, our systems eliminate field setup latency in high-stakes environments.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FLAGSHIP PROJECTS & SCHEMATICS VIEWER                        -->
+  <!-- ============================================================ -->
+  <section id="engineering-projects" class="section-padding">
     <div class="container">
       
       <div class="section-header">
-        <span class="badge">Systems Engineering & Deployment</span>
+        <span class="section-badge">Systems Engineering & Deployment</span>
         <h2>Operational Capabilities & Custom Systems</h2>
         <p>Mission-ready software, ruggedized edge infrastructure, and real-time digital signal processing.</p>
       </div>
@@ -369,34 +614,34 @@
           <div class="schematic-toolbar">
             <div class="schematic-tabs" role="tablist">
               <button type="button" class="tab-btn active" data-target="schematic-interconnect">
-                Hardware Interconnect & Signal Flow
+                Hardware Interconnect &amp; Signal Flow
               </button>
               <button type="button" class="tab-btn" data-target="schematic-orchestration">
-                Software Profile & Network Orchestration
+                Software Profile &amp; Network Orchestration
               </button>
             </div>
-            <span class="zoom-hint">🔍 Click to Expand & Zoom</span>
+            <span class="zoom-hint">🔍 Click to Expand &amp; Zoom</span>
           </div>
 
-          <div class="schematic-preview-box">
-            <!-- Diagram 1: Interconnect & Signal Flow -->
-            <img 
-              id="schematic-interconnect" 
-              class="schematic-img active" 
-              src="./assets/images/harware%20interconnect%20%26%20signal%20flow.png" 
-              alt="Hardware Interconnect and Signal Flow Schematic" 
-              loading="lazy"
-            />
+         <div class="schematic-preview-box">
+  <!-- Diagram 1: Interconnect & Signal Flow -->
+  <img 
+    id="schematic-interconnect" 
+    class="schematic-img active" 
+    src="assets/images/flypack-interconnect.png" 
+    alt="Hardware Interconnect and Signal Flow Schematic" 
+    loading="lazy"
+  />
 
-            <!-- Diagram 2: Software Profile & Orchestration -->
-            <img 
-              id="schematic-orchestration" 
-              class="schematic-img" 
-              src="./assets/images/software%20profile%20and%20network%20orchestrastion.png" 
-              alt="Software Profile and Network Orchestration Architecture" 
-              loading="lazy"
-            />
-          </div>
+  <!-- Diagram 2: Software Profile & Orchestration -->
+  <img 
+    id="schematic-orchestration" 
+    class="schematic-img" 
+    src="assets/images/flypack-orchestration.png" 
+    alt="Software Profile and Network Orchestration Architecture" 
+    loading="lazy"
+  />
+</div> 
         </div>
 
         <div class="tech-stack-row">
@@ -416,7 +661,7 @@
         <div class="project-card">
           <div class="card-top">
             <span class="category-tag">Enterprise Network Systems</span>
-            <h4>Enterprise AV/VTC Diagnostic & Commissioning Suite</h4>
+            <h4>Enterprise AV/VTC Diagnostic &amp; Commissioning Suite</h4>
           </div>
           <p>
             Automated subnet discovery, IEEE 1588 PTP clock drift validation, and multicast QoS audit engine. 
@@ -439,7 +684,7 @@
         <div class="project-card">
           <div class="card-top">
             <span class="category-tag">Hardware / Protocol Bridge</span>
-            <h4>Audio-Reactive Environmental Lighting & Telemetry Engine</h4>
+            <h4>Audio-Reactive Environmental Lighting &amp; Telemetry Engine</h4>
           </div>
           <p>
             High-performance bridge linking incoming live audio streams to DMX512, Art-Net, and sACN lighting fixtures 
@@ -462,7 +707,7 @@
         <div class="project-card">
           <div class="card-top">
             <span class="category-tag">Edge Mobile Application</span>
-            <h4>Resilient Offline-First Mobile Asset & Field Ops Tracker</h4>
+            <h4>Resilient Offline-First Mobile Asset &amp; Field Ops Tracker</h4>
           </div>
           <p>
             Ruggedized, low-draw cross-platform application designed for incident command posts and remote field logistics 
@@ -486,6 +731,41 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- CONTACT SECTION (FORMSPREE AJAX)                             -->
+  <!-- ============================================================ -->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-badge">Direct Communication</span>
+        <h2>Initiate an Integration Project</h2>
+        <p>Inquire about system builds, technical consultations, or project schematics.</p>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint key -->
+        <form id="contact-form" action="https://formspree.io/f/myekvlyw" method="POST">
+          <div class="form-group">
+            <label for="name">Name / Organization</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. John Doe / Organization Name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Direct Email</label>
+            <input type="email" id="email" name="_replyto" required placeholder="you@organization.com" />
+          </div>
+          <div class="form-group">
+            <label for="message">Project Requirements / Inquiry</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Describe technical scope, timeline, or operational needs..."></textarea>
+          </div>
+          <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">
+            Send Communication
+          </button>
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- FULLSCREEN PAN & ZOOM LIGHTBOX MODAL                         -->
   <!-- ============================================================ -->
   <div id="schematic-modal" class="schematic-modal" aria-hidden="true">
@@ -500,12 +780,36 @@
     </div>
   </div>
 
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 AIS Technologies. All rights reserved. Precision Systems Engineering.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- INTEGRATED JAVASCRIPT (SCHEMATICS + FORMSPREE AJAX)          -->
+  <!-- ============================================================ -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const wrapper = document.getElementById('schematic-wrapper');
+      // --- Tab Switcher Logic ---
       const tabs = document.querySelectorAll('.tab-btn');
       const images = document.querySelectorAll('.schematic-img');
-      
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.stopPropagation();
+          tabs.forEach(t => t.classList.remove('active'));
+          images.forEach(img => img.classList.remove('active'));
+
+          tab.classList.add('active');
+          const targetId = tab.getAttribute('data-target');
+          const targetImg = document.getElementById(targetId);
+          if (targetImg) targetImg.classList.add('active');
+        });
+      });
+
+      // --- Pan & Zoom Lightbox Logic ---
+      const wrapper = document.getElementById('schematic-wrapper');
       const modal = document.getElementById('schematic-modal');
       const modalContent = document.getElementById('modal-content');
       const viewport = document.getElementById('modal-pan-viewport');
@@ -521,20 +825,6 @@
       let startX = 0;
       let startY = 0;
 
-      // Tab switcher
-      tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-          e.stopPropagation();
-          tabs.forEach(t => t.classList.remove('active'));
-          images.forEach(img => img.classList.remove('active'));
-
-          tab.classList.add('active');
-          const targetId = tab.getAttribute('data-target');
-          const targetImg = document.getElementById(targetId);
-          if (targetImg) targetImg.classList.add('active');
-        });
-      });
-
       function applyTransform() {
         modalContent.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
       }
@@ -546,14 +836,13 @@
         applyTransform();
       }
 
-      // Open Modal
       wrapper.addEventListener('click', () => {
         const activeImg = document.querySelector('.schematic-img.active');
         if (activeImg && activeImg.src) {
           modalContent.innerHTML = `
             <img 
               src="${activeImg.src}" 
-              alt="Expanded Schematic View" 
+              alt="Expanded Schematic" 
               style="max-width: 90vw; max-height: 85vh; object-fit: contain; pointer-events: none; display: block;" 
             />
           `;
@@ -564,7 +853,6 @@
         }
       });
 
-      // Close Modal
       function hideModal() {
         modal.style.display = 'none';
         modal.setAttribute('aria-hidden', 'true');
@@ -577,7 +865,6 @@
         if (e.key === 'Escape') hideModal();
       });
 
-      // Zoom Buttons
       zoomInBtn.addEventListener('click', () => {
         scale = Math.min(scale * 1.3, 5);
         applyTransform();
@@ -590,15 +877,13 @@
 
       zoomResetBtn.addEventListener('click', resetView);
 
-      // Mouse Wheel Zoom
       viewport.addEventListener('wheel', (e) => {
         e.preventDefault();
-        const zoomFactor = e.deltaY < 0 ? 1.15 : 0.85;
-        scale = Math.min(Math.max(scale * zoomFactor, 0.4), 5);
+        const factor = e.deltaY < 0 ? 1.15 : 0.85;
+        scale = Math.min(Math.max(scale * factor, 0.4), 5);
         applyTransform();
       }, { passive: false });
 
-      // Drag Pan
       viewport.addEventListener('mousedown', (e) => {
         if (e.target.closest('.modal-controls')) return;
         isDragging = true;
@@ -616,6 +901,47 @@
       window.addEventListener('mouseup', () => {
         isDragging = false;
       });
+
+      // --- Formspree AJAX Submission Logic (Prevents Page Redirect) ---
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Transmitting...';
+          status.className = 'form-status';
+          status.style.display = 'none';
+
+          const data = new FormData(form);
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+              status.className = 'form-status success';
+              status.innerText = 'Transmission received. AIS Technologies will respond shortly.';
+              form.reset();
+            } else {
+              const resData = await response.json();
+              status.className = 'form-status error';
+              status.innerText = resData.errors ? resData.errors.map(err => err.message).join(', ') : 'Transmission error. Please try again.';
+            }
+          } catch (err) {
+            status.className = 'form-status error';
+            status.innerText = 'Network error. Please check your connection.';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send Communication';
+            status.style.display = 'block';
+          }
+        });
+      }
     });
   </script>
 </body>
