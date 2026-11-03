@@ -1,6 +1,6 @@
 /* ==========================================================================
    AIS TECHNOLOGIES - SCRIPTS.JS
-   - Dual-tab schematic switching (Tap-isolated)
+   - Dual-tab schematic switching (tap isolated)
    - Fullscreen Lightbox with Touch Pan & Pinch-to-Zoom
    - Formspree AJAX Submission
    ========================================================================== */
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let startX = 0;
   let startY = 0;
 
-  // Touch tracking variables
+  // Touch tracking
   let initialPinchDistance = null;
   let initialScale = 1;
 
@@ -172,12 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target.closest('#zoom-in, #zoom-out, #zoom-reset, #close-modal')) return;
 
       if (e.touches.length === 1) {
-        // Single finger pan start
         isDragging = true;
         startX = e.touches[0].clientX - translateX;
         startY = e.touches[0].clientY - translateY;
       } else if (e.touches.length === 2) {
-        // Pinch zoom start
         isDragging = false;
         initialPinchDistance = getDistance(e.touches[0], e.touches[1]);
         initialScale = scale;
@@ -185,16 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     viewport.addEventListener('touchmove', (e) => {
-      // Prevent background browser scrolling while dragging the schematic
       if (e.cancelable) e.preventDefault();
 
       if (e.touches.length === 1 && isDragging) {
-        // Single finger pan update
         translateX = e.touches[0].clientX - startX;
         translateY = e.touches[0].clientY - startY;
         updateTransform();
       } else if (e.touches.length === 2 && initialPinchDistance) {
-        // Pinch zoom calculation
         const currentDistance = getDistance(e.touches[0], e.touches[1]);
         const pinchRatio = currentDistance / initialPinchDistance;
         scale = Math.min(Math.max(initialScale * pinchRatio, 0.4), 6);
@@ -207,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
         isDragging = false;
         initialPinchDistance = null;
       } else if (e.touches.length === 1) {
-        // Switched from pinch down to single finger
         isDragging = true;
         startX = e.touches[0].clientX - translateX;
         startY = e.touches[0].clientY - translateY;
