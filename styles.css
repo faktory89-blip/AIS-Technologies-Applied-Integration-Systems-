@@ -357,3 +357,109 @@ a {
   padding: 12px 16px;
   background-color: rgba(15, 23, 42, 0.8);
   border-bottom: 1px solid
+
+  /* ==========================================================================
+   TARGETED MOBILE OVERRIDES (Screens <= 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+
+  /* --- FIX 1: HEADER & NAVIGATION OVERFLOW --- */
+  .site-header {
+    padding: 14px 0 !important;
+  }
+
+  .nav-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  .nav-layout nav {
+    width: 100% !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px 14px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  .nav-links li {
+    display: inline-block !important;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem !important;
+    display: inline-block !important;
+    padding: 2px 4px !important;
+  }
+
+  /* --- FIX 2: CORPORATE PROFILE SPLIT COLUMN CRUSH --- */
+  .profile-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    width: 100% !important;
+  }
+
+  .profile-narrative,
+  .profile-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .baseline-list li {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 0 !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* --- FIX 3: SCHEMATIC VIEWER TAB CONTROLS SQUISH --- */
+  .viewer-controls {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+
+  .tab-group {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .tab-btn {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    padding: 10px 12px !important;
+    font-size: 0.82rem !important;
+    white-space: normal !important;
+  }
+
+  .zoom-indicator {
+    display: block !important;
+    text-align: center !important;
+    font-size: 0.75rem !important;
+    margin-top: 4px !important;
+  }
+
+  /* --- HERO TYPOGRAPHY SCALING --- */
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+  }
+}
