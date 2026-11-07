@@ -892,7 +892,299 @@
           <!-- ==========================================
      UEOC / FLYPACK ENGINEERING DELIVERABLES
      ========================================== -->
-<section id="ueoc-deliverables" class="w-full max-w-7xl mx-auto my-12 px-4 sm:px-6 font-sans">
+<!-- ==============================================================
+     UEOC DELIVERABLES DECK (100% SELF-CONTAINED DROP-IN)
+     ============================================================== -->
+<section id="ueoc-deliverables-deck" style="width: 100%; max-width: 1200px; margin: 3rem auto; padding: 0 1rem; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #e2e8f0;">
+  
+  <!-- Header Bar -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; margin-bottom: 1.5rem; gap: 1rem;">
+    <div>
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+        <span style="font-size: 0.7rem; letter-spacing: 0.1em; color: #34d399; text-transform: uppercase;">System Engineering Deck</span>
+      </div>
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: #f8fafc; margin: 0; text-transform: uppercase; letter-spacing: 0.02em;">
+        Field Node Deliverables &amp; Module Specifications
+      </h2>
+      <p style="font-size: 0.8rem; color: #94a3b8; margin: 0.25rem 0 0 0;">
+        Verified runtime telemetry, operational protocol matrices, and system architecture modules.
+      </p>
+    </div>
+    <div style="font-size: 0.75rem; color: #64748b; text-align: right; line-height: 1.4;">
+      NODE ID: <span style="color: #cbd5e1; font-weight: 600;">UEOC-NODE-01</span><br>
+      STATUS: <span style="color: #34d399; font-weight: 600;">ACTIVE MESH</span>
+    </div>
+  </div>
+
+  <!-- Horizontal Tab Bar Buttons -->
+  <div style="display: flex; gap: 0.5rem; overflow-x: auto; border-bottom: 1px solid #1e293b; padding-bottom: 0px;">
+    <button type="button" onclick="deckSwitchTab(event, 'deck-p1')" id="deck-btn-1" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #1e293b; border-bottom: 2px solid #38bdf8; color: #38bdf8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
+      <span>01 // VIDEO INGEST &amp; STORAGE</span>
+      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(6, 78, 59, 0.5); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.4);">ONLINE</span>
+    </button>
+    <button type="button" onclick="deckSwitchTab(event, 'deck-p2')" id="deck-btn-2" style="background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; color: #94a3b8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
+      <span>02 // AERIAL &amp; DRONE INGEST</span>
+      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(120, 53, 15, 0.4); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.4);">QUEUED</span>
+    </button>
+    <button type="button" onclick="deckSwitchTab(event, 'deck-p3')" id="deck-btn-3" style="background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; color: #94a3b8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
+      <span>03 // RESILIENCY &amp; WATCHDOG</span>
+      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(30, 41, 59, 0.6); color: #94a3b8; border: 1px solid #334155;">STAGED</span>
+    </button>
+    <button type="button" onclick="deckSwitchTab(event, 'deck-p4')" id="deck-btn-4" style="background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; color: #94a3b8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
+      <span>04 // FIELD RUN-SHEET</span>
+      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(30, 41, 59, 0.6); color: #94a3b8; border: 1px solid #334155;">DOC</span>
+    </button>
+  </div>
+
+  <!-- Panels Deck Box -->
+  <div style="background: #0b1120; border: 1px solid #1e293b; border-top: none; border-radius: 0 0 8px 8px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6);">
+    
+    <!-- PANEL 01: VIDEO CORE -->
+    <div id="deck-p1" style="display: block;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
+        <div>
+          <strong style="color: #f8fafc; font-size: 0.95rem;">Core Video Transport &amp; Multiplexing Architecture</strong>
+          <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention.</div>
+        </div>
+        <div style="display: inline-flex; background: #05080f; border: 1px solid #1e293b; border-radius: 6px; padding: 3px;">
+          <button type="button" onclick="deckToggleSub('matrix')" id="deck-sub-btn-matrix" style="background: rgba(14, 116, 144, 0.4); border: 1px solid #0284c7; color: #38bdf8; padding: 4px 10px; font-size: 0.75rem; font-family: inherit; font-weight: 600; border-radius: 4px; cursor: pointer;">Protocol Matrix</button>
+          <button type="button" onclick="deckToggleSub('calc')" id="deck-sub-btn-calc" style="background: transparent; border: 1px solid transparent; color: #94a3b8; padding: 4px 10px; font-size: 0.75rem; font-family: inherit; border-radius: 4px; cursor: pointer;">Retention Engine</button>
+        </div>
+      </div>
+
+      <!-- Sub-View: Protocol Matrix Table -->
+      <div id="deck-sub-matrix" style="display: block; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.75rem;">
+          <thead>
+            <tr style="background: #05080f; color: #64748b; text-transform: uppercase;">
+              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Service Role</th>
+              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Protocol</th>
+              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Transport</th>
+              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Port Scope</th>
+              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Security &amp; Mesh</th>
+              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b; text-align: right;">Target Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
+              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Field Camera Primary Ingest</td>
+              <td style="padding: 0.75rem;"><span style="color: #60a5fa; font-weight: 600;">RTSP</span></td>
+              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (H.264 / AAC)</td>
+              <td style="padding: 0.75rem; color: #38bdf8;">8554 / TCP</td>
+              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">Digest Token / Auth</span></td>
+              <td style="padding: 0.75rem; text-align: right; color: #34d399; font-weight: 600;">&lt; 150 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
+              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Aerial &amp; Drone Feed Uplink</td>
+              <td style="padding: 0.75rem;"><span style="color: #fbbf24; font-weight: 600;">RTMP</span></td>
+              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (FLV Multiplex)</td>
+              <td style="padding: 0.75rem; color: #38bdf8;">1935 / TCP</td>
+              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">Publish Key / Token</span></td>
+              <td style="padding: 0.75rem; text-align: right; color: #fbbf24; font-weight: 600;">&lt; 350 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
+              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Tactical Web Egress</td>
+              <td style="padding: 0.75rem;"><span style="color: #34d399; font-weight: 600;">WebRTC</span></td>
+              <td style="padding: 0.75rem; color: #cbd5e1;">UDP / ICE / DTLS</td>
+              <td style="padding: 0.75rem; color: #38bdf8;">8889 / 8189</td>
+              <td style="padding: 0.75rem;"><span style="background: rgba(14, 116, 144, 0.3); color: #38bdf8; padding: 3px 6px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">Tailscale Encrypted</span></td>
+              <td style="padding: 0.75rem; text-align: right; color: #34d399; font-weight: 600;">&lt; 180 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
+              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Forensic Evidence &amp; Archive</td>
+              <td style="padding: 0.75rem;"><span style="color: #c084fc; font-weight: 600;">HTTP / TLS</span></td>
+              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (fMP4 Vault)</td>
+              <td style="padding: 0.75rem; color: #38bdf8;">8085 / TCP</td>
+              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">RBAC / Operator Auth</span></td>
+              <td style="padding: 0.75rem; text-align: right; color: #94a3b8;">On-Demand</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Subsystem Health &amp; Ingest Heartbeat</td>
+              <td style="padding: 0.75rem;"><span style="color: #cbd5e1; font-weight: 600;">REST API</span></td>
+              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (JSON Metric)</td>
+              <td style="padding: 0.75rem; color: #38bdf8;">9997 / TCP</td>
+              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">Host Internal Only</span></td>
+              <td style="padding: 0.75rem; text-align: right; color: #34d399; font-weight: 600;">10s Poll</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sub-View: Retention Engine -->
+      <div id="deck-sub-calc" style="display: none;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; background: #05080f; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 6px;">
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
+                <span>Active Field Channels</span>
+                <span id="deck-val-cams" style="color: #38bdf8; font-weight: 700;">2 Channels</span>
+              </div>
+              <input type="range" id="deck-range-cams" min="1" max="8" value="2" oninput="deckComputeStorage()" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
+                <span>Stream Bitrate (Per Channel)</span>
+                <span id="deck-val-bitrate" style="color: #38bdf8; font-weight: 700;">4.5 Mbps</span>
+              </div>
+              <input type="range" id="deck-range-bitrate" min="1" max="15" step="0.5" value="4.5" oninput="deckComputeStorage()" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
+                <span>Rolling Archive Window</span>
+                <span id="deck-val-days" style="color: #38bdf8; font-weight: 700;">14 Days</span>
+              </div>
+              <input type="range" id="deck-range-days" min="3" max="30" value="14" oninput="deckComputeStorage()" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+          </div>
+          <div style="background: #0b1120; border: 1px solid #1e293b; border-radius: 6px; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Projected Storage Vault</div>
+            <div>
+              <div id="deck-out-total" style="font-size: 2rem; font-weight: 800; color: #38bdf8; margin: 0.5rem 0;">1,360 GB</div>
+              <div style="font-size: 0.7rem; color: #94a3b8;">Est. Rate: <span id="deck-out-rate" style="color: #fff;">4.05 GB/hr</span></div>
+            </div>
+            <div style="font-size: 0.7rem; color: #34d399; background: rgba(6, 78, 59, 0.4); border: 1px solid rgba(52, 211, 153, 0.3); padding: 4px 8px; border-radius: 4px; margin-top: 0.5rem;">
+              ✓ Compliant with Dedicated Mount Quota
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 02: AERIAL & DRONE (QUEUED) -->
+    <div id="deck-p2" style="display: none;">
+      <div style="border: 1px solid rgba(120, 53, 15, 0.4); background: rgba(120, 53, 15, 0.15); padding: 1.25rem; border-radius: 6px;">
+        <h4 style="color: #fbbf24; margin: 0 0 0.5rem 0; font-size: 0.85rem; text-transform: uppercase;">Module 02: Aerial Feed Uplink &amp; Telemetry</h4>
+        <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0 0 1rem 0;">Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <strong style="color: #fbbf24;">/drone1</strong> with WebRTC fanout to the Homarr dashboard matrix.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; font-size: 0.75rem;">
+          <div style="background: #05080f; padding: 0.75rem; border: 1px solid #1e293b; border-radius: 4px;">
+            <div style="color: #64748b; font-size: 0.65rem;">UPLINK PATH</div>
+            <div style="color: #f8fafc; font-weight: 700; margin-top: 0.25rem;">/drone1</div>
+          </div>
+          <div style="background: #05080f; padding: 0.75rem; border: 1px solid #1e293b; border-radius: 4px;">
+            <div style="color: #64748b; font-size: 0.65rem;">DOWNLINK CODEC</div>
+            <div style="color: #f8fafc; font-weight: 700; margin-top: 0.25rem;">H.264 / AAC Passthrough</div>
+          </div>
+          <div style="background: #05080f; padding: 0.75rem; border: 1px solid #1e293b; border-radius: 4px;">
+            <div style="color: #64748b; font-size: 0.65rem;">WEBRTC ROUTE</div>
+            <div style="color: #f8fafc; font-weight: 700; margin-top: 0.25rem;">:8889/drone1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 03: RESILIENCY & WATCHDOG (STAGED) -->
+    <div id="deck-p3" style="display: none;">
+      <div style="border: 1px solid #1e293b; background: #05080f; padding: 1.25rem; border-radius: 6px;">
+        <h4 style="color: #f8fafc; margin: 0 0 0.5rem 0; font-size: 0.85rem; text-transform: uppercase;">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h4>
+        <p style="font-size: 0.75rem; color: #94a3b8; margin: 0 0 1rem 0;">Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.</p>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #0b1120; border: 1px solid #1e293b; border-radius: 4px;">
+            <span>systemd RequiresMountsFor</span>
+            <span style="color: #34d399;">/mnt/storage [ACTIVE]</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #0b1120; border: 1px solid #1e293b; border-radius: 4px;">
+            <span>fstab Mount Guard</span>
+            <span style="color: #34d399;">nofail, x-systemd.automount</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #0b1120; border: 1px solid #1e293b; border-radius: 4px;">
+            <span>Auto-Prune Watchdog Timer</span>
+            <span style="color: #34d399;">15m Interval (Threshold: 90%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 04: FIELD RUN-SHEET (DOC) -->
+    <div id="deck-p4" style="display: none;">
+      <div style="border: 1px solid #1e293b; background: #05080f; padding: 1.25rem; border-radius: 6px;">
+        <h4 style="color: #f8fafc; margin: 0 0 0.5rem 0; font-size: 0.85rem; text-transform: uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
+        <p style="font-size: 0.75rem; color: #94a3b8; margin: 0 0 1rem 0;">Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.</p>
+        <div style="background: #0b1120; border: 1px solid #1e293b; padding: 1rem; border-radius: 4px; font-size: 0.75rem; line-height: 1.7; color: #cbd5e1;">
+          1. Verify field node power &amp; Tailscale mesh uplink status.<br>
+          2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
+          3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
+          4. Verify write synchronization on external storage partition via Filebrowser.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Self-Contained Logic (Independent of scripts.js) -->
+<script>
+  function deckSwitchTab(evt, panelId) {
+    // Hide all panels
+    ['deck-p1', 'deck-p2', 'deck-p3', 'deck-p4'].forEach(function(id) {
+      var p = document.getElementById(id);
+      if (p) p style="display: none;"; // fallback check
+      if (p) p.style.display = 'none';
+    });
+    // Reset all tab buttons
+    for (var i = 1; i <= 4; i++) {
+      var b = document.getElementById('deck-btn-' + i);
+      if (b) {
+        b.style.background = 'transparent';
+        b.style.borderColor = 'transparent';
+        b.style.borderBottomColor = 'transparent';
+        b.style.color = '#94a3b8';
+      }
+    }
+    // Activate clicked panel & button
+    var activePanel = document.getElementById(panelId);
+    if (activePanel) activePanel.style.display = 'block';
+    
+    evt.currentTarget.style.background = 'rgba(15, 23, 42, 0.9)';
+    evt.currentTarget.style.borderColor = '#1e293b';
+    evt.currentTarget.style.borderBottomColor = '#38bdf8';
+    evt.currentTarget.style.color = '#38bdf8';
+  }
+
+  function deckToggleSub(view) {
+    var tbl = document.getElementById('deck-sub-matrix');
+    var calc = document.getElementById('deck-sub-calc');
+    var btnM = document.getElementById('deck-sub-btn-matrix');
+    var btnC = document.getElementById('deck-sub-btn-calc');
+
+    if (view === 'matrix') {
+      tbl.style.display = 'block';
+      calc.style.display = 'none';
+      btnM.style.background = 'rgba(14, 116, 144, 0.4)';
+      btnM.style.borderColor = '#0284c7';
+      btnM.style.color = '#38bdf8';
+      btnC.style.background = 'transparent';
+      btnC.style.borderColor = 'transparent';
+      btnC.style.color = '#94a3b8';
+    } else {
+      tbl.style.display = 'none';
+      calc.style.display = 'block';
+      btnC.style.background = 'rgba(14, 116, 144, 0.4)';
+      btnC.style.borderColor = '#0284c7';
+      btnC.style.color = '#38bdf8';
+      btnM.style.background = 'transparent';
+      btnM.style.borderColor = 'transparent';
+      btnM.style.color = '#94a3b8';
+      deckComputeStorage();
+    }
+  }
+
+  function deckComputeStorage() {
+    var cams = parseInt(document.getElementById('deck-range-cams').value);
+    var mbps = parseFloat(document.getElementById('deck-range-bitrate').value);
+    var days = parseInt(document.getElementById('deck-range-days').value);
+
+    document.getElementById('deck-val-cams').textContent = cams + ' Channel' + (cams > 1 ? 's' : '');
+    document.getElementById('deck-val-bitrate').textContent = mbps + ' Mbps';
+    document.getElementById('deck-val-days').textContent = days + ' Days';
+
+    var rateHr = (mbps * 3600) / 8000 * cams;
+    var total = Math.round(rateHr * 24 * days);
+
+    document.getElementById('deck-out-rate').textContent = rateHr.toFixed(2) + ' GB/hr';
+    document.getElementById('deck-out-total').textContent = total.toLocaleString() + ' GB';
+  }
+</script>
   
   <!-- Header Bar -->
   <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
