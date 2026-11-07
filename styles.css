@@ -463,3 +463,401 @@ a {
     line-height: 1.25 !important;
   }
 }
+
+<!-- ==========================================
+     UEOC / FLYPACK ENGINEERING DELIVERABLES (STANDALONE CSS)
+     ========================================== -->
+<style>
+  #ueoc-deliverables {
+    width: 100%;
+    max-width: 1280px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    color: #e2e8f0;
+  }
+  .ueoc-header-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+  .ueoc-pill-green {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+  }
+  .ueoc-tab-bar {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 0.25rem;
+  }
+  .ueoc-tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #94a3b8;
+    padding: 0.65rem 1rem;
+    font-size: 0.75rem;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  .ueoc-tab-btn:hover {
+    color: #f1f5f9;
+    background: rgba(30, 41, 59, 0.4);
+  }
+  .ueoc-tab-btn.active {
+    color: #38bdf8;
+    border-bottom-color: #38bdf8;
+    background: rgba(15, 23, 42, 0.7);
+  }
+  .ueoc-badge {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+  }
+  .badge-online { color: #34d399; border-color: rgba(52, 211, 153, 0.3); background: rgba(6, 78, 59, 0.4); }
+  .badge-queued { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(120, 53, 15, 0.4); }
+  .badge-staged { color: #94a3b8; border-color: rgba(148, 163, 184, 0.3); background: rgba(30, 41, 59, 0.4); }
+
+  .ueoc-panel-deck {
+    background: #0b1120;
+    border: 1px solid #1e293b;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+  .ueoc-panel { display: none; }
+  .ueoc-panel.active { display: block; }
+
+  .ueoc-table-wrap { overflow-x: auto; margin-top: 1rem; }
+  .ueoc-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.75rem;
+  }
+  .ueoc-table th {
+    background: #05080f;
+    color: #64748b;
+    padding: 0.75rem;
+    border-bottom: 1px solid #1e293b;
+    text-transform: uppercase;
+  }
+  .ueoc-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+  }
+  .ueoc-table tr:hover td { background: rgba(30, 41, 59, 0.3); }
+
+  .sub-toggle-btn {
+    background: transparent;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.75rem;
+  }
+  .sub-toggle-btn.active {
+    background: rgba(14, 116, 144, 0.4);
+    color: #38bdf8;
+    border-color: #0284c7;
+  }
+
+  .calc-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    background: #05080f;
+    border: 1px solid #1e293b;
+    padding: 1.25rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+  }
+  @media (max-width: 768px) {
+    .calc-box { grid-template-columns: 1fr; }
+  }
+  .calc-slider {
+    width: 100%;
+    accent-color: #38bdf8;
+  }
+</style>
+
+<section id="ueoc-deliverables">
+  
+  <div class="ueoc-header-bar">
+    <div>
+      <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
+        <span class="ueoc-pill-green"></span>
+        <span style="font-size:0.7rem; letter-spacing:0.1em; color:#34d399; text-transform:uppercase;">System Engineering Deck</span>
+      </div>
+      <h2 style="font-size:1.5rem; font-weight:700; color:#f8fafc; margin:0; text-transform:uppercase;">
+        Field Node Deliverables &amp; Module Specifications
+      </h2>
+      <p style="font-size:0.8rem; color:#94a3b8; margin:0.25rem 0 0 0;">
+        Verified runtime telemetry, operational protocol matrices, and system architecture modules.
+      </p>
+    </div>
+    <div style="font-size:0.75rem; color:#64748b; text-align:right;">
+      NODE ID: <span style="color:#cbd5e1; font-weight:600;">UEOC-NODE-01</span><br>
+      STATUS: <span style="color:#34d399; font-weight:600;">ACTIVE MESH</span>
+    </div>
+  </div>
+
+  <!-- Horizontal Tab Bar -->
+  <div class="ueoc-tab-bar">
+    <button type="button" onclick="openUeocTab(event, 'ueoc-p1')" class="ueoc-tab-btn active">
+      <span>01 // VIDEO INGEST &amp; STORAGE</span>
+      <span class="ueoc-badge badge-online">ONLINE</span>
+    </button>
+    <button type="button" onclick="openUeocTab(event, 'ueoc-p2')" class="ueoc-tab-btn">
+      <span>02 // AERIAL &amp; DRONE INGEST</span>
+      <span class="ueoc-badge badge-queued">QUEUED</span>
+    </button>
+    <button type="button" onclick="openUeocTab(event, 'ueoc-p3')" class="ueoc-tab-btn">
+      <span>03 // RESILIENCY &amp; WATCHDOG</span>
+      <span class="ueoc-badge badge-staged">STAGED</span>
+    </button>
+    <button type="button" onclick="openUeocTab(event, 'ueoc-p4')" class="ueoc-tab-btn">
+      <span>04 // FIELD RUN-SHEET</span>
+      <span class="ueoc-badge badge-staged">DOC</span>
+    </button>
+  </div>
+
+  <!-- Panels Deck -->
+  <div class="ueoc-panel-deck">
+    
+    <!-- PANEL 01 -->
+    <div id="ueoc-p1" class="ueoc-panel active">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
+        <div>
+          <strong style="color:#f8fafc;">Core Video Transport &amp; Multiplexing Architecture</strong>
+          <div style="font-size:0.75rem; color:#94a3b8;">Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention.</div>
+        </div>
+        <div>
+          <button type="button" onclick="switchSubView('table')" id="sub-btn-table" class="sub-toggle-btn active">Protocol Matrix</button>
+          <button type="button" onclick="switchSubView('calc')" id="sub-btn-calc" class="sub-toggle-btn">Retention Engine</button>
+        </div>
+      </div>
+
+      <!-- Protocol Table -->
+      <div id="ueoc-sub-table" class="ueoc-table-wrap">
+        <table class="ueoc-table">
+          <thead>
+            <tr>
+              <th>Service Role</th>
+              <th>Protocol</th>
+              <th>Transport</th>
+              <th>Port Scope</th>
+              <th>Security &amp; Mesh</th>
+              <th style="text-align:right;">Target Latency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:#fff; font-weight:600;">Field Camera Primary Ingest</td>
+              <td><span style="color:#60a5fa;">RTSP</span></td>
+              <td>TCP (H.264 / AAC)</td>
+              <td style="color:#38bdf8;">8554 / TCP</td>
+              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">Digest Token / Auth</span></td>
+              <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 150 ms</td>
+            </tr>
+            <tr>
+              <td style="color:#fff; font-weight:600;">Aerial &amp; Drone Feed Uplink</td>
+              <td><span style="color:#fbbf24;">RTMP</span></td>
+              <td>TCP (FLV Multiplex)</td>
+              <td style="color:#38bdf8;">1935 / TCP</td>
+              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">Publish Key / Token</span></td>
+              <td style="text-align:right; color:#fbbf24; font-weight:600;">&lt; 350 ms</td>
+            </tr>
+            <tr>
+              <td style="color:#fff; font-weight:600;">Tactical Web Egress</td>
+              <td><span style="color:#34d399;">WebRTC</span></td>
+              <td>UDP / ICE / DTLS</td>
+              <td style="color:#38bdf8;">8889 / 8189</td>
+              <td><span style="background:rgba(14,116,144,0.3); color:#38bdf8; padding:2px 6px; border-radius:4px;">Tailscale Encrypted</span></td>
+              <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 180 ms</td>
+            </tr>
+            <tr>
+              <td style="color:#fff; font-weight:600;">Forensic Evidence &amp; Archive</td>
+              <td><span style="color:#c084fc;">HTTP / TLS</span></td>
+              <td>TCP (fMP4 Vault)</td>
+              <td style="color:#38bdf8;">8085 / TCP</td>
+              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">RBAC / Operator Auth</span></td>
+              <td style="text-align:right; color:#94a3b8;">On-Demand</td>
+            </tr>
+            <tr>
+              <td style="color:#fff; font-weight:600;">Subsystem Health &amp; Ingest Heartbeat</td>
+              <td><span style="color:#cbd5e1;">REST API</span></td>
+              <td>TCP (JSON Metric)</td>
+              <td style="color:#38bdf8;">9997 / TCP</td>
+              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">Host Internal Only</span></td>
+              <td style="text-align:right; color:#34d399; font-weight:600;">10s Poll</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Calculator -->
+      <div id="ueoc-sub-calc" style="display:none;">
+        <div class="calc-box">
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
+                <span>Active Field Channels</span>
+                <span id="cams-num" style="color:#38bdf8; font-weight:700;">2 Channels</span>
+              </div>
+              <input type="range" id="cams-range" min="1" max="8" value="2" oninput="runStorageMath()" class="calc-slider">
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
+                <span>Stream Bitrate (Per Channel)</span>
+                <span id="bitrate-num" style="color:#38bdf8; font-weight:700;">4.5 Mbps</span>
+              </div>
+              <input type="range" id="bitrate-range" min="1" max="15" step="0.5" value="4.5" oninput="runStorageMath()" class="calc-slider">
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
+                <span>Rolling Archive Window</span>
+                <span id="days-num" style="color:#38bdf8; font-weight:700;">14 Days</span>
+              </div>
+              <input type="range" id="days-range" min="3" max="30" value="14" oninput="runStorageMath()" class="calc-slider">
+            </div>
+          </div>
+          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:6px; padding:1rem; display:flex; flex-direction:column; justify-content:space-between;">
+            <div style="font-size:0.65rem; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Projected Storage Vault</div>
+            <div>
+              <div id="out-total-gb" style="font-size:2rem; font-weight:800; color:#38bdf8; margin:0.5rem 0;">1,360 GB</div>
+              <div style="font-size:0.7rem; color:#94a3b8;">Est. Rate: <span id="out-rate-hr" style="color:#fff;">4.05 GB/hr</span></div>
+            </div>
+            <div style="font-size:0.7rem; color:#34d399; background:rgba(6,78,59,0.4); border:1px solid rgba(52,211,153,0.3); padding:4px 8px; border-radius:4px; margin-top:0.5rem;">
+              ✓ Compliant with Dedicated Mount Quota
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 02 -->
+    <div id="ueoc-p2" class="ueoc-panel">
+      <div style="border:1px solid rgba(120,53,15,0.4); background:rgba(120,53,15,0.15); padding:1.25rem; border-radius:6px;">
+        <h4 style="color:#fbbf24; margin:0 0 0.5rem 0; font-size:0.85rem; text-transform:uppercase;">Module 02: Aerial Feed Uplink &amp; Telemetry</h4>
+        <p style="font-size:0.75rem; color:#cbd5e1; margin:0 0 1rem 0;">Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <strong style="color:#fbbf24;">/drone1</strong> with WebRTC fanout to the Homarr dashboard matrix.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:0.75rem; font-size:0.75rem;">
+          <div style="background:#05080f; padding:0.75rem; border:1px solid #1e293b; border-radius:4px;">
+            <div style="color:#64748b; font-size:0.65rem;">UPLINK PATH</div>
+            <div style="color:#f8fafc; font-weight:700; margin-top:0.25rem;">/drone1</div>
+          </div>
+          <div style="background:#05080f; padding:0.75rem; border:1px solid #1e293b; border-radius:4px;">
+            <div style="color:#64748b; font-size:0.65rem;">DOWNLINK CODEC</div>
+            <div style="color:#f8fafc; font-weight:700; margin-top:0.25rem;">H.264 / AAC Passthrough</div>
+          </div>
+          <div style="background:#05080f; padding:0.75rem; border:1px solid #1e293b; border-radius:4px;">
+            <div style="color:#64748b; font-size:0.65rem;">WEBRTC ROUTE</div>
+            <div style="color:#f8fafc; font-weight:700; margin-top:0.25rem;">:8889/drone1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 03 -->
+    <div id="ueoc-p3" class="ueoc-panel">
+      <div style="border:1px solid #1e293b; background:#05080f; padding:1.25rem; border-radius:6px;">
+        <h4 style="color:#f8fafc; margin:0 0 0.5rem 0; font-size:0.85rem; text-transform:uppercase;">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h4>
+        <p style="font-size:0.75rem; color:#94a3b8; margin:0 0 1rem 0;">Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.</p>
+        <div style="display:flex; flex-direction:column; gap:0.5rem; font-size:0.75rem;">
+          <div style="display:flex; justify-content:space-between; padding:0.5rem; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
+            <span>systemd RequiresMountsFor</span>
+            <span style="color:#34d399;">/mnt/storage [ACTIVE]</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:0.5rem; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
+            <span>fstab Mount Guard</span>
+            <span style="color:#34d399;">nofail, x-systemd.automount</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:0.5rem; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
+            <span>Auto-Prune Watchdog Timer</span>
+            <span style="color:#34d399;">15m Interval (Threshold: 90%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 04 -->
+    <div id="ueoc-p4" class="ueoc-panel">
+      <div style="border:1px solid #1e293b; background:#05080f; padding:1.25rem; border-radius:6px;">
+        <h4 style="color:#f8fafc; margin:0 0 0.5rem 0; font-size:0.85rem; text-transform:uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
+        <p style="font-size:0.75rem; color:#94a3b8; margin:0 0 1rem 0;">Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.</p>
+        <div style="background:#0b1120; border:1px solid #1e293b; padding:1rem; border-radius:4px; font-size:0.75rem; line-height:1.7; color:#cbd5e1;">
+          1. Verify field node power &amp; Tailscale mesh uplink status.<br>
+          2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
+          3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
+          4. Verify write synchronization on external storage partition via Filebrowser.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function openUeocTab(evt, panelId) {
+    document.querySelectorAll('.ueoc-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.ueoc-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(panelId).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+
+  function switchSubView(view) {
+    const table = document.getElementById('ueoc-sub-table');
+    const calc = document.getElementById('ueoc-sub-calc');
+    const btnT = document.getElementById('sub-btn-table');
+    const btnC = document.getElementById('sub-btn-calc');
+
+    if (view === 'table') {
+      table.style.display = 'block';
+      calc.style.display = 'none';
+      btnT.classList.add('active');
+      btnC.classList.remove('active');
+    } else {
+      table.style.display = 'none';
+      calc.style.display = 'block';
+      btnC.classList.add('active');
+      btnT.classList.remove('active');
+      runStorageMath();
+    }
+  }
+
+  function runStorageMath() {
+    const cams = parseInt(document.getElementById('cams-range').value);
+    const mbps = parseFloat(document.getElementById('bitrate-range').value);
+    const days = parseInt(document.getElementById('days-range').value);
+
+    document.getElementById('cams-num').textContent = `${cams} Channel${cams > 1 ? 's' : ''}`;
+    document.getElementById('bitrate-num').textContent = `${mbps} Mbps`;
+    document.getElementById('days-num').textContent = `${days} Days`;
+
+    const ratePerHour = (mbps * 3600) / 8000 * cams;
+    const totalGB = Math.round(ratePerHour * 24 * days);
+
+    document.getElementById('out-rate-hr').textContent = `${ratePerHour.toFixed(2)} GB/hr`;
+    document.getElementById('out-total-gb').textContent = `${totalGB.toLocaleString()} GB`;
+  }
+</script>
