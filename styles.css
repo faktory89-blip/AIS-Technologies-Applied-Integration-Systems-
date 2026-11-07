@@ -1,24 +1,22 @@
 /* ==========================================================================
-   DESIGN TOKENS & BASE CONFIGURATION
+   AIS TECHNOLOGIES - CORE PRODUCTION STYLESHEET
    ========================================================================== */
 :root {
   --bg-main: #05080f;
+  --bg-dark: #03060c;
   --bg-card: #0b1120;
-  --bg-card-alt: #111827;
+  --bg-input: #05080f;
   --border-color: #1e293b;
-  --border-focus: #38bdf8;
   --text-main: #f8fafc;
+  --text-body: #cbd5e1;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
   --primary: #38bdf8;
   --primary-hover: #0284c7;
   --accent-live: #10b981;
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
 }
 
-/* ==========================================================================
-   GLOBAL RESET & LAYOUT WRAPPERS
-   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -31,7 +29,7 @@ html, body {
   padding: 0;
   background-color: var(--bg-main);
   color: var(--text-main);
-  font-family: var(--font-family);
+  font-family: var(--font-stack);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,43 +48,45 @@ a {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding-left: clamp(16px, 4vw, 24px);
-  padding-right: clamp(16px, 4vw, 24px);
+  padding: 0 20px;
 }
 
 .section {
-  padding: 80px 0;
+  padding: 70px 0;
   border-bottom: 1px solid var(--border-color);
 }
 
 .section-dark {
-  background-color: #03060c;
+  background-color: var(--bg-dark);
 }
 
 .section-heading {
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+}
+
+.section-heading.text-center {
+  text-align: center;
 }
 
 .section-heading h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   letter-spacing: -0.02em;
-  margin: 10px 0 8px 0;
+  margin: 8px 0;
+  color: #ffffff;
 }
 
 .section-heading p {
   color: var(--text-muted);
-  font-size: 1.05rem;
+  font-size: 1rem;
   max-width: 760px;
-  margin: 0;
+  margin: 0 auto;
 }
 
-/* ==========================================================================
-   COMPONENTS: BADGES, PILLS & BUTTONS
-   ========================================================================== */
+/* BADGES & BUTTONS */
 .badge {
   display: inline-block;
   padding: 4px 10px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -96,21 +96,11 @@ a {
   border-radius: 4px;
 }
 
-.tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--primary);
-  margin-bottom: 6px;
-}
-
 .pills-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .pill {
@@ -119,15 +109,15 @@ a {
   padding: 4px 10px;
   background-color: rgba(30, 41, 59, 0.7);
   border: 1px solid var(--border-color);
-  color: #cbd5e1;
+  color: var(--text-body);
   border-radius: 4px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 10px 22px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   border-radius: 6px;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -154,17 +144,15 @@ a {
   background-color: var(--border-color);
 }
 
-/* ==========================================================================
-   HEADER & NAVIGATION (DESKTOP BASE)
-   ========================================================================== */
+/* HEADER */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(5, 8, 15, 0.9);
+  background-color: rgba(5, 8, 15, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-  padding: 18px 0;
+  padding: 16px 0;
 }
 
 .nav-layout {
@@ -174,56 +162,50 @@ a {
 }
 
 .brand {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
 }
 
 .brand span {
   font-weight: 400;
   color: var(--primary);
-  font-size: 1.05rem;
 }
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-muted);
-  transition: color 0.15s ease;
 }
 
 .nav-links a:hover {
   color: var(--primary);
 }
 
-/* ==========================================================================
-   HERO SECTION
-   ========================================================================== */
+/* HERO */
 .hero-section {
-  padding: 110px 0 90px 0;
+  padding: 90px 0 70px 0;
   background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.08), transparent 70%);
 }
 
 .hero-container {
-  max-width: 960px;
+  max-width: 900px;
   text-align: center;
   margin: 0 auto;
 }
 
 .hero-title {
-  font-size: 3.1rem;
+  font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.03em;
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .hero-title span {
@@ -231,48 +213,49 @@ a {
 }
 
 .hero-desc {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.6;
-  max-width: 820px;
-  margin: 0 auto 32px auto;
+  max-width: 780px;
+  margin: 0 auto 28px auto;
 }
 
 .hero-actions {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* ==========================================================================
-   CORPORATE PROFILE
-   ========================================================================== */
+/* PROFILE */
 .profile-layout {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
-  align-items: start;
+  gap: 36px;
+}
+
+@media (max-width: 860px) {
+  .profile-layout { grid-template-columns: 1fr; }
 }
 
 .profile-narrative p {
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: #cbd5e1;
+  color: var(--text-body);
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .profile-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 28px;
+  padding: 24px;
 }
 
 .profile-card h3 {
   margin-top: 0;
-  font-size: 1.15rem;
-  padding-bottom: 12px;
+  font-size: 1.1rem;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -285,28 +268,20 @@ a {
 .baseline-list li {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(30, 41, 59, 0.6);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
-.baseline-list li span {
-  color: var(--text-muted);
-}
+.baseline-list li span { color: var(--text-muted); }
+.baseline-list li strong { color: var(--text-main); }
 
-.baseline-list li strong {
-  color: var(--text-main);
-  text-align: right;
-}
-
-/* ==========================================================================
-   FLAGSHIP: TACTICAL FLYPACK & SCHEMATIC VIEWER
-   ========================================================================== */
+/* FLYPACK SCHEMATIC VIEWER */
 .flypack-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 32px;
+  padding: 28px;
 }
 
 .card-bar {
@@ -315,13 +290,10 @@ a {
   align-items: center;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 16px;
+  padding-bottom: 14px;
 }
 
-.card-bar h3 {
-  margin: 4px 0 0 0;
-  font-size: 1.45rem;
-}
+.card-bar h3 { margin: 0; font-size: 1.35rem; }
 
 .status-live {
   background-color: rgba(16, 185, 129, 0.1);
@@ -329,17 +301,16 @@ a {
   border: 1px solid rgba(16, 185, 129, 0.3);
   padding: 4px 10px;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .card-summary {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: #cbd5e1;
-  margin-bottom: 24px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 20px;
 }
 
 .viewer-box {
@@ -354,475 +325,212 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background-color: rgba(15, 23, 42, 0.8);
-  border-bottom: 1px solid
-
-  /* ==========================================================================
-   TARGETED MOBILE OVERRIDES (Screens <= 768px)
-   ========================================================================== */
-@media screen and (max-width: 768px) {
-
-  /* --- FIX 1: HEADER & NAVIGATION OVERFLOW --- */
-  .site-header {
-    padding: 14px 0 !important;
-  }
-
-  .nav-layout {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 12px !important;
-  }
-
-  .nav-layout nav {
-    width: 100% !important;
-  }
-
-  .nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px 14px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-  }
-
-  .nav-links li {
-    display: inline-block !important;
-  }
-
-  .nav-links a {
-    font-size: 0.8rem !important;
-    display: inline-block !important;
-    padding: 2px 4px !important;
-  }
-
-  /* --- FIX 2: CORPORATE PROFILE SPLIT COLUMN CRUSH --- */
-  .profile-layout {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 28px !important;
-    width: 100% !important;
-  }
-
-  .profile-narrative,
-  .profile-card {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .baseline-list li {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 10px 0 !important;
-    font-size: 0.85rem !important;
-  }
-
-  /* --- FIX 3: SCHEMATIC VIEWER TAB CONTROLS SQUISH --- */
-  .viewer-controls {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 10px !important;
-    padding: 12px !important;
-  }
-
-  .tab-group {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 8px !important;
-  }
-
-  .tab-btn {
-    width: 100% !important;
-    display: block !important;
-    text-align: center !important;
-    padding: 10px 12px !important;
-    font-size: 0.82rem !important;
-    white-space: normal !important;
-  }
-
-  .zoom-indicator {
-    display: block !important;
-    text-align: center !important;
-    font-size: 0.75rem !important;
-    margin-top: 4px !important;
-  }
-
-  /* --- HERO TYPOGRAPHY SCALING --- */
-  .hero-title {
-    font-size: 1.85rem !important;
-    line-height: 1.25 !important;
-  }
+  border-bottom: 1px solid var(--border-color);
 }
 
-<!-- ==========================================
-     UEOC / FLYPACK ENGINEERING DELIVERABLES (STANDALONE CSS)
-     ========================================== -->
-<style>
-  #ueoc-deliverables {
-    width: 100%;
-    max-width: 1280px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    color: #e2e8f0;
-  }
-  .ueoc-header-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
-  }
-  .ueoc-pill-green {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 8px #10b981;
-  }
-  .ueoc-tab-bar {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 0.25rem;
-  }
-  .ueoc-tab-btn {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: #94a3b8;
-    padding: 0.65rem 1rem;
-    font-size: 0.75rem;
-    font-family: inherit;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-  }
-  .ueoc-tab-btn:hover {
-    color: #f1f5f9;
-    background: rgba(30, 41, 59, 0.4);
-  }
-  .ueoc-tab-btn.active {
-    color: #38bdf8;
-    border-bottom-color: #38bdf8;
-    background: rgba(15, 23, 42, 0.7);
-  }
-  .ueoc-badge {
-    font-size: 0.65rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    border: 1px solid currentColor;
-  }
-  .badge-online { color: #34d399; border-color: rgba(52, 211, 153, 0.3); background: rgba(6, 78, 59, 0.4); }
-  .badge-queued { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(120, 53, 15, 0.4); }
-  .badge-staged { color: #94a3b8; border-color: rgba(148, 163, 184, 0.3); background: rgba(30, 41, 59, 0.4); }
+.tab-group { display: flex; gap: 8px; }
 
-  .ueoc-panel-deck {
-    background: #0b1120;
-    border: 1px solid #1e293b;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    padding: 1.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-  }
-  .ueoc-panel { display: none; }
-  .ueoc-panel.active { display: block; }
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-  .ueoc-table-wrap { overflow-x: auto; margin-top: 1rem; }
-  .ueoc-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.75rem;
-  }
-  .ueoc-table th {
-    background: #05080f;
-    color: #64748b;
-    padding: 0.75rem;
-    border-bottom: 1px solid #1e293b;
-    text-transform: uppercase;
-  }
-  .ueoc-table td {
-    padding: 0.75rem;
-    border-bottom: 1px solid rgba(30, 41, 59, 0.6);
-  }
-  .ueoc-table tr:hover td { background: rgba(30, 41, 59, 0.3); }
+.tab-btn.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #040810;
+}
 
-  .sub-toggle-btn {
-    background: transparent;
-    border: 1px solid #334155;
-    color: #94a3b8;
-    padding: 4px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.75rem;
-  }
-  .sub-toggle-btn.active {
-    background: rgba(14, 116, 144, 0.4);
-    color: #38bdf8;
-    border-color: #0284c7;
-  }
+.viewer-display {
+  width: 100%;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  cursor: zoom-in;
+}
 
-  .calc-box {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1.5rem;
-    background: #05080f;
-    border: 1px solid #1e293b;
-    padding: 1.25rem;
-    border-radius: 6px;
-    margin-top: 1rem;
-  }
-  @media (max-width: 768px) {
-    .calc-box { grid-template-columns: 1fr; }
-  }
-  .calc-slider {
-    width: 100%;
-    accent-color: #38bdf8;
-  }
-</style>
+.diagram-img {
+  display: none;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
 
-<section id="ueoc-deliverables">
-  
-  <div class="ueoc-header-bar">
-    <div>
-      <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
-        <span class="ueoc-pill-green"></span>
-        <span style="font-size:0.7rem; letter-spacing:0.1em; color:#34d399; text-transform:uppercase;">System Engineering Deck</span>
-      </div>
-      <h2 style="font-size:1.5rem; font-weight:700; color:#f8fafc; margin:0; text-transform:uppercase;">
-        Field Node Deliverables &amp; Module Specifications
-      </h2>
-      <p style="font-size:0.8rem; color:#94a3b8; margin:0.25rem 0 0 0;">
-        Verified runtime telemetry, operational protocol matrices, and system architecture modules.
-      </p>
-    </div>
-    <div style="font-size:0.75rem; color:#64748b; text-align:right;">
-      NODE ID: <span style="color:#cbd5e1; font-weight:600;">UEOC-NODE-01</span><br>
-      STATUS: <span style="color:#34d399; font-weight:600;">ACTIVE MESH</span>
-    </div>
-  </div>
+.diagram-img.active { display: block; }
 
-  <!-- Horizontal Tab Bar -->
-  <div class="ueoc-tab-bar">
-    <button type="button" onclick="openUeocTab(event, 'ueoc-p1')" class="ueoc-tab-btn active">
-      <span>01 // VIDEO INGEST &amp; STORAGE</span>
-      <span class="ueoc-badge badge-online">ONLINE</span>
-    </button>
-    <button type="button" onclick="openUeocTab(event, 'ueoc-p2')" class="ueoc-tab-btn">
-      <span>02 // AERIAL &amp; DRONE INGEST</span>
-      <span class="ueoc-badge badge-queued">QUEUED</span>
-    </button>
-    <button type="button" onclick="openUeocTab(event, 'ueoc-p3')" class="ueoc-tab-btn">
-      <span>03 // RESILIENCY &amp; WATCHDOG</span>
-      <span class="ueoc-badge badge-staged">STAGED</span>
-    </button>
-    <button type="button" onclick="openUeocTab(event, 'ueoc-p4')" class="ueoc-tab-btn">
-      <span>04 // FIELD RUN-SHEET</span>
-      <span class="ueoc-badge badge-staged">DOC</span>
-    </button>
-  </div>
+/* DELIVERABLES TAB BAR DECK */
+#ueoc-deliverables {
+  margin-top: 35px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 25px;
+}
 
-  <!-- Panels Deck -->
-  <div class="ueoc-panel-deck">
-    
-    <!-- PANEL 01 -->
-    <div id="ueoc-p1" class="ueoc-panel active">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-        <div>
-          <strong style="color:#f8fafc;">Core Video Transport &amp; Multiplexing Architecture</strong>
-          <div style="font-size:0.75rem; color:#94a3b8;">Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention.</div>
-        </div>
-        <div>
-          <button type="button" onclick="switchSubView('table')" id="sub-btn-table" class="sub-toggle-btn active">Protocol Matrix</button>
-          <button type="button" onclick="switchSubView('calc')" id="sub-btn-calc" class="sub-toggle-btn">Retention Engine</button>
-        </div>
-      </div>
+.ueoc-header-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  gap: 10px;
+}
 
-      <!-- Protocol Table -->
-      <div id="ueoc-sub-table" class="ueoc-table-wrap">
-        <table class="ueoc-table">
-          <thead>
-            <tr>
-              <th>Service Role</th>
-              <th>Protocol</th>
-              <th>Transport</th>
-              <th>Port Scope</th>
-              <th>Security &amp; Mesh</th>
-              <th style="text-align:right;">Target Latency</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="color:#fff; font-weight:600;">Field Camera Primary Ingest</td>
-              <td><span style="color:#60a5fa;">RTSP</span></td>
-              <td>TCP (H.264 / AAC)</td>
-              <td style="color:#38bdf8;">8554 / TCP</td>
-              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">Digest Token / Auth</span></td>
-              <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 150 ms</td>
-            </tr>
-            <tr>
-              <td style="color:#fff; font-weight:600;">Aerial &amp; Drone Feed Uplink</td>
-              <td><span style="color:#fbbf24;">RTMP</span></td>
-              <td>TCP (FLV Multiplex)</td>
-              <td style="color:#38bdf8;">1935 / TCP</td>
-              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">Publish Key / Token</span></td>
-              <td style="text-align:right; color:#fbbf24; font-weight:600;">&lt; 350 ms</td>
-            </tr>
-            <tr>
-              <td style="color:#fff; font-weight:600;">Tactical Web Egress</td>
-              <td><span style="color:#34d399;">WebRTC</span></td>
-              <td>UDP / ICE / DTLS</td>
-              <td style="color:#38bdf8;">8889 / 8189</td>
-              <td><span style="background:rgba(14,116,144,0.3); color:#38bdf8; padding:2px 6px; border-radius:4px;">Tailscale Encrypted</span></td>
-              <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 180 ms</td>
-            </tr>
-            <tr>
-              <td style="color:#fff; font-weight:600;">Forensic Evidence &amp; Archive</td>
-              <td><span style="color:#c084fc;">HTTP / TLS</span></td>
-              <td>TCP (fMP4 Vault)</td>
-              <td style="color:#38bdf8;">8085 / TCP</td>
-              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">RBAC / Operator Auth</span></td>
-              <td style="text-align:right; color:#94a3b8;">On-Demand</td>
-            </tr>
-            <tr>
-              <td style="color:#fff; font-weight:600;">Subsystem Health &amp; Ingest Heartbeat</td>
-              <td><span style="color:#cbd5e1;">REST API</span></td>
-              <td>TCP (JSON Metric)</td>
-              <td style="color:#38bdf8;">9997 / TCP</td>
-              <td><span style="background:#1e293b; padding:2px 6px; border-radius:4px;">Host Internal Only</span></td>
-              <td style="text-align:right; color:#34d399; font-weight:600;">10s Poll</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+.ueoc-tab-bar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border-color);
+}
 
-      <!-- Calculator -->
-      <div id="ueoc-sub-calc" style="display:none;">
-        <div class="calc-box">
-          <div style="display:flex; flex-direction:column; gap:1rem;">
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
-                <span>Active Field Channels</span>
-                <span id="cams-num" style="color:#38bdf8; font-weight:700;">2 Channels</span>
-              </div>
-              <input type="range" id="cams-range" min="1" max="8" value="2" oninput="runStorageMath()" class="calc-slider">
-            </div>
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
-                <span>Stream Bitrate (Per Channel)</span>
-                <span id="bitrate-num" style="color:#38bdf8; font-weight:700;">4.5 Mbps</span>
-              </div>
-              <input type="range" id="bitrate-range" min="1" max="15" step="0.5" value="4.5" oninput="runStorageMath()" class="calc-slider">
-            </div>
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
-                <span>Rolling Archive Window</span>
-                <span id="days-num" style="color:#38bdf8; font-weight:700;">14 Days</span>
-              </div>
-              <input type="range" id="days-range" min="3" max="30" value="14" oninput="runStorageMath()" class="calc-slider">
-            </div>
-          </div>
-          <div style="background:#0b1120; border:1px solid #1e293b; border-radius:6px; padding:1rem; display:flex; flex-direction:column; justify-content:space-between;">
-            <div style="font-size:0.65rem; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Projected Storage Vault</div>
-            <div>
-              <div id="out-total-gb" style="font-size:2rem; font-weight:800; color:#38bdf8; margin:0.5rem 0;">1,360 GB</div>
-              <div style="font-size:0.7rem; color:#94a3b8;">Est. Rate: <span id="out-rate-hr" style="color:#fff;">4.05 GB/hr</span></div>
-            </div>
-            <div style="font-size:0.7rem; color:#34d399; background:rgba(6,78,59,0.4); border:1px solid rgba(52,211,153,0.3); padding:4px 8px; border-radius:4px; margin-top:0.5rem;">
-              ✓ Compliant with Dedicated Mount Quota
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+.ueoc-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.2s ease;
+}
 
-    <!-- PANEL 02 -->
-    <div id="ueoc-p2" class="ueoc-panel">
-      <div style="border:1px solid rgba(120,53,15,0.4); background:rgba(120,53,15,0.15); padding:1.25rem; border-radius:6px;">
-        <h4 style="color:#fbbf24; margin:0 0 0.5rem 0; font-size:0.85rem; text-transform:uppercase;">Module 02: Aerial Feed Uplink &amp; Telemetry</h4>
-        <p style="font-size:0.75rem; color:#cbd5e1; margin:0 0 1rem 0;">Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <strong style="color:#fbbf24;">/drone1</strong> with WebRTC fanout to the Homarr dashboard matrix.</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:0.75rem; font-size:0.75rem;">
-          <div style="background:#05080f; padding:0.75rem; border:1px solid #1e293b; border-radius:4px;">
-            <div style="color:#64748b; font-size:0.65rem;">UPLINK PATH</div>
-            <div style="color:#f8fafc; font-weight:700; margin-top:0.25rem;">/drone1</div>
-          </div>
-          <div style="background:#05080f; padding:0.75rem; border:1px solid #1e293b; border-radius:4px;">
-            <div style="color:#64748b; font-size:0.65rem;">DOWNLINK CODEC</div>
-            <div style="color:#f8fafc; font-weight:700; margin-top:0.25rem;">H.264 / AAC Passthrough</div>
-          </div>
-          <div style="background:#05080f; padding:0.75rem; border:1px solid #1e293b; border-radius:4px;">
-            <div style="color:#64748b; font-size:0.65rem;">WEBRTC ROUTE</div>
-            <div style="color:#f8fafc; font-weight:700; margin-top:0.25rem;">:8889/drone1</div>
-          </div>
-        </div>
-      </div>
-    </div>
+.ueoc-tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(30, 41, 59, 0.4);
+}
 
-    <!-- PANEL 03 -->
-    <div id="ueoc-p3" class="ueoc-panel">
-      <div style="border:1px solid #1e293b; background:#05080f; padding:1.25rem; border-radius:6px;">
-        <h4 style="color:#f8fafc; margin:0 0 0.5rem 0; font-size:0.85rem; text-transform:uppercase;">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h4>
-        <p style="font-size:0.75rem; color:#94a3b8; margin:0 0 1rem 0;">Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.</p>
-        <div style="display:flex; flex-direction:column; gap:0.5rem; font-size:0.75rem;">
-          <div style="display:flex; justify-content:space-between; padding:0.5rem; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
-            <span>systemd RequiresMountsFor</span>
-            <span style="color:#34d399;">/mnt/storage [ACTIVE]</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; padding:0.5rem; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
-            <span>fstab Mount Guard</span>
-            <span style="color:#34d399;">nofail, x-systemd.automount</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; padding:0.5rem; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
-            <span>Auto-Prune Watchdog Timer</span>
-            <span style="color:#34d399;">15m Interval (Threshold: 90%)</span>
-          </div>
-        </div>
-      </div>
-    </div>
+.ueoc-tab-btn.active {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: var(--border-color);
+  border-bottom-color: var(--primary);
+  color: var(--primary);
+}
 
-    <!-- PANEL 04 -->
-    <div id="ueoc-p4" class="ueoc-panel">
-      <div style="border:1px solid #1e293b; background:#05080f; padding:1.25rem; border-radius:6px;">
-        <h4 style="color:#f8fafc; margin:0 0 0.5rem 0; font-size:0.85rem; text-transform:uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
-        <p style="font-size:0.75rem; color:#94a3b8; margin:0 0 1rem 0;">Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.</p>
-        <div style="background:#0b1120; border:1px solid #1e293b; padding:1rem; border-radius:4px; font-size:0.75rem; line-height:1.7; color:#cbd5e1;">
-          1. Verify field node power &amp; Tailscale mesh uplink status.<br>
-          2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
-          3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
-          4. Verify write synchronization on external storage partition via Filebrowser.
-        </div>
-      </div>
-    </div>
+.ueoc-badge {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
 
-  </div>
-</section>
+.badge-online { background: rgba(6, 78, 59, 0.5); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.4); }
+.badge-queued { background: rgba(120, 53, 15, 0.4); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.4); }
+.badge-staged { background: rgba(30, 41, 59, 0.6); color: #94a3b8; border: 1px solid #334155; }
 
-<script>
-  function openUeocTab(evt, panelId) {
-    document.querySelectorAll('.ueoc-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.ueoc-tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(panelId).classList.add('active');
-    evt.currentTarget.classList.add('active');
-  }
+.ueoc-panel-deck {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 20px;
+}
 
-  
+.ueoc-panel { display: none; }
+.ueoc-panel.active { display: block; }
+
+.ueoc-table-wrap { overflow-x: auto; margin-top: 14px; }
+.ueoc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+.ueoc-table th {
+  background: #05080f;
+  color: var(--text-dim);
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+}
+
+.ueoc-table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+}
+
+.sub-toggle-btn {
+  background: transparent;
+  border: 1px solid #334155;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sub-toggle-btn.active {
+  background: rgba(14, 116, 144, 0.4);
+  border-color: #0284c7;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.calc-box {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  background: #05080f;
+  border: 1px solid var(--border-color);
+  padding: 18px;
+  border-radius: 6px;
+  margin-top: 14px;
+}
+
+@media (max-width: 768px) {
+  .calc-box { grid-template-columns: 1fr; }
+}
+
+.calc-slider {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* CAPABILITIES */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 900px) {
+  .capabilities-grid { grid-template-columns: 1fr; }
+}
+
+.cap-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.cap-card h3 { font-size: 1.2rem; margin: 4px 0 10px 0; }
+.cap-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+.bullet-list { padding-left: 18px; margin: 0 0 16px 0; color: var(--text-body); font-size: 0.88rem; }
+.bullet-list li { margin-bottom: 6px; }
+
+/* FOOTER */
+.site-footer {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}

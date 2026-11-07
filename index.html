@@ -1,1803 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Primary & Social Preview Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AIS Technologies | Precision Systems Engineering &amp; Integration</title>
-  <meta name="title" content="AIS Technologies | Precision Systems Engineering &amp; Integration" />
-  <meta name="description" content="Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution for commercial and defense applications." />
-  <link rel="stylesheet" href="styles.css?v=5.0">
+  <meta name="description" content="Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution for commercial and defense applications.">
   
-
-  <!-- Open Graph / iMessage / Facebook / LinkedIn / Slack -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://appliedintegrationsystems.com/" />
-  <meta property="og:title" content="AIS Technologies | Precision Systems Engineering &amp; Integration" />
-  <meta property="og:description" content="Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution for commercial and defense applications." />
-  <meta property="og:image" content="https://appliedintegrationsystems.com/assets/images/logo.jpg" />
-  <meta property="og:image:secure_url" content="https://appliedintegrationsystems.com/assets/images/logo.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-
-  <!-- Twitter / X Cards -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://appliedintegrationsystems.com/" />
-  <meta name="twitter:title" content="AIS Technologies | Precision Systems Engineering &amp; Integration" />
-  <meta name="twitter:description" content="Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution for commercial and defense applications." />
-  <meta name="twitter:image" content="https://appliedintegrationsystems.com/assets/images/logo.jpg" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIS Technologies | Precision Systems Engineering &amp; Integration</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://appliedintegrationsystems.com/">
+  <meta property="og:title" content="AIS Technologies | Precision Systems Engineering &amp; Integration">
+  <meta property="og:image" content="assets/images/logo.jpg">
   
-  <style>
-    /* ==========================================================================
-       DESIGN TOKENS & RESET
-       ========================================================================== */
-    :root {
-      --bg-main: #05080f;
-      --bg-dark: #03060c;
-      --bg-card: #0b1120;
-      --bg-input: #05080f;
-      --border-color: #1e293b;
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --primary: #38bdf8;
-      --primary-hover: #0284c7;
-      --accent-live: #10b981;
-      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      font-family: var(--font-stack);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img, canvas, svg {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding-left: clamp(16px, 4vw, 24px);
-      padding-right: clamp(16px, 4vw, 24px);
-    }
-
-    .section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .section-dark {
-      background-color: var(--bg-dark);
-    }
-
-    .section-heading {
-      margin-bottom: 40px;
-    }
-
-    .section-heading.text-center {
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      font-size: 2.2rem;
-      letter-spacing: -0.02em;
-      margin: 10px 0 8px 0;
-      color: #ffffff;
-    }
-
-    .section-heading p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    /* BADGES, BUTTONS & PILLS */
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background-color: rgba(56, 189, 248, 0.08);
-      color: var(--primary);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 4px;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .pills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .pill {
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      background-color: rgba(30, 41, 59, 0.7);
-      border: 1px solid var(--border-color);
-      color: var(--text-body);
-      border-radius: 4px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: #040810;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-hover);
-      color: #ffffff;
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--text-main);
-      border-color: var(--border-color);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--border-color);
-    }
-
-    /* HEADER & NAVIGATION */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: rgba(5, 8, 15, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
-      padding: 18px 0;
-    }
-
-    .nav-layout {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .brand span {
-      font-weight: 400;
-      color: var(--primary);
-      font-size: 1.05rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    /* HERO */
-    .hero-section {
-      padding: 110px 0 90px 0;
-      background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.08), transparent 70%);
-    }
-
-    .hero-container {
-      max-width: 960px;
-      text-align: center;
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-size: 3.1rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin: 20px 0;
-    }
-
-    .hero-title span {
-      color: var(--primary);
-    }
-
-    .hero-desc {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 820px;
-      margin: 0 auto 32px auto;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    /* CORPORATE PROFILE */
-    .profile-layout {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .profile-narrative p {
-      font-size: 1.02rem;
-      line-height: 1.7;
-      color: var(--text-body);
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-
-    .profile-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 28px;
-    }
-
-    .profile-card h3 {
-      margin-top: 0;
-      font-size: 1.15rem;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .baseline-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .baseline-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(30, 41, 59, 0.6);
-      font-size: 0.9rem;
-    }
-
-    .baseline-list li span {
-      color: var(--text-muted);
-    }
-
-    .baseline-list li strong {
-      color: var(--text-main);
-      text-align: right;
-    }
-
-    /* FLAGSHIP TACTICAL FLYPACK */
-    .flypack-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 32px;
-    }
-
-    .card-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 16px;
-    }
-
-    .card-bar h3 {
-      margin: 4px 0 0 0;
-      font-size: 1.45rem;
-    }
-
-    .status-live {
-      background-color: rgba(16, 185, 129, 0.1);
-      color: var(--accent-live);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .card-summary {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--text-body);
-      margin-bottom: 24px;
-    }
-
-    .viewer-box {
-      background-color: #020408;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-
-    .viewer-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      background-color: rgba(15, 23, 42, 0.8);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .tab-group {
-      display: flex;
-      gap: 8px;
-    }
-
-    .tab-btn {
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 8px 14px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn.active {
-      background-color: var(--primary);
-      border-color: var(--primary);
-      color: #040810;
-    }
-
-    .zoom-indicator {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-    }
-
-    .viewer-display {
-      width: 100%;
-      min-height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      cursor: zoom-in;
-    }
-
-    .diagram-img {
-      display: none;
-      max-width: 100%;
-      height: auto;
-      border-radius: 4px;
-    }
-
-    .diagram-img.active {
-      display: block;
-    }
-
-    /* CAPABILITIES GRID */
-    .capabilities-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .cap-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cap-card h3 {
-      font-size: 1.25rem;
-      margin: 6px 0 12px 0;
-      line-height: 1.35;
-    }
-
-    .cap-card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .bullet-list {
-      padding-left: 20px;
-      margin: 0 0 20px 0;
-      color: var(--text-body);
-      font-size: 0.9rem;
-    }
-
-    .bullet-list li {
-      margin-bottom: 8px;
-      line-height: 1.45;
-    }
-
-    .cap-card .pills-row {
-      margin-top: auto;
-    }
-
-    /* CONTACT SECTION */
-    .contact-container {
-      max-width: 1240px;
-      margin: 0 auto;
-    }
-
-    .contact-card {
-      max-width: 680px;
-      margin: 0 auto;
-      background-color: #111827;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 36px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    #contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-body);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      box-sizing: border-box;
-      background-color: var(--bg-input);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 12px 14px;
-      color: #ffffff;
-      font-size: 0.95rem;
-      outline: none;
-      font-family: inherit;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--primary);
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 14px 24px;
-      font-weight: 700;
-      font-size: 1rem;
-      border: none;
-    }
-
-    #form-status {
-      display: none;
-      margin-top: 10px;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    /* LIGHTBOX */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 99999;
-      background-color: rgba(4, 7, 13, 0.97);
-      backdrop-filter: blur(12px);
-    }
-
-    .lightbox-controls {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      display: flex;
-      gap: 10px;
-      z-index: 100000;
-    }
-
-    .lightbox-controls button {
-      background: #111827;
-      color: #f8fafc;
-      border: 1px solid var(--border-color);
-      padding: 8px 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    #close-modal {
-      background: #7f1d1d !important;
-      border-color: #991b1b !important;
-    }
-
-    #lightbox-viewport {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      cursor: grab;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #lightbox-canvas {
-      transform-origin: center center;
-      transition: transform 0.05s linear;
-      user-select: none;
-    }
-
-    .site-footer {
-      padding: 40px 0;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      background-color: var(--bg-main);
-      border-top: 1px solid var(--border-color);
-    }
-
-    /* ==========================================================================
-       STRICT MOBILE OVERRIDES (max-width: 850px)
-       ========================================================================== */
-    @media screen and (max-width: 850px) {
-      .site-header {
-        padding: 12px 0 !important;
-      }
-
-      .nav-layout {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 12px !important;
-      }
-
-      .nav-layout nav {
-        width: 100% !important;
-      }
-
-      .nav-links {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 8px 14px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
-      }
-
-      .nav-links li {
-        display: inline-block !important;
-      }
-
-      .nav-links a {
-        font-size: 0.82rem !important;
-        display: inline-block !important;
-        padding: 2px 4px !important;
-      }
-
-      .hero-section {
-        padding: 60px 0 40px 0 !important;
-      }
-
-      .hero-title {
-        font-size: 1.85rem !important;
-        line-height: 1.25 !important;
-      }
-
-      .hero-desc {
-        font-size: 0.95rem !important;
-        padding: 0 4px !important;
-      }
-
-      .hero-actions {
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 10px !important;
-      }
-
-      .hero-actions .btn {
-        width: 100% !important;
-        text-align: center !important;
-      }
-
-      .profile-layout {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 28px !important;
-        width: 100% !important;
-      }
-
-      .profile-narrative,
-      .profile-card {
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      .baseline-list li {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-      }
-
-      .flypack-card {
-        padding: 20px 16px !important;
-      }
-
-      .card-bar {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-      }
-
-      .viewer-controls {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 10px !important;
-        padding: 12px !important;
-      }
-
-      .tab-group {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 8px !important;
-      }
-
-      .tab-btn {
-        width: 100% !important;
-        display: block !important;
-        text-align: center !important;
-        padding: 10px 12px !important;
-        font-size: 0.82rem !important;
-        white-space: normal !important;
-      }
-
-      .zoom-indicator {
-        display: block !important;
-        text-align: center !important;
-        font-size: 0.75rem !important;
-        margin-top: 4px !important;
-      }
-
-      .viewer-display {
-        padding: 10px 6px !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-      }
-
-      .capabilities-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-      }
-
-      .contact-card {
-        padding: 24px 16px !important;
-      }
-
-      .lightbox-controls {
-        top: 12px !important;
-        right: 12px !important;
-        gap: 6px !important;
-      }
-
-      .lightbox-controls button {
-        padding: 6px 12px !important;
-        font-size: 0.85rem !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=6.0">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- Navigation -->
   <header class="site-header">
     <div class="container nav-layout">
-      <a href="#" class="brand">AIS <span>TECHNOLOGIES</span></a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#about">Corporate Profile</a></li>
-          <li><a href="#flagship">Tactical Flypack</a></li>
-          <li><a href="#capabilities">Capabilities</a></li>
-          <li><a href="#contact">Contact / RFQ</a></li>
-        </ul>
-      </nav>
+      <div class="brand">AIS <span>Technologies</span></div>
+      <ul class="nav-links">
+        <li><a href="#flypack">Flypack Architecture</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#profile">Profile</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- Hero -->
     <section class="hero-section">
       <div class="container hero-container">
-        <span class="badge">Federal Contracting • Tactical AV/VTC • Rapid Deployments</span>
-        <h1 class="hero-title">
-          Engineered Systems Integration &amp; <span>Software-Defined Edge Infrastructure</span>
-        </h1>
+        <span class="badge">Tactical Edge &amp; Infrastructure Engineering</span>
+        <h1 class="hero-title">Precision Signal Distribution &amp; <span>Tactical Video Systems</span></h1>
         <p class="hero-desc">
-          Delivering turnkey, mission-ready tactical edge platforms, enterprise network commissioning, and custom digital signal distribution for commercial and defense applications.
+          Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution built for mission-critical deployments.
         </p>
         <div class="hero-actions">
-          <a href="#flagship" class="btn btn-primary">Inspect System Schematics</a>
-          <a href="#contact" class="btn btn-secondary">Request Capability Briefing</a>
+          <a href="#flypack" class="btn btn-primary">Inspect System Node</a>
+          <a href="#capabilities" class="btn btn-secondary">Capabilities</a>
         </div>
       </div>
     </section>
 
-    <!-- CORPORATE PROFILE -->
-    <section id="about" class="section">
+    <!-- Flypack & Deliverables Section -->
+    <section id="flypack" class="section">
       <div class="container">
-        <div class="section-heading">
-          <span class="badge">Past Performance &amp; Engineering Focus</span>
-          <h2>Disciplined Systems Engineering</h2>
-          <p>Built upon military signal support discipline, live event production, and rigorous federal compliance.</p>
-        </div>
-
-        <div class="profile-layout">
-          <div class="profile-narrative">
-            <p>
-              Founded by a U.S. Army veteran and Signal Support Systems Specialist (25U), <strong>Applied Integration Systems LLC (dba AIS Technologies)</strong> bridges bare-metal hardware integration, secure digital signal distribution, and high-reliability edge computing.
-            </p>
-            <p>
-              Whether engineering conference room modernizations compliant with TAA and DoDIN APL standards or deploying tactical edge flypacks to remote operations, our systems are built around deterministic signal flow, clean 120V power conditioning, and containerized microservice architectures.
-            </p>
-            <p>
-              We manage the entire lifecycle: CAD/schematic modeling, precision CNC bulkhead fabrication, shielded MIL-spec cable looming, and automated subnet commissioning.
-            </p>
-          </div>
-
-          <div class="profile-card">
-            <h3>Contracting &amp; Technical Baseline</h3>
-            <ul class="baseline-list">
-              <li><span>Legal Entity</span><strong>Applied Integration Systems LLC</strong></li>
-              <li><span>Trade Name</span><strong>AIS Technologies</strong></li>
-              <li><span>Enterprise Focus</span><strong>AV/VTC, Edge IT, Signal Eng.</strong></li>
-              <li><span>Protocols</span><strong>Dante, AES67, 12G-SDI, NDI</strong></li>
-              <li><span>Networking</span><strong>802.1Q, IEEE 1588 PTP, IGMPv3</strong></li>
-              <li><span>Location</span><strong>Morganton, North Carolina</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FLAGSHIP: 4U FLYPACK SCHEMATIC VIEWER -->
-    <section id="flagship" class="section section-dark">
-      <div class="container">
-        <div class="section-heading">
-          <span class="badge">Tactical Edge Hardware</span>
-          <h2>Universal Edge Operations Center (4U Flypack)</h2>
-          <p>Standardized shock-mounted platform engineered for instantaneous multi-mission role switching.</p>
-        </div>
-
         <div class="flypack-card">
           <div class="card-bar">
             <div>
-              <span class="tag">Hardware / Software-Defined Platform</span>
-              <h3>Universal Edge Operations Center (UEOC-4U)</h3>
+              <span class="tag">Tactical Node Specification</span>
+              <h3>Universal Edge Operations Console (UEOC)</h3>
             </div>
-            <span class="status-live">Architecture Complete</span>
+            <span class="status-live">Verified Operational</span>
           </div>
-
           <p class="card-summary">
-            Engineered for rapid field deployment, the UEOC-4U operates across three distinct operational profiles: 
-            <strong>Live Audio/Video Broadcast</strong>, <strong>Incident Command System (ICS)</strong>, and 
-            <strong>Tactical Defense Operations</strong>. Featuring a 16-port Neutrik D-Series isolated bulkhead, 
-            Belden 4855R 12G-SDI cabling, Mogami analog audio pairs, and an online double-conversion UPS for zero-gap power switching.
+            A ruggedized, modular video ingestion and multiplexing gateway engineered for zero-latency field fanout, automated local retention, and authenticated wireline transmission.
           </p>
 
-          <div class="viewer-box" id="schematic-viewer" title="Click to open interactive zoom">
+          <!-- Top-Level Schematic Viewer -->
+          <div class="viewer-box">
             <div class="viewer-controls">
-              <div class="tab-group" role="tablist">
-                <button type="button" class="tab-btn active" data-target="diagram-interconnect">
-                  Hardware Interconnect &amp; Signal Flow
-                </button>
-                <button type="button" class="tab-btn" data-target="diagram-orchestration">
-                  Software Profile &amp; Network Orchestration
-                </button>
+              <div class="tab-group">
+                <button type="button" class="tab-btn active" id="btn-hardware" onclick="switchSchematic('hardware')">Hardware Interconnect &amp; Signal Flow</button>
+                <button type="button" class="tab-btn" id="btn-software" onclick="switchSchematic('software')">Software Profile &amp; Network Orchestration</button>
               </div>
-              <span class="zoom-indicator">🔍 Click to Expand &amp; Zoom</span>
             </div>
-
             <div class="viewer-display">
-              <img 
-                id="diagram-interconnect" 
-                class="diagram-img active" 
-                src="./assets/images/flypack-interconnect.png" 
-                alt="Hardware Interconnect and Signal Flow Schematic" 
-              />
-              <img 
-                id="diagram-orchestration" 
-                class="diagram-img" 
-                src="./assets/images/flypack-orchestration.png" 
-                alt="Software Profile and Network Orchestration Architecture" 
-              />
+              <img id="diag-hardware" class="diagram-img active" src="assets/images/Hardware Interconnect & Signal Flow.svg" alt="Hardware Interconnect">
+              <img id="diag-software" class="diagram-img" src="assets/images/Software Profile & Network Orchestration.svg" alt="Software Profile">
             </div>
           </div>
 
-          <!-- ==========================================
-     UEOC / FLYPACK ENGINEERING DELIVERABLES
-     ========================================== -->
-<!-- ==============================================================
-     UEOC DELIVERABLES DECK (100% SELF-CONTAINED DROP-IN)
-     ============================================================== -->
-<section id="ueoc-deliverables-deck" style="width: 100%; max-width: 1200px; margin: 3rem auto; padding: 0 1rem; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #e2e8f0;">
-  
-  <!-- Header Bar -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; margin-bottom: 1.5rem; gap: 1rem;">
-    <div>
-      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
-        <span style="font-size: 0.7rem; letter-spacing: 0.1em; color: #34d399; text-transform: uppercase;">System Engineering Deck</span>
-      </div>
-      <h2 style="font-size: 1.5rem; font-weight: 700; color: #f8fafc; margin: 0; text-transform: uppercase; letter-spacing: 0.02em;">
-        Field Node Deliverables &amp; Module Specifications
-      </h2>
-      <p style="font-size: 0.8rem; color: #94a3b8; margin: 0.25rem 0 0 0;">
-        Verified runtime telemetry, operational protocol matrices, and system architecture modules.
-      </p>
-    </div>
-    <div style="font-size: 0.75rem; color: #64748b; text-align: right; line-height: 1.4;">
-      NODE ID: <span style="color: #cbd5e1; font-weight: 600;">UEOC-NODE-01</span><br>
-      STATUS: <span style="color: #34d399; font-weight: 600;">ACTIVE MESH</span>
-    </div>
-  </div>
-
-  <!-- Horizontal Tab Bar Buttons -->
-  <div style="display: flex; gap: 0.5rem; overflow-x: auto; border-bottom: 1px solid #1e293b; padding-bottom: 0px;">
-    <button type="button" onclick="deckSwitchTab(event, 'deck-p1')" id="deck-btn-1" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #1e293b; border-bottom: 2px solid #38bdf8; color: #38bdf8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
-      <span>01 // VIDEO INGEST &amp; STORAGE</span>
-      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(6, 78, 59, 0.5); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.4);">ONLINE</span>
-    </button>
-    <button type="button" onclick="deckSwitchTab(event, 'deck-p2')" id="deck-btn-2" style="background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; color: #94a3b8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
-      <span>02 // AERIAL &amp; DRONE INGEST</span>
-      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(120, 53, 15, 0.4); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.4);">QUEUED</span>
-    </button>
-    <button type="button" onclick="deckSwitchTab(event, 'deck-p3')" id="deck-btn-3" style="background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; color: #94a3b8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
-      <span>03 // RESILIENCY &amp; WATCHDOG</span>
-      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(30, 41, 59, 0.6); color: #94a3b8; border: 1px solid #334155;">STAGED</span>
-    </button>
-    <button type="button" onclick="deckSwitchTab(event, 'deck-p4')" id="deck-btn-4" style="background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; color: #94a3b8; padding: 0.7rem 1.1rem; font-size: 0.75rem; font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; border-radius: 6px 6px 0 0;">
-      <span>04 // FIELD RUN-SHEET</span>
-      <span style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(30, 41, 59, 0.6); color: #94a3b8; border: 1px solid #334155;">DOC</span>
-    </button>
-  </div>
-
-  <!-- Panels Deck Box -->
-  <div style="background: #0b1120; border: 1px solid #1e293b; border-top: none; border-radius: 0 0 8px 8px; padding: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6);">
-    
-    <!-- PANEL 01: VIDEO CORE -->
-    <div id="deck-p1" style="display: block;">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
-        <div>
-          <strong style="color: #f8fafc; font-size: 0.95rem;">Core Video Transport &amp; Multiplexing Architecture</strong>
-          <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention.</div>
-        </div>
-        <div style="display: inline-flex; background: #05080f; border: 1px solid #1e293b; border-radius: 6px; padding: 3px;">
-          <button type="button" onclick="deckToggleSub('matrix')" id="deck-sub-btn-matrix" style="background: rgba(14, 116, 144, 0.4); border: 1px solid #0284c7; color: #38bdf8; padding: 4px 10px; font-size: 0.75rem; font-family: inherit; font-weight: 600; border-radius: 4px; cursor: pointer;">Protocol Matrix</button>
-          <button type="button" onclick="deckToggleSub('calc')" id="deck-sub-btn-calc" style="background: transparent; border: 1px solid transparent; color: #94a3b8; padding: 4px 10px; font-size: 0.75rem; font-family: inherit; border-radius: 4px; cursor: pointer;">Retention Engine</button>
-        </div>
-      </div>
-
-      <!-- Sub-View: Protocol Matrix Table -->
-      <div id="deck-sub-matrix" style="display: block; overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.75rem;">
-          <thead>
-            <tr style="background: #05080f; color: #64748b; text-transform: uppercase;">
-              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Service Role</th>
-              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Protocol</th>
-              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Transport</th>
-              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Port Scope</th>
-              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b;">Security &amp; Mesh</th>
-              <th style="padding: 0.75rem; border-bottom: 1px solid #1e293b; text-align: right;">Target Latency</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
-              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Field Camera Primary Ingest</td>
-              <td style="padding: 0.75rem;"><span style="color: #60a5fa; font-weight: 600;">RTSP</span></td>
-              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (H.264 / AAC)</td>
-              <td style="padding: 0.75rem; color: #38bdf8;">8554 / TCP</td>
-              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">Digest Token / Auth</span></td>
-              <td style="padding: 0.75rem; text-align: right; color: #34d399; font-weight: 600;">&lt; 150 ms</td>
-            </tr>
-            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
-              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Aerial &amp; Drone Feed Uplink</td>
-              <td style="padding: 0.75rem;"><span style="color: #fbbf24; font-weight: 600;">RTMP</span></td>
-              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (FLV Multiplex)</td>
-              <td style="padding: 0.75rem; color: #38bdf8;">1935 / TCP</td>
-              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">Publish Key / Token</span></td>
-              <td style="padding: 0.75rem; text-align: right; color: #fbbf24; font-weight: 600;">&lt; 350 ms</td>
-            </tr>
-            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
-              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Tactical Web Egress</td>
-              <td style="padding: 0.75rem;"><span style="color: #34d399; font-weight: 600;">WebRTC</span></td>
-              <td style="padding: 0.75rem; color: #cbd5e1;">UDP / ICE / DTLS</td>
-              <td style="padding: 0.75rem; color: #38bdf8;">8889 / 8189</td>
-              <td style="padding: 0.75rem;"><span style="background: rgba(14, 116, 144, 0.3); color: #38bdf8; padding: 3px 6px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">Tailscale Encrypted</span></td>
-              <td style="padding: 0.75rem; text-align: right; color: #34d399; font-weight: 600;">&lt; 180 ms</td>
-            </tr>
-            <tr style="border-bottom: 1px solid rgba(30, 41, 59, 0.6);">
-              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Forensic Evidence &amp; Archive</td>
-              <td style="padding: 0.75rem;"><span style="color: #c084fc; font-weight: 600;">HTTP / TLS</span></td>
-              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (fMP4 Vault)</td>
-              <td style="padding: 0.75rem; color: #38bdf8;">8085 / TCP</td>
-              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">RBAC / Operator Auth</span></td>
-              <td style="padding: 0.75rem; text-align: right; color: #94a3b8;">On-Demand</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.75rem; color: #fff; font-weight: 600;">Subsystem Health &amp; Ingest Heartbeat</td>
-              <td style="padding: 0.75rem;"><span style="color: #cbd5e1; font-weight: 600;">REST API</span></td>
-              <td style="padding: 0.75rem; color: #cbd5e1;">TCP (JSON Metric)</td>
-              <td style="padding: 0.75rem; color: #38bdf8;">9997 / TCP</td>
-              <td style="padding: 0.75rem;"><span style="background: #1e293b; color: #cbd5e1; padding: 3px 6px; border-radius: 4px;">Host Internal Only</span></td>
-              <td style="padding: 0.75rem; text-align: right; color: #34d399; font-weight: 600;">10s Poll</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Sub-View: Retention Engine -->
-      <div id="deck-sub-calc" style="display: none;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; background: #05080f; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 6px;">
-          <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
-                <span>Active Field Channels</span>
-                <span id="deck-val-cams" style="color: #38bdf8; font-weight: 700;">2 Channels</span>
+          <!-- Bottom Deliverables Station -->
+          <div id="ueoc-deliverables">
+            <div class="ueoc-header-bar">
+              <div>
+                <span class="badge" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.3);">Verified Module Deliverables</span>
+                <h3 style="font-size:1.3rem; margin:6px 0 0 0; text-transform:uppercase;">Node Deliverables &amp; Module Specifications</h3>
               </div>
-              <input type="range" id="deck-range-cams" min="1" max="8" value="2" oninput="deckComputeStorage()" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
-            </div>
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
-                <span>Stream Bitrate (Per Channel)</span>
-                <span id="deck-val-bitrate" style="color: #38bdf8; font-weight: 700;">4.5 Mbps</span>
+              <div style="font-size:0.75rem; color:#64748b; text-align:right;">
+                NODE: <strong style="color:#cbd5e1;">UEOC-NODE-01</strong> | MESH: <strong style="color:#10b981;">TAILSCALE ENCRYPTED</strong>
               </div>
-              <input type="range" id="deck-range-bitrate" min="1" max="15" step="0.5" value="4.5" oninput="deckComputeStorage()" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
             </div>
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
-                <span>Rolling Archive Window</span>
-                <span id="deck-val-days" style="color: #38bdf8; font-weight: 700;">14 Days</span>
+
+            <!-- Station Tabs -->
+            <div class="ueoc-tab-bar">
+              <button type="button" onclick="openUeocTab(event, 'p-video')" class="ueoc-tab-btn active">
+                <span>01 // VIDEO INGEST &amp; STORAGE</span>
+                <span class="ueoc-badge badge-online">ONLINE</span>
+              </button>
+              <button type="button" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
+                <span>02 // AERIAL &amp; DRONE INGEST</span>
+                <span class="ueoc-badge badge-queued">QUEUED</span>
+              </button>
+              <button type="button" onclick="openUeocTab(event, 'p-resilience')" class="ueoc-tab-btn">
+                <span>03 // RESILIENCY &amp; WATCHDOG</span>
+                <span class="ueoc-badge badge-staged">STAGED</span>
+              </button>
+              <button type="button" onclick="openUeocTab(event, 'p-field')" class="ueoc-tab-btn">
+                <span>04 // FIELD RUN-SHEET</span>
+                <span class="ueoc-badge badge-staged">DOC</span>
+              </button>
+            </div>
+
+            <!-- Station Content Panels -->
+            <div class="ueoc-panel-deck">
+              
+              <!-- Tab 1: Video Core -->
+              <div id="p-video" class="ueoc-panel active">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+                  <div>
+                    <strong style="color:#f8fafc; font-size:0.95rem;">Core Video Transport &amp; Multiplexing Architecture</strong>
+                    <div style="font-size:0.75rem; color:#94a3b8; margin-top:2px;">Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention.</div>
+                  </div>
+                  <div>
+                    <button type="button" onclick="switchSubView('table')" id="sub-btn-table" class="sub-toggle-btn active">Protocol Matrix</button>
+                    <button type="button" onclick="switchSubView('calc')" id="sub-btn-calc" class="sub-toggle-btn">Retention Engine</button>
+                  </div>
+                </div>
+
+                <!-- Matrix Table -->
+                <div id="ueoc-sub-table" class="ueoc-table-wrap">
+                  <table class="ueoc-table">
+                    <thead>
+                      <tr>
+                        <th>Service Role</th>
+                        <th>Protocol</th>
+                        <th>Transport</th>
+                        <th>Port Scope</th>
+                        <th>Security &amp; Mesh</th>
+                        <th style="text-align:right;">Target Latency</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="color:#fff; font-weight:600;">Field Camera Primary Ingest</td>
+                        <td><span style="color:#60a5fa; font-weight:600;">RTSP</span></td>
+                        <td>TCP (H.264 / AAC)</td>
+                        <td style="color:#38bdf8;">8554 / TCP</td>
+                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">Digest Token / Auth</span></td>
+                        <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 150 ms</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#fff; font-weight:600;">Aerial &amp; Drone Feed Uplink</td>
+                        <td><span style="color:#fbbf24; font-weight:600;">RTMP</span></td>
+                        <td>TCP (FLV Multiplex)</td>
+                        <td style="color:#38bdf8;">1935 / TCP</td>
+                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">Publish Key / Token</span></td>
+                        <td style="text-align:right; color:#fbbf24; font-weight:600;">&lt; 350 ms</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#fff; font-weight:600;">Tactical Web Egress</td>
+                        <td><span style="color:#34d399; font-weight:600;">WebRTC</span></td>
+                        <td>UDP / ICE / DTLS</td>
+                        <td style="color:#38bdf8;">8889 / 8189</td>
+                        <td><span style="background:rgba(14,116,144,0.3); color:#38bdf8; padding:3px 6px; border-radius:4px;">Tailscale Encrypted</span></td>
+                        <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 180 ms</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#fff; font-weight:600;">Forensic Evidence &amp; Archive</td>
+                        <td><span style="color:#c084fc; font-weight:600;">HTTP / TLS</span></td>
+                        <td>TCP (fMP4 Vault)</td>
+                        <td style="color:#38bdf8;">8085 / TCP</td>
+                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">RBAC / Operator Auth</span></td>
+                        <td style="text-align:right; color:#94a3b8;">On-Demand</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#fff; font-weight:600;">Subsystem Health &amp; Ingest Heartbeat</td>
+                        <td><span style="color:#cbd5e1; font-weight:600;">REST API</span></td>
+                        <td>TCP (JSON Metric)</td>
+                        <td style="color:#38bdf8;">9997 / TCP</td>
+                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">Host Internal Only</span></td>
+                        <td style="text-align:right; color:#34d399; font-weight:600;">10s Poll</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Retention Calculator -->
+                <div id="ueoc-sub-calc" style="display:none;">
+                  <div class="calc-box">
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                      <div>
+                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
+                          <span>Active Field Channels</span>
+                          <span id="cams-num" style="color:#38bdf8; font-weight:700;">2 Channels</span>
+                        </div>
+                        <input type="range" id="cams-range" min="1" max="8" value="2" oninput="runStorageMath()" class="calc-slider">
+                      </div>
+                      <div>
+                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
+                          <span>Stream Bitrate (Per Channel)</span>
+                          <span id="bitrate-num" style="color:#38bdf8; font-weight:700;">4.5 Mbps</span>
+                        </div>
+                        <input type="range" id="bitrate-range" min="1" max="15" step="0.5" value="4.5" oninput="runStorageMath()" class="calc-slider">
+                      </div>
+                      <div>
+                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
+                          <span>Rolling Archive Window</span>
+                          <span id="days-num" style="color:#38bdf8; font-weight:700;">14 Days</span>
+                        </div>
+                        <input type="range" id="days-range" min="3" max="30" value="14" oninput="runStorageMath()" class="calc-slider">
+                      </div>
+                    </div>
+                    <div style="background:#0b1120; border:1px solid #1e293b; border-radius:6px; padding:16px; display:flex; flex-direction:column; justify-content:space-between;">
+                      <div style="font-size:0.65rem; color:#64748b; text-transform:uppercase;">Projected Storage Vault</div>
+                      <div>
+                        <div id="out-total-gb" style="font-size:1.8rem; font-weight:800; color:#38bdf8; margin:6px 0;">1,360 GB</div>
+                        <div style="font-size:0.75rem; color:#94a3b8;">Est. Rate: <span id="out-rate-hr" style="color:#fff;">4.05 GB/hr</span></div>
+                      </div>
+                      <div style="font-size:0.7rem; color:#34d399; background:rgba(6,78,59,0.4); border:1px solid rgba(52,211,153,0.3); padding:4px 8px; border-radius:4px; margin-top:8px;">
+                        ✓ Compliant with Dedicated Mount Quota
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <input type="range" id="deck-range-days" min="3" max="30" value="14" oninput="deckComputeStorage()" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
-            </div>
-          </div>
-          <div style="background: #0b1120; border: 1px solid #1e293b; border-radius: 6px; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Projected Storage Vault</div>
-            <div>
-              <div id="deck-out-total" style="font-size: 2rem; font-weight: 800; color: #38bdf8; margin: 0.5rem 0;">1,360 GB</div>
-              <div style="font-size: 0.7rem; color: #94a3b8;">Est. Rate: <span id="deck-out-rate" style="color: #fff;">4.05 GB/hr</span></div>
-            </div>
-            <div style="font-size: 0.7rem; color: #34d399; background: rgba(6, 78, 59, 0.4); border: 1px solid rgba(52, 211, 153, 0.3); padding: 4px 8px; border-radius: 4px; margin-top: 0.5rem;">
-              ✓ Compliant with Dedicated Mount Quota
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- PANEL 02: AERIAL & DRONE (QUEUED) -->
-    <div id="deck-p2" style="display: none;">
-      <div style="border: 1px solid rgba(120, 53, 15, 0.4); background: rgba(120, 53, 15, 0.15); padding: 1.25rem; border-radius: 6px;">
-        <h4 style="color: #fbbf24; margin: 0 0 0.5rem 0; font-size: 0.85rem; text-transform: uppercase;">Module 02: Aerial Feed Uplink &amp; Telemetry</h4>
-        <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0 0 1rem 0;">Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <strong style="color: #fbbf24;">/drone1</strong> with WebRTC fanout to the Homarr dashboard matrix.</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; font-size: 0.75rem;">
-          <div style="background: #05080f; padding: 0.75rem; border: 1px solid #1e293b; border-radius: 4px;">
-            <div style="color: #64748b; font-size: 0.65rem;">UPLINK PATH</div>
-            <div style="color: #f8fafc; font-weight: 700; margin-top: 0.25rem;">/drone1</div>
-          </div>
-          <div style="background: #05080f; padding: 0.75rem; border: 1px solid #1e293b; border-radius: 4px;">
-            <div style="color: #64748b; font-size: 0.65rem;">DOWNLINK CODEC</div>
-            <div style="color: #f8fafc; font-weight: 700; margin-top: 0.25rem;">H.264 / AAC Passthrough</div>
-          </div>
-          <div style="background: #05080f; padding: 0.75rem; border: 1px solid #1e293b; border-radius: 4px;">
-            <div style="color: #64748b; font-size: 0.65rem;">WEBRTC ROUTE</div>
-            <div style="color: #f8fafc; font-weight: 700; margin-top: 0.25rem;">:8889/drone1</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 03: RESILIENCY & WATCHDOG (STAGED) -->
-    <div id="deck-p3" style="display: none;">
-      <div style="border: 1px solid #1e293b; background: #05080f; padding: 1.25rem; border-radius: 6px;">
-        <h4 style="color: #f8fafc; margin: 0 0 0.5rem 0; font-size: 0.85rem; text-transform: uppercase;">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h4>
-        <p style="font-size: 0.75rem; color: #94a3b8; margin: 0 0 1rem 0;">Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.</p>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.75rem;">
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #0b1120; border: 1px solid #1e293b; border-radius: 4px;">
-            <span>systemd RequiresMountsFor</span>
-            <span style="color: #34d399;">/mnt/storage [ACTIVE]</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #0b1120; border: 1px solid #1e293b; border-radius: 4px;">
-            <span>fstab Mount Guard</span>
-            <span style="color: #34d399;">nofail, x-systemd.automount</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #0b1120; border: 1px solid #1e293b; border-radius: 4px;">
-            <span>Auto-Prune Watchdog Timer</span>
-            <span style="color: #34d399;">15m Interval (Threshold: 90%)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 04: FIELD RUN-SHEET (DOC) -->
-    <div id="deck-p4" style="display: none;">
-      <div style="border: 1px solid #1e293b; background: #05080f; padding: 1.25rem; border-radius: 6px;">
-        <h4 style="color: #f8fafc; margin: 0 0 0.5rem 0; font-size: 0.85rem; text-transform: uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
-        <p style="font-size: 0.75rem; color: #94a3b8; margin: 0 0 1rem 0;">Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.</p>
-        <div style="background: #0b1120; border: 1px solid #1e293b; padding: 1rem; border-radius: 4px; font-size: 0.75rem; line-height: 1.7; color: #cbd5e1;">
-          1. Verify field node power &amp; Tailscale mesh uplink status.<br>
-          2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
-          3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
-          4. Verify write synchronization on external storage partition via Filebrowser.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Self-Contained Logic (Independent of scripts.js) -->
-<script>
-  function deckSwitchTab(evt, panelId) {
-    // Hide all panels
-    ['deck-p1', 'deck-p2', 'deck-p3', 'deck-p4'].forEach(function(id) {
-      var p = document.getElementById(id);
-      if (p) p style="display: none;"; // fallback check
-      if (p) p.style.display = 'none';
-    });
-    // Reset all tab buttons
-    for (var i = 1; i <= 4; i++) {
-      var b = document.getElementById('deck-btn-' + i);
-      if (b) {
-        b.style.background = 'transparent';
-        b.style.borderColor = 'transparent';
-        b.style.borderBottomColor = 'transparent';
-        b.style.color = '#94a3b8';
-      }
-    }
-    // Activate clicked panel & button
-    var activePanel = document.getElementById(panelId);
-    if (activePanel) activePanel.style.display = 'block';
-    
-    evt.currentTarget.style.background = 'rgba(15, 23, 42, 0.9)';
-    evt.currentTarget.style.borderColor = '#1e293b';
-    evt.currentTarget.style.borderBottomColor = '#38bdf8';
-    evt.currentTarget.style.color = '#38bdf8';
-  }
-
-  function deckToggleSub(view) {
-    var tbl = document.getElementById('deck-sub-matrix');
-    var calc = document.getElementById('deck-sub-calc');
-    var btnM = document.getElementById('deck-sub-btn-matrix');
-    var btnC = document.getElementById('deck-sub-btn-calc');
-
-    if (view === 'matrix') {
-      tbl.style.display = 'block';
-      calc.style.display = 'none';
-      btnM.style.background = 'rgba(14, 116, 144, 0.4)';
-      btnM.style.borderColor = '#0284c7';
-      btnM.style.color = '#38bdf8';
-      btnC.style.background = 'transparent';
-      btnC.style.borderColor = 'transparent';
-      btnC.style.color = '#94a3b8';
-    } else {
-      tbl.style.display = 'none';
-      calc.style.display = 'block';
-      btnC.style.background = 'rgba(14, 116, 144, 0.4)';
-      btnC.style.borderColor = '#0284c7';
-      btnC.style.color = '#38bdf8';
-      btnM.style.background = 'transparent';
-      btnM.style.borderColor = 'transparent';
-      btnM.style.color = '#94a3b8';
-      deckComputeStorage();
-    }
-  }
-
-  function deckComputeStorage() {
-    var cams = parseInt(document.getElementById('deck-range-cams').value);
-    var mbps = parseFloat(document.getElementById('deck-range-bitrate').value);
-    var days = parseInt(document.getElementById('deck-range-days').value);
-
-    document.getElementById('deck-val-cams').textContent = cams + ' Channel' + (cams > 1 ? 's' : '');
-    document.getElementById('deck-val-bitrate').textContent = mbps + ' Mbps';
-    document.getElementById('deck-val-days').textContent = days + ' Days';
-
-    var rateHr = (mbps * 3600) / 8000 * cams;
-    var total = Math.round(rateHr * 24 * days);
-
-    document.getElementById('deck-out-rate').textContent = rateHr.toFixed(2) + ' GB/hr';
-    document.getElementById('deck-out-total').textContent = total.toLocaleString() + ' GB';
-  }
-</script>
-  
-  <!-- Header Bar -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
-    <div>
-      <div class="flex items-center gap-2 mb-1">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="text-xs font-mono tracking-widest text-emerald-400 uppercase">System Engineering Deck</span>
-      </div>
-      <h2 class="text-2xl font-bold tracking-tight text-white uppercase font-mono">
-        Field Node Deliverables &amp; Module Specifications
-      </h2>
-      <p class="text-sm text-slate-400 mt-1">
-        Verified runtime telemetry, operational protocol matrices, and system architecture modules.
-      </p>
-    </div>
-    <div class="text-xs font-mono text-slate-500 text-right">
-      NODE ID: <span class="text-slate-300 font-semibold">UEOC-NODE-01</span><br>
-      STATUS: <span class="text-emerald-400 font-semibold">ACTIVE MESH</span>
-    </div>
-  </div>
-
-  <!-- Horizontal Tab Bar Navigation -->
-  <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800/80 scrollbar-thin scrollbar-thumb-slate-700">
-    <!-- Tab 01 -->
-    <button type="button" 
-            onclick="switchDeliverableTab('tab-video-core')" 
-            id="btn-tab-video-core"
-            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap bg-slate-850 text-cyan-400 border-cyan-400 bg-slate-800/60">
-      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-      <span>01 // VIDEO INGEST &amp; STORAGE</span>
-      <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800/50">ONLINE</span>
-    </button>
-
-    <!-- Tab 02 -->
-    <button type="button" 
-            onclick="switchDeliverableTab('tab-aerial-drone')" 
-            id="btn-tab-aerial-drone"
-            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap text-slate-400 border-transparent hover:text-slate-200 hover:bg-slate-850/50">
-      <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
-      <span>02 // AERIAL &amp; DRONE INGEST</span>
-      <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950/80 text-amber-400 border border-amber-800/50">QUEUED</span>
-    </button>
-
-    <!-- Tab 03 -->
-    <button type="button" 
-            onclick="switchDeliverableTab('tab-resiliency-watchdog')" 
-            id="btn-tab-resiliency-watchdog"
-            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap text-slate-400 border-transparent hover:text-slate-200 hover:bg-slate-850/50">
-      <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
-      <span>03 // RESILIENCY &amp; WATCHDOG</span>
-      <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">STAGED</span>
-    </button>
-
-    <!-- Tab 04 -->
-    <button type="button" 
-            onclick="switchDeliverableTab('tab-field-runsheet')" 
-            id="btn-tab-field-runsheet"
-            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap text-slate-400 border-transparent hover:text-slate-200 hover:bg-slate-850/50">
-      <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
-      <span>04 // FIELD RUN-SHEET</span>
-      <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">DOC</span>
-    </button>
-  </div>
-
-  <!-- Deliverable Tab Content Panels -->
-  <div class="bg-slate-900/90 border border-slate-800 rounded-b-xl p-5 sm:p-6 shadow-2xl backdrop-blur-sm min-h-[420px]">
-    
-    <!-- PANEL 01: VIDEO INGEST & PROTOCOL MATRIX -->
-    <div id="tab-video-core" class="deliverable-panel block">
-      <div class="mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-        <div>
-          <h3 class="text-base font-semibold text-white tracking-wide">
-            Core Video Transport &amp; Multiplexing Architecture
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">
-            Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention metrics.
-          </p>
-        </div>
-        <!-- Sub-View Switcher -->
-        <div class="inline-flex p-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono">
-          <button type="button" onclick="toggleSubView('matrix')" id="btn-sub-matrix" class="px-3 py-1 rounded bg-cyan-950 text-cyan-300 font-semibold border border-cyan-800/60 transition-all">Protocol Matrix</button>
-          <button type="button" onclick="toggleSubView('calc')" id="btn-sub-calc" class="px-3 py-1 rounded text-slate-400 hover:text-slate-200 transition-all">Retention Engine</button>
-        </div>
-      </div>
-
-      <!-- SUB-VIEW 1: Matrix Table -->
-      <div id="view-matrix" class="block overflow-x-auto">
-        <table class="w-full text-left text-xs border-collapse">
-          <thead>
-            <tr class="border-b border-slate-800 bg-slate-950/60 font-mono text-slate-400 uppercase">
-              <th class="py-3 px-3">Service Role</th>
-              <th class="py-3 px-3">Protocol</th>
-              <th class="py-3 px-3">Transport</th>
-              <th class="py-3 px-3">Port Scope</th>
-              <th class="py-3 px-3">Security &amp; Mesh</th>
-              <th class="py-3 px-3 text-right">Target Latency</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-800/60 font-mono">
-            <tr class="hover:bg-slate-850/40 transition-colors">
-              <td class="py-3 px-3 font-semibold text-white">Field Camera Primary Ingest</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/40">RTSP</span></td>
-              <td class="py-3 px-3 text-slate-300">TCP (H.264 / AAC)</td>
-              <td class="py-3 px-3 text-cyan-400">8554 / TCP</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Digest Token / Auth</span></td>
-              <td class="py-3 px-3 text-right text-emerald-400 font-semibold">&lt; 150 ms</td>
-            </tr>
-            <tr class="hover:bg-slate-850/40 transition-colors">
-              <td class="py-3 px-3 font-semibold text-white">Aerial &amp; Drone Feed Uplink</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/40">RTMP</span></td>
-              <td class="py-3 px-3 text-slate-300">TCP (FLV Multiplex)</td>
-              <td class="py-3 px-3 text-cyan-400">1935 / TCP</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Publish Key / Token</span></td>
-              <td class="py-3 px-3 text-right text-amber-400 font-semibold">&lt; 350 ms</td>
-            </tr>
-            <tr class="hover:bg-slate-850/40 transition-colors">
-              <td class="py-3 px-3 font-semibold text-white">Tactical Web Egress</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/40">WebRTC</span></td>
-              <td class="py-3 px-3 text-slate-300">UDP / ICE / DTLS</td>
-              <td class="py-3 px-3 text-cyan-400">8889 / 8189</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40">Tailscale Encrypted</span></td>
-              <td class="py-3 px-3 text-right text-emerald-400 font-semibold">&lt; 180 ms</td>
-            </tr>
-            <tr class="hover:bg-slate-850/40 transition-colors">
-              <td class="py-3 px-3 font-semibold text-white">Forensic Evidence &amp; Archive</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-800/40">HTTP / TLS</span></td>
-              <td class="py-3 px-3 text-slate-300">TCP (fMP4 Vault)</td>
-              <td class="py-3 px-3 text-cyan-400">8085 / TCP</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">RBAC / Operator Auth</span></td>
-              <td class="py-3 px-3 text-right text-slate-400">On-Demand</td>
-            </tr>
-            <tr class="hover:bg-slate-850/40 transition-colors">
-              <td class="py-3 px-3 font-semibold text-white">Subsystem Health &amp; Ingest Heartbeat</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">REST API</span></td>
-              <td class="py-3 px-3 text-slate-300">TCP (JSON Metric)</td>
-              <td class="py-3 px-3 text-cyan-400">9997 / TCP</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Host Internal Only</span></td>
-              <td class="py-3 px-3 text-right text-emerald-400 font-semibold">10s Poll</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- SUB-VIEW 2: Retention Engine -->
-      <div id="view-calc" class="hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 bg-slate-950/70 border border-slate-800 p-5 rounded-lg font-mono">
-          <div class="lg:col-span-2 space-y-4">
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="text-slate-300">Active Field Channels</span>
-                <span id="calc-cams-val" class="text-cyan-400 font-bold">2 Channels</span>
+              <!-- Tab 2: Aerial & Drone -->
+              <div id="p-drone" class="ueoc-panel">
+                <div style="border:1px solid rgba(120,53,15,0.4); background:rgba(120,53,15,0.15); padding:16px; border-radius:6px;">
+                  <h4 style="color:#fbbf24; margin:0 0 6px 0; font-size:0.85rem; text-transform:uppercase;">Module 02: Aerial Feed Uplink &amp; Telemetry</h4>
+                  <p style="font-size:0.8rem; color:#cbd5e1; margin:0 0 14px 0;">Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <strong style="color:#fbbf24;">/drone1</strong> with WebRTC fanout to the Homarr dashboard matrix.</p>
+                  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px; font-size:0.75rem;">
+                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
+                      <div style="color:#64748b; font-size:0.65rem;">UPLINK PATH</div>
+                      <div style="color:#f8fafc; font-weight:700; margin-top:4px;">/drone1</div>
+                    </div>
+                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
+                      <div style="color:#64748b; font-size:0.65rem;">DOWNLINK CODEC</div>
+                      <div style="color:#f8fafc; font-weight:700; margin-top:4px;">H.264 / AAC Passthrough</div>
+                    </div>
+                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
+                      <div style="color:#64748b; font-size:0.65rem;">WEBRTC ROUTE</div>
+                      <div style="color:#f8fafc; font-weight:700; margin-top:4px;">:8889/drone1</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <input type="range" id="input-cams" min="1" max="8" value="2" oninput="updateStorageCalc()" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
-            </div>
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="text-slate-300">Stream Bitrate (Per Camera)</span>
-                <span id="calc-bitrate-val" class="text-cyan-400 font-bold">4.5 Mbps</span>
+
+              <!-- Tab 3: Resiliency & Watchdog -->
+              <div id="p-resilience" class="ueoc-panel">
+                <div style="border:1px solid #1e293b; background:#05080f; padding:16px; border-radius:6px;">
+                  <h4 style="color:#f8fafc; margin:0 0 6px 0; font-size:0.85rem; text-transform:uppercase;">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h4>
+                  <p style="font-size:0.8rem; color:#94a3b8; margin:0 0 14px 0;">Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.</p>
+                  <div style="display:flex; flex-direction:column; gap:8px; font-size:0.75rem;">
+                    <div style="display:flex; justify-content:space-between; padding:8px 12px; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
+                      <span>systemd RequiresMountsFor</span>
+                      <span style="color:#34d399;">/mnt/storage [ACTIVE]</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:8px 12px; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
+                      <span>fstab Mount Guard</span>
+                      <span style="color:#34d399;">nofail, x-systemd.automount</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:8px 12px; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
+                      <span>Auto-Prune Watchdog Timer</span>
+                      <span style="color:#34d399;">15m Interval (Threshold: 90%)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <input type="range" id="input-bitrate" min="1" max="15" step="0.5" value="4.5" oninput="updateStorageCalc()" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
-            </div>
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="text-slate-300">Rolling Archive Window</span>
-                <span id="calc-retention-val" class="text-cyan-400 font-bold">14 Days</span>
+
+              <!-- Tab 4: Field Run-Sheet -->
+              <div id="p-field" class="ueoc-panel">
+                <div style="border:1px solid #1e293b; background:#05080f; padding:16px; border-radius:6px;">
+                  <h4 style="color:#f8fafc; margin:0 0 6px 0; font-size:0.85rem; text-transform:uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
+                  <p style="font-size:0.8rem; color:#94a3b8; margin:0 0 14px 0;">Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.</p>
+                  <div style="background:#0b1120; border:1px solid #1e293b; padding:14px; border-radius:4px; font-size:0.8rem; line-height:1.7; color:#cbd5e1;">
+                    1. Verify field node power &amp; Tailscale mesh uplink status.<br>
+                    2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
+                    3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
+                    4. Verify write synchronization on external storage partition via Filebrowser.
+                  </div>
+                </div>
               </div>
-              <input type="range" id="input-retention" min="3" max="30" value="14" oninput="updateStorageCalc()" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+
             </div>
-          </div>
-          <!-- Storage Telemetry Output -->
-          <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg flex flex-col justify-between">
-            <span class="text-[11px] uppercase tracking-wider text-slate-500">Projected Storage Vault</span>
-            <div class="my-3">
-              <div id="calc-total-gb" class="text-3xl font-extrabold text-cyan-400">1,360 GB</div>
-              <div class="text-[11px] text-slate-400 mt-1">Est. Write Rate: <span id="calc-rate-hr" class="text-slate-200">4.05 GB/hr</span></div>
-            </div>
-            <div class="text-[11px] text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2.5 py-1.5 rounded">
-              ✓ Compliant with Dedicated Mount Quota
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 02: AERIAL & DRONE (QUEUED) -->
-    <div id="tab-aerial-drone" class="deliverable-panel hidden font-mono">
-      <div class="border border-amber-900/40 bg-amber-950/20 rounded-lg p-5">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-          <h3 class="text-sm font-semibold text-amber-300 uppercase tracking-wider">Module 02: Aerial Feed Uplink &amp; Telemetry</h3>
-        </div>
-        <p class="text-xs text-slate-300 mb-4">
-          Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <code class="text-amber-400 font-bold">/drone1</code> with WebRTC fanout to the Homarr dashboard matrix.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-          <div class="bg-slate-900/80 p-3 rounded border border-slate-800">
-            <div class="text-slate-500 text-[10px]">UPLINK PATH</div>
-            <div class="text-slate-200 font-bold mt-1">/drone1</div>
-          </div>
-          <div class="bg-slate-900/80 p-3 rounded border border-slate-800">
-            <div class="text-slate-500 text-[10px]">DOWNLINK CODEC</div>
-            <div class="text-slate-200 font-bold mt-1">H.264 / AAC Passthrough</div>
-          </div>
-          <div class="bg-slate-900/80 p-3 rounded border border-slate-800">
-            <div class="text-slate-500 text-[10px]">WEBRTC ROUTE</div>
-            <div class="text-slate-200 font-bold mt-1">:8889/drone1</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 03: RESILIENCY & WATCHDOG (STAGED) -->
-    <div id="tab-resiliency-watchdog" class="deliverable-panel hidden font-mono">
-      <div class="border border-slate-800 bg-slate-950/50 rounded-lg p-5">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <h3 class="text-sm font-semibold text-slate-200 uppercase tracking-wider">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h3>
-        </div>
-        <p class="text-xs text-slate-400 mb-4">
-          Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.
-        </p>
-        <div class="space-y-2 text-xs">
-          <div class="flex justify-between items-center p-2 rounded bg-slate-900 border border-slate-800">
-            <span class="text-slate-300">systemd RequiresMountsFor</span>
-            <span class="text-emerald-400">/mnt/storage [ACTIVE]</span>
-          </div>
-          <div class="flex justify-between items-center p-2 rounded bg-slate-900 border border-slate-800">
-            <span class="text-slate-300">fstab Mount Guard</span>
-            <span class="text-emerald-400">nofail, x-systemd.automount</span>
-          </div>
-          <div class="flex justify-between items-center p-2 rounded bg-slate-900 border border-slate-800">
-            <span class="text-slate-300">Auto-Prune Watchdog Timer</span>
-            <span class="text-emerald-400">15m Interval (Threshold: 90%)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANEL 04: FIELD RUN-SHEET (DOC) -->
-    <div id="tab-field-runsheet" class="deliverable-panel hidden font-mono">
-      <div class="border border-slate-800 bg-slate-950/50 rounded-lg p-5">
-        <h3 class="text-sm font-semibold text-slate-200 uppercase tracking-wider mb-2">Module 04: Tactical Field Deployment Run-Sheet</h3>
-        <p class="text-xs text-slate-400 mb-4">
-          Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.
-        </p>
-        <div class="p-3 bg-slate-900 rounded border border-slate-800 text-xs text-slate-300 leading-relaxed">
-          1. Verify field node power &amp; Tailscale mesh uplink status.<br>
-          2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
-          3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
-          4. Verify write synchronization on external storage partition via Filebrowser.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ==========================================
-     TAB & CALCULATOR JAVASCRIPT LOGIC
-     ========================================== -->
-<script>
-  function switchDeliverableTab(activePanelId) {
-    document.querySelectorAll('.deliverable-panel').forEach(panel => {
-      panel.classList.add('hidden');
-      panel.classList.remove('block');
-    });
-
-    document.querySelectorAll('.deliverable-tab-btn').forEach(btn => {
-      btn.classList.remove('text-cyan-400', 'border-cyan-400', 'bg-slate-800/60');
-      btn.classList.add('text-slate-400', 'border-transparent');
-    });
-
-    const targetPanel = document.getElementById(activePanelId);
-    if (targetPanel) {
-      targetPanel.classList.remove('hidden');
-      targetPanel.classList.add('block');
-    }
-
-    const targetBtn = document.getElementById('btn-' + activePanelId);
-    if (targetBtn) {
-      targetBtn.classList.remove('text-slate-400', 'border-transparent');
-      targetBtn.classList.add('text-cyan-400', 'border-cyan-400', 'bg-slate-800/60');
-    }
-  }
-
-  function toggleSubView(view) {
-    const matrixView = document.getElementById('view-matrix');
-    const calcView = document.getElementById('view-calc');
-    const btnMatrix = document.getElementById('btn-sub-matrix');
-    const btnCalc = document.getElementById('btn-sub-calc');
-
-    if (view === 'matrix') {
-      matrixView.classList.remove('hidden');
-      calcView.classList.add('hidden');
-      btnMatrix.className = 'px-3 py-1 rounded bg-cyan-950 text-cyan-300 font-semibold border border-cyan-800/60 transition-all';
-      btnCalc.className = 'px-3 py-1 rounded text-slate-400 hover:text-slate-200 transition-all';
-    } else {
-      matrixView.classList.add('hidden');
-      calcView.classList.remove('hidden');
-      btnCalc.className = 'px-3 py-1 rounded bg-cyan-950 text-cyan-300 font-semibold border border-cyan-800/60 transition-all';
-      btnMatrix.className = 'px-3 py-1 rounded text-slate-400 hover:text-slate-200 transition-all';
-      updateStorageCalc();
-    }
-  }
-
-  function updateStorageCalc() {
-    const cams = parseInt(document.getElementById('input-cams').value);
-    const mbps = parseFloat(document.getElementById('input-bitrate').value);
-    const days = parseInt(document.getElementById('input-retention').value);
-
-    document.getElementById('calc-cams-val').textContent = `${cams} Channel${cams > 1 ? 's' : ''}`;
-    document.getElementById('calc-bitrate-val').textContent = `${mbps} Mbps`;
-    document.getElementById('calc-retention-val').textContent = `${days} Days`;
-
-    const gbPerHourSingle = (mbps * 3600) / 8000;
-    const gbPerHourTotal = gbPerHourSingle * cams;
-    const totalGB = Math.round(gbPerHourTotal * 24 * days);
-
-    document.getElementById('calc-rate-hr').textContent = `${gbPerHourTotal.toFixed(2)} GB/hr`;
-    document.getElementById('calc-total-gb').textContent = `${totalGB.toLocaleString()} GB`;
-  }
-</script>
-
-          <div class="pills-row">
-            <span class="pill">Docker / Proxmox</span>
-            <span class="pill">802.1Q VLANs</span>
-            <span class="pill">12G-SDI / SMPTE ST 2082</span>
-            <span class="pill">Dante / AES67</span>
-            <span class="pill">Neutrik D-Series</span>
-            <span class="pill">Online Double-Conversion UPS</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CAPABILITIES GRID -->
-    <section id="capabilities" class="section">
+    <!-- Capabilities -->
+    <section id="capabilities" class="section section-dark">
       <div class="container">
-        <div class="section-heading">
-          <span class="badge">Software Engineering &amp; Tooling</span>
-          <h2>Specialized Software &amp; Integration Engines</h2>
-          <p>Custom diagnostics, DSP protocol bridges, and resilient edge applications designed for contested environments.</p>
+        <div class="section-heading text-center">
+          <span class="badge">Integration Disciplines</span>
+          <h2>Technical Core Competencies</h2>
+          <p>Delivering precision signal distribution, AV/VTC commissioning, and tactical edge platforms.</p>
         </div>
-
         <div class="capabilities-grid">
-          <article class="cap-card">
-            <span class="tag">Enterprise Network Systems</span>
-            <h3>Enterprise AV/VTC Diagnostic &amp; Commissioning Suite</h3>
-            <p>
-              Automated subnet discovery, IEEE 1588 PTP clock drift validation, and multicast QoS audit engine. 
-              Verifies baseline network health for Dante/AES67 digital audio and NDI video streams prior to site acceptance.
-            </p>
+          <div class="cap-card">
+            <span class="tag">01 // Broadcast &amp; SDI</span>
+            <h3>Digital Signal Distribution</h3>
+            <p>End-to-end SDI/HDMI routing, zero-latency WebRTC pipelines, and automated multi-channel archival architectures.</p>
             <ul class="bullet-list">
-              <li>Automated IGMP Snooping and multicast boundary verification.</li>
-              <li>Sub-millisecond packet jitter and network buffer analysis.</li>
-              <li>Generates compliance PDF audit inspection certificates for clients.</li>
+              <li>12G-SDI &amp; SMPTE ST 2082 routing</li>
+              <li>Low-latency WebRTC &amp; RTSP fanout</li>
+              <li>Edge retention &amp; automated disk watchdogs</li>
             </ul>
             <div class="pills-row">
-              <span class="pill">Python</span>
-              <span class="pill">Raw Sockets</span>
-              <span class="pill">Dante / AES67</span>
-              <span class="pill">QoS Analysis</span>
+              <span class="pill">MediaMTX</span>
+              <span class="pill">WebRTC</span>
+              <span class="pill">fMP4</span>
             </div>
-          </article>
+          </div>
 
-          <article class="cap-card">
-            <span class="tag">Hardware / Protocol Bridge</span>
-            <h3>Audio-Reactive Environmental Lighting Engine</h3>
-            <p>
-              High-performance bridge linking incoming live audio streams to DMX512, Art-Net, and sACN lighting fixtures 
-              with real-time FFT spectrum isolation and automated failsafe fallback.
-            </p>
+          <div class="cap-card">
+            <span class="tag">02 // Networking</span>
+            <h3>Edge Systems &amp; Mesh Overlays</h3>
+            <p>Encrypted mesh routing, automated Linux daemon supervision, and virtual container orchestration.</p>
             <ul class="bullet-list">
-              <li>Multi-band transient and frequency separation via real-time DSP.</li>
-              <li>Autonomous heartbeat switch to warm wash if audio signal drops.</li>
-              <li>Sub-10ms latency loop over UDP Art-Net broadcast interfaces.</li>
+              <li>WireGuard &amp; Tailscale mesh networking</li>
+              <li>Docker &amp; systemd mount dependencies</li>
+              <li>Uptime Kuma active service telemetry</li>
             </ul>
             <div class="pills-row">
-              <span class="pill">C++ / JUCE</span>
-              <span class="pill">Art-Net / DMX512</span>
-              <span class="pill">Embedded Microcontrollers</span>
-              <span class="pill">WebGL</span>
+              <span class="pill">Docker</span>
+              <span class="pill">Tailscale</span>
+              <span class="pill">Linux</span>
             </div>
-          </article>
+          </div>
 
-          <article class="cap-card">
-            <span class="tag">Edge Mobile Application</span>
-            <h3>Resilient Offline-First Mobile Asset &amp; Field Ops Tracker</h3>
-            <p>
-              Ruggedized, low-draw cross-platform application designed for incident command posts and remote field logistics 
-              where cellular coverage is zero or contested.
-            </p>
+          <div class="cap-card">
+            <span class="tag">03 // Field Hardware</span>
+            <h3>Rugged Systems Integration</h3>
+            <p>Custom flypack assemblies, clean power delivery, and rapid field deployment configurations.</p>
             <ul class="bullet-list">
-              <li>Local SQLite / Hive database with CRDT background sync on reconnection.</li>
-              <li>Integrated camera QR / barcode scanning for rapid hardware checkouts.</li>
-              <li>Optimized OLED high-contrast dark mode for field battery preservation.</li>
+              <li>Neutrik I/O custom patch panels</li>
+              <li>Pure sine UPS battery failover</li>
+              <li>Thermal-managed sealed enclosures</li>
             </ul>
             <div class="pills-row">
-              <span class="pill">Flutter / Dart</span>
-              <span class="pill">Offline SQLite</span>
-              <span class="pill">Conflict-Free Sync</span>
-              <span class="pill">QR Scanning</span>
+              <span class="pill">Neutrik</span>
+              <span class="pill">Pelican</span>
+              <span class="pill">UPS</span>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section section-dark">
-      <div class="container contact-container">
-        <div class="section-heading text-center">
-          <span class="badge">Direct Communication</span>
-          <h2>Initiate an Integration Project or RFQ</h2>
-          <p>Inquire regarding system builds, technical consultations, or prime/subcontracting partnerships.</p>
-        </div>
-
-        <div class="contact-card">
-          <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-            <div class="form-group">
-              <label for="name">Name / Organization / Agency</label>
-              <input type="text" id="name" name="name" required placeholder="e.g. John Doe / Organization Name" />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Direct Contact Email</label>
-              <input type="email" id="email" name="_replyto" required placeholder="you@agency.gov or you@company.com" />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Project Requirements / Scope of Work</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Describe technical scope, timeline, hardware specifications, or RFQ details..."></textarea>
-            </div>
-
-            <button type="submit" id="submit-btn" class="btn btn-primary submit-btn">
-              Send Communication
-            </button>
-            <div id="form-status"></div>
-          </form>
+    <!-- Profile -->
+    <section id="profile" class="section">
+      <div class="container">
+        <div class="profile-layout">
+          <div class="profile-narrative">
+            <span class="badge">Enterprise Foundation</span>
+            <h2 style="font-size:2rem; margin:10px 0 16px 0;">Applied Integration Systems</h2>
+            <p>
+              AIS Technologies specializes in precision systems integration, tactical edge video infrastructure, and mission-ready digital distribution platforms.
+            </p>
+            <p>
+              From custom rack integration to live command-post video telemetry, our systems are built with automated service resilience, hardened security controls, and proven field reliability.
+            </p>
+          </div>
+          <div class="profile-card">
+            <h3>Operational Baseline</h3>
+            <ul class="baseline-list">
+              <li><span>Primary Disciplines</span> <strong>AV/VTC &amp; Edge Video</strong></li>
+              <li><span>Security Protocol</span> <strong>Hardened WireGuard / Mesh</strong></li>
+              <li><span>Storage Architecture</span> <strong>Supervised fMP4 Auto-Prune</strong></li>
+              <li><span>Telemetry</span> <strong>Active Socket &amp; Port Probes</strong></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- LIGHTBOX MODAL -->
-  <div id="lightbox" aria-hidden="true">
-    <div class="lightbox-controls">
-      <button id="zoom-in" type="button">+</button>
-      <button id="zoom-out" type="button">−</button>
-      <button id="zoom-reset" type="button">Reset</button>
-      <button id="close-modal" type="button">✕</button>
-    </div>
-    <div id="lightbox-viewport">
-      <div id="lightbox-canvas"></div>
-    </div>
-  </div>
-
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Applied Integration Systems LLC (dba AIS Technologies). Precision Systems Engineering.</p>
+      &copy; 2026 AIS Technologies (Applied Integration Systems). All rights reserved.
     </div>
-  </footer>   
+  </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Dual-Tab Schematic Switching
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const diagrams = document.querySelectorAll('.diagram-img');
-      const viewerControls = document.querySelector('.viewer-controls');
-
-      if (viewerControls) {
-        viewerControls.addEventListener('click', (e) => e.stopPropagation());
-        viewerControls.addEventListener('touchend', (e) => e.stopPropagation());
-      }
-
-      tabButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          tabButtons.forEach(b => b.classList.remove('active'));
-          diagrams.forEach(d => d.classList.remove('active'));
-          btn.classList.add('active');
-          const targetId = btn.getAttribute('data-target');
-          const targetDiagram = document.getElementById(targetId);
-          if (targetDiagram) targetDiagram.classList.add('active');
-        });
-      });
-
-      // 2. Lightbox Pan & Zoom
-      const viewerDisplay = document.querySelector('.viewer-display');
-      const lightbox = document.getElementById('lightbox');
-      const canvas = document.getElementById('lightbox-canvas');
-      const viewport = document.getElementById('lightbox-viewport');
-      const closeBtn = document.getElementById('close-modal');
-      const zoomInBtn = document.getElementById('zoom-in');
-      const zoomOutBtn = document.getElementById('zoom-out');
-      const zoomResetBtn = document.getElementById('zoom-reset');
-
-      let scale = 1, translateX = 0, translateY = 0, isDragging = false, startX = 0, startY = 0;
-      let initialPinchDistance = null, initialScale = 1;
-
-      function updateTransform() {
-        if (canvas) canvas.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-      }
-
-      function resetView() {
-        scale = 1; translateX = 0; translateY = 0; updateTransform();
-      }
-
-      function getDistance(t1, t2) {
-        return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
-      }
-
-      const targetTrigger = viewerDisplay || document.getElementById('schematic-viewer');
-      if (targetTrigger && lightbox && canvas) {
-        targetTrigger.addEventListener('click', () => {
-          const activeDiagram = document.querySelector('.diagram-img.active');
-          if (activeDiagram && activeDiagram.src) {
-            canvas.innerHTML = `<img src="${activeDiagram.src}" alt="Expanded Schematic" style="max-width: 90vw; max-height: 85vh; object-fit: contain; pointer-events: none; display: block; user-select: none;" />`;
-            lightbox.style.setProperty('display', 'block', 'important');
-            lightbox.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            resetView();
-          }
-        });
-      }
-
-      function hideLightbox() {
-        if (lightbox && canvas) {
-          lightbox.style.setProperty('display', 'none', 'important');
-          lightbox.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-          canvas.innerHTML = '';
-          resetView();
-        }
-      }
-
-      if (closeBtn) closeBtn.addEventListener('click', hideLightbox);
-      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideLightbox(); });
-
-      if (zoomInBtn) zoomInBtn.addEventListener('click', (e) => { e.stopPropagation(); scale = Math.min(scale * 1.3, 5); updateTransform(); });
-      if (zoomOutBtn) zoomOutBtn.addEventListener('click', (e) => { e.stopPropagation(); scale = Math.max(scale / 1.3, 0.5); updateTransform(); });
-      if (zoomResetBtn) zoomResetBtn.addEventListener('click', (e) => { e.stopPropagation(); resetView(); });
-
-      if (viewport) {
-        viewport.addEventListener('wheel', (e) => {
-          e.preventDefault();
-          scale = Math.min(Math.max(scale * (e.deltaY < 0 ? 1.15 : 0.85), 0.4), 6);
-          updateTransform();
-        }, { passive: false });
-
-        viewport.addEventListener('mousedown', (e) => {
-          if (e.target.closest('#zoom-in, #zoom-out, #zoom-reset, #close-modal')) return;
-          isDragging = true; startX = e.clientX - translateX; startY = e.clientY - translateY;
-        });
-
-        window.addEventListener('mousemove', (e) => {
-          if (!isDragging) return;
-          translateX = e.clientX - startX; translateY = e.clientY - startY; updateTransform();
-        });
-
-        window.addEventListener('mouseup', () => { isDragging = false; });
-
-        viewport.addEventListener('touchstart', (e) => {
-          if (e.target.closest('#zoom-in, #zoom-out, #zoom-reset, #close-modal')) return;
-          if (e.touches.length === 1) {
-            isDragging = true; startX = e.touches[0].clientX - translateX; startY = e.touches[0].clientY - translateY;
-          } else if (e.touches.length === 2) {
-            isDragging = false; initialPinchDistance = getDistance(e.touches[0], e.touches[1]); initialScale = scale;
-          }
-        }, { passive: true });
-
-        viewport.addEventListener('touchmove', (e) => {
-          if (e.cancelable) e.preventDefault();
-          if (e.touches.length === 1 && isDragging) {
-            translateX = e.touches[0].clientX - startX; translateY = e.touches[0].clientY - startY; updateTransform();
-          } else if (e.touches.length === 2 && initialPinchDistance) {
-            scale = Math.min(Math.max(initialScale * (getDistance(e.touches[0], e.touches[1]) / initialPinchDistance), 0.4), 6);
-            updateTransform();
-          }
-        }, { passive: false });
-
-        viewport.addEventListener('touchend', (e) => {
-          if (e.touches.length === 0) isDragging = false;
-        });
-      }
-
-      // 3. Formspree AJAX
-      const contactForm = document.getElementById('contact-form');
-      const formStatus = document.getElementById('form-status');
-      const submitButton = document.getElementById('submit-btn');
-
-      if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          if (submitButton) { submitButton.disabled = true; submitButton.innerText = 'Transmitting...'; }
-          const formData = new FormData(contactForm);
-          try {
-            const res = await fetch(contactForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-            if (res.ok) {
-              if (formStatus) { formStatus.style.display = 'block'; formStatus.style.color = '#10b981'; formStatus.innerText = 'Transmission received. AIS Technologies will respond shortly.'; }
-              contactForm.reset();
-            } else {
-              if (formStatus) { formStatus.style.display = 'block'; formStatus.style.color = '#ef4444'; formStatus.innerText = 'Transmission error. Please try again.'; }
-            }
-          } catch (err) {
-            if (formStatus) { formStatus.style.display = 'block'; formStatus.style.color = '#ef4444'; formStatus.innerText = 'Network error. Please verify your connection.'; }
-          } finally {
-            if (submitButton) { submitButton.disabled = false; submitButton.innerText = 'Send Communication'; }
-          }
-        });
-      }
-    });
-  </script>
-  <script src="scripts.js?v=5.0"></script>
+  <script src="scripts.js?v=6.0"></script>
 </body>
 </html>
