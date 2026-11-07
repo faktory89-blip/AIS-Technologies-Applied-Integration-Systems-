@@ -268,3 +268,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+function switchSubView(view) {
+    const table = document.getElementById('ueoc-sub-table');
+    const calc = document.getElementById('ueoc-sub-calc');
+    const btnT = document.getElementById('sub-btn-table');
+    const btnC = document.getElementById('sub-btn-calc');
+
+    if (view === 'table') {
+      table.style.display = 'block';
+      calc.style.display = 'none';
+      btnT.classList.add('active');
+      btnC.classList.remove('active');
+    } else {
+      table.style.display = 'none';
+      calc.style.display = 'block';
+      btnC.classList.add('active');
+      btnT.classList.remove('active');
+      runStorageMath();
+    }
+  }
+
+  function runStorageMath() {
+    const cams = parseInt(document.getElementById('cams-range').value);
+    const mbps = parseFloat(document.getElementById('bitrate-range').value);
+    const days = parseInt(document.getElementById('days-range').value);
+
+    document.getElementById('cams-num').textContent = `${cams} Channel${cams > 1 ? 's' : ''}`;
+    document.getElementById('bitrate-num').textContent = `${mbps} Mbps`;
+    document.getElementById('days-num').textContent = `${days} Days`;
+
+    const ratePerHour = (mbps * 3600) / 8000 * cams;
+    const totalGB = Math.round(ratePerHour * 24 * days);
+
+    document.getElementById('out-rate-hr').textContent = `${ratePerHour.toFixed(2)} GB/hr`;
+    document.getElementById('out-total-gb').textContent = `${totalGB.toLocaleString()} GB`;
+  }
+</script>
