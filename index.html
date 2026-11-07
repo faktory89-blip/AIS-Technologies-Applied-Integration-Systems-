@@ -887,6 +887,333 @@
             </div>
           </div>
 
+          <!-- ==========================================
+     UEOC / FLYPACK ENGINEERING DELIVERABLES
+     ========================================== -->
+<section id="ueoc-deliverables" class="w-full max-w-7xl mx-auto my-12 px-4 sm:px-6 font-sans">
+  
+  <!-- Header Bar -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+    <div>
+      <div class="flex items-center gap-2 mb-1">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-mono tracking-widest text-emerald-400 uppercase">System Engineering Deck</span>
+      </div>
+      <h2 class="text-2xl font-bold tracking-tight text-white uppercase font-mono">
+        Field Node Deliverables &amp; Module Specifications
+      </h2>
+      <p class="text-sm text-slate-400 mt-1">
+        Verified runtime telemetry, operational protocol matrices, and system architecture modules.
+      </p>
+    </div>
+    <div class="text-xs font-mono text-slate-500 text-right">
+      NODE ID: <span class="text-slate-300 font-semibold">UEOC-NODE-01</span><br>
+      STATUS: <span class="text-emerald-400 font-semibold">ACTIVE MESH</span>
+    </div>
+  </div>
+
+  <!-- Horizontal Tab Bar Navigation -->
+  <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800/80 scrollbar-thin scrollbar-thumb-slate-700">
+    <!-- Tab 01 -->
+    <button type="button" 
+            onclick="switchDeliverableTab('tab-video-core')" 
+            id="btn-tab-video-core"
+            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap bg-slate-850 text-cyan-400 border-cyan-400 bg-slate-800/60">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+      <span>01 // VIDEO INGEST &amp; STORAGE</span>
+      <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800/50">ONLINE</span>
+    </button>
+
+    <!-- Tab 02 -->
+    <button type="button" 
+            onclick="switchDeliverableTab('tab-aerial-drone')" 
+            id="btn-tab-aerial-drone"
+            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap text-slate-400 border-transparent hover:text-slate-200 hover:bg-slate-850/50">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
+      <span>02 // AERIAL &amp; DRONE INGEST</span>
+      <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950/80 text-amber-400 border border-amber-800/50">QUEUED</span>
+    </button>
+
+    <!-- Tab 03 -->
+    <button type="button" 
+            onclick="switchDeliverableTab('tab-resiliency-watchdog')" 
+            id="btn-tab-resiliency-watchdog"
+            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap text-slate-400 border-transparent hover:text-slate-200 hover:bg-slate-850/50">
+      <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+      <span>03 // RESILIENCY &amp; WATCHDOG</span>
+      <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">STAGED</span>
+    </button>
+
+    <!-- Tab 04 -->
+    <button type="button" 
+            onclick="switchDeliverableTab('tab-field-runsheet')" 
+            id="btn-tab-field-runsheet"
+            class="deliverable-tab-btn flex items-center gap-2.5 px-4 py-2.5 rounded-t-lg border-b-2 text-xs font-mono font-medium transition-all whitespace-nowrap text-slate-400 border-transparent hover:text-slate-200 hover:bg-slate-850/50">
+      <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+      <span>04 // FIELD RUN-SHEET</span>
+      <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">DOC</span>
+    </button>
+  </div>
+
+  <!-- Deliverable Tab Content Panels -->
+  <div class="bg-slate-900/90 border border-slate-800 rounded-b-xl p-5 sm:p-6 shadow-2xl backdrop-blur-sm min-h-[420px]">
+    
+    <!-- PANEL 01: VIDEO INGEST & PROTOCOL MATRIX -->
+    <div id="tab-video-core" class="deliverable-panel block">
+      <div class="mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+          <h3 class="text-base font-semibold text-white tracking-wide">
+            Core Video Transport &amp; Multiplexing Architecture
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention metrics.
+          </p>
+        </div>
+        <!-- Sub-View Switcher -->
+        <div class="inline-flex p-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono">
+          <button type="button" onclick="toggleSubView('matrix')" id="btn-sub-matrix" class="px-3 py-1 rounded bg-cyan-950 text-cyan-300 font-semibold border border-cyan-800/60 transition-all">Protocol Matrix</button>
+          <button type="button" onclick="toggleSubView('calc')" id="btn-sub-calc" class="px-3 py-1 rounded text-slate-400 hover:text-slate-200 transition-all">Retention Engine</button>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 1: Matrix Table -->
+      <div id="view-matrix" class="block overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-950/60 font-mono text-slate-400 uppercase">
+              <th class="py-3 px-3">Service Role</th>
+              <th class="py-3 px-3">Protocol</th>
+              <th class="py-3 px-3">Transport</th>
+              <th class="py-3 px-3">Port Scope</th>
+              <th class="py-3 px-3">Security &amp; Mesh</th>
+              <th class="py-3 px-3 text-right">Target Latency</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 font-mono">
+            <tr class="hover:bg-slate-850/40 transition-colors">
+              <td class="py-3 px-3 font-semibold text-white">Field Camera Primary Ingest</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/40">RTSP</span></td>
+              <td class="py-3 px-3 text-slate-300">TCP (H.264 / AAC)</td>
+              <td class="py-3 px-3 text-cyan-400">8554 / TCP</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Digest Token / Auth</span></td>
+              <td class="py-3 px-3 text-right text-emerald-400 font-semibold">&lt; 150 ms</td>
+            </tr>
+            <tr class="hover:bg-slate-850/40 transition-colors">
+              <td class="py-3 px-3 font-semibold text-white">Aerial &amp; Drone Feed Uplink</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/40">RTMP</span></td>
+              <td class="py-3 px-3 text-slate-300">TCP (FLV Multiplex)</td>
+              <td class="py-3 px-3 text-cyan-400">1935 / TCP</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Publish Key / Token</span></td>
+              <td class="py-3 px-3 text-right text-amber-400 font-semibold">&lt; 350 ms</td>
+            </tr>
+            <tr class="hover:bg-slate-850/40 transition-colors">
+              <td class="py-3 px-3 font-semibold text-white">Tactical Web Egress</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/40">WebRTC</span></td>
+              <td class="py-3 px-3 text-slate-300">UDP / ICE / DTLS</td>
+              <td class="py-3 px-3 text-cyan-400">8889 / 8189</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40">Tailscale Encrypted</span></td>
+              <td class="py-3 px-3 text-right text-emerald-400 font-semibold">&lt; 180 ms</td>
+            </tr>
+            <tr class="hover:bg-slate-850/40 transition-colors">
+              <td class="py-3 px-3 font-semibold text-white">Forensic Evidence &amp; Archive</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-800/40">HTTP / TLS</span></td>
+              <td class="py-3 px-3 text-slate-300">TCP (fMP4 Vault)</td>
+              <td class="py-3 px-3 text-cyan-400">8085 / TCP</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">RBAC / Operator Auth</span></td>
+              <td class="py-3 px-3 text-right text-slate-400">On-Demand</td>
+            </tr>
+            <tr class="hover:bg-slate-850/40 transition-colors">
+              <td class="py-3 px-3 font-semibold text-white">Subsystem Health &amp; Ingest Heartbeat</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">REST API</span></td>
+              <td class="py-3 px-3 text-slate-300">TCP (JSON Metric)</td>
+              <td class="py-3 px-3 text-cyan-400">9997 / TCP</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Host Internal Only</span></td>
+              <td class="py-3 px-3 text-right text-emerald-400 font-semibold">10s Poll</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SUB-VIEW 2: Retention Engine -->
+      <div id="view-calc" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 bg-slate-950/70 border border-slate-800 p-5 rounded-lg font-mono">
+          <div class="lg:col-span-2 space-y-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Active Field Channels</span>
+                <span id="calc-cams-val" class="text-cyan-400 font-bold">2 Channels</span>
+              </div>
+              <input type="range" id="input-cams" min="1" max="8" value="2" oninput="updateStorageCalc()" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Stream Bitrate (Per Camera)</span>
+                <span id="calc-bitrate-val" class="text-cyan-400 font-bold">4.5 Mbps</span>
+              </div>
+              <input type="range" id="input-bitrate" min="1" max="15" step="0.5" value="4.5" oninput="updateStorageCalc()" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Rolling Archive Window</span>
+                <span id="calc-retention-val" class="text-cyan-400 font-bold">14 Days</span>
+              </div>
+              <input type="range" id="input-retention" min="3" max="30" value="14" oninput="updateStorageCalc()" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+            </div>
+          </div>
+          <!-- Storage Telemetry Output -->
+          <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg flex flex-col justify-between">
+            <span class="text-[11px] uppercase tracking-wider text-slate-500">Projected Storage Vault</span>
+            <div class="my-3">
+              <div id="calc-total-gb" class="text-3xl font-extrabold text-cyan-400">1,360 GB</div>
+              <div class="text-[11px] text-slate-400 mt-1">Est. Write Rate: <span id="calc-rate-hr" class="text-slate-200">4.05 GB/hr</span></div>
+            </div>
+            <div class="text-[11px] text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2.5 py-1.5 rounded">
+              ✓ Compliant with Dedicated Mount Quota
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 02: AERIAL & DRONE (QUEUED) -->
+    <div id="tab-aerial-drone" class="deliverable-panel hidden font-mono">
+      <div class="border border-amber-900/40 bg-amber-950/20 rounded-lg p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <h3 class="text-sm font-semibold text-amber-300 uppercase tracking-wider">Module 02: Aerial Feed Uplink &amp; Telemetry</h3>
+        </div>
+        <p class="text-xs text-slate-300 mb-4">
+          Scheduled for field pairing. Implements RTMP/RTSP dual-ingest profile on path <code class="text-amber-400 font-bold">/drone1</code> with WebRTC fanout to the Homarr dashboard matrix.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="bg-slate-900/80 p-3 rounded border border-slate-800">
+            <div class="text-slate-500 text-[10px]">UPLINK PATH</div>
+            <div class="text-slate-200 font-bold mt-1">/drone1</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded border border-slate-800">
+            <div class="text-slate-500 text-[10px]">DOWNLINK CODEC</div>
+            <div class="text-slate-200 font-bold mt-1">H.264 / AAC Passthrough</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded border border-slate-800">
+            <div class="text-slate-500 text-[10px]">WEBRTC ROUTE</div>
+            <div class="text-slate-200 font-bold mt-1">:8889/drone1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 03: RESILIENCY & WATCHDOG (STAGED) -->
+    <div id="tab-resiliency-watchdog" class="deliverable-panel hidden font-mono">
+      <div class="border border-slate-800 bg-slate-950/50 rounded-lg p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <h3 class="text-sm font-semibold text-slate-200 uppercase tracking-wider">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h3>
+        </div>
+        <p class="text-xs text-slate-400 mb-4">
+          Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.
+        </p>
+        <div class="space-y-2 text-xs">
+          <div class="flex justify-between items-center p-2 rounded bg-slate-900 border border-slate-800">
+            <span class="text-slate-300">systemd RequiresMountsFor</span>
+            <span class="text-emerald-400">/mnt/storage [ACTIVE]</span>
+          </div>
+          <div class="flex justify-between items-center p-2 rounded bg-slate-900 border border-slate-800">
+            <span class="text-slate-300">fstab Mount Guard</span>
+            <span class="text-emerald-400">nofail, x-systemd.automount</span>
+          </div>
+          <div class="flex justify-between items-center p-2 rounded bg-slate-900 border border-slate-800">
+            <span class="text-slate-300">Auto-Prune Watchdog Timer</span>
+            <span class="text-emerald-400">15m Interval (Threshold: 90%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 04: FIELD RUN-SHEET (DOC) -->
+    <div id="tab-field-runsheet" class="deliverable-panel hidden font-mono">
+      <div class="border border-slate-800 bg-slate-950/50 rounded-lg p-5">
+        <h3 class="text-sm font-semibold text-slate-200 uppercase tracking-wider mb-2">Module 04: Tactical Field Deployment Run-Sheet</h3>
+        <p class="text-xs text-slate-400 mb-4">
+          Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.
+        </p>
+        <div class="p-3 bg-slate-900 rounded border border-slate-800 text-xs text-slate-300 leading-relaxed">
+          1. Verify field node power &amp; Tailscale mesh uplink status.<br>
+          2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
+          3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
+          4. Verify write synchronization on external storage partition via Filebrowser.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================
+     TAB & CALCULATOR JAVASCRIPT LOGIC
+     ========================================== -->
+<script>
+  function switchDeliverableTab(activePanelId) {
+    document.querySelectorAll('.deliverable-panel').forEach(panel => {
+      panel.classList.add('hidden');
+      panel.classList.remove('block');
+    });
+
+    document.querySelectorAll('.deliverable-tab-btn').forEach(btn => {
+      btn.classList.remove('text-cyan-400', 'border-cyan-400', 'bg-slate-800/60');
+      btn.classList.add('text-slate-400', 'border-transparent');
+    });
+
+    const targetPanel = document.getElementById(activePanelId);
+    if (targetPanel) {
+      targetPanel.classList.remove('hidden');
+      targetPanel.classList.add('block');
+    }
+
+    const targetBtn = document.getElementById('btn-' + activePanelId);
+    if (targetBtn) {
+      targetBtn.classList.remove('text-slate-400', 'border-transparent');
+      targetBtn.classList.add('text-cyan-400', 'border-cyan-400', 'bg-slate-800/60');
+    }
+  }
+
+  function toggleSubView(view) {
+    const matrixView = document.getElementById('view-matrix');
+    const calcView = document.getElementById('view-calc');
+    const btnMatrix = document.getElementById('btn-sub-matrix');
+    const btnCalc = document.getElementById('btn-sub-calc');
+
+    if (view === 'matrix') {
+      matrixView.classList.remove('hidden');
+      calcView.classList.add('hidden');
+      btnMatrix.className = 'px-3 py-1 rounded bg-cyan-950 text-cyan-300 font-semibold border border-cyan-800/60 transition-all';
+      btnCalc.className = 'px-3 py-1 rounded text-slate-400 hover:text-slate-200 transition-all';
+    } else {
+      matrixView.classList.add('hidden');
+      calcView.classList.remove('hidden');
+      btnCalc.className = 'px-3 py-1 rounded bg-cyan-950 text-cyan-300 font-semibold border border-cyan-800/60 transition-all';
+      btnMatrix.className = 'px-3 py-1 rounded text-slate-400 hover:text-slate-200 transition-all';
+      updateStorageCalc();
+    }
+  }
+
+  function updateStorageCalc() {
+    const cams = parseInt(document.getElementById('input-cams').value);
+    const mbps = parseFloat(document.getElementById('input-bitrate').value);
+    const days = parseInt(document.getElementById('input-retention').value);
+
+    document.getElementById('calc-cams-val').textContent = `${cams} Channel${cams > 1 ? 's' : ''}`;
+    document.getElementById('calc-bitrate-val').textContent = `${mbps} Mbps`;
+    document.getElementById('calc-retention-val').textContent = `${days} Days`;
+
+    const gbPerHourSingle = (mbps * 3600) / 8000;
+    const gbPerHourTotal = gbPerHourSingle * cams;
+    const totalGB = Math.round(gbPerHourTotal * 24 * days);
+
+    document.getElementById('calc-rate-hr').textContent = `${gbPerHourTotal.toFixed(2)} GB/hr`;
+    document.getElementById('calc-total-gb').textContent = `${totalGB.toLocaleString()} GB`;
+  }
+</script>
+
           <div class="pills-row">
             <span class="pill">Docker / Proxmox</span>
             <span class="pill">802.1Q VLANs</span>
