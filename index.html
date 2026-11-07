@@ -11,7 +11,7 @@
   <meta property="og:title" content="AIS Technologies | Precision Systems Engineering &amp; Integration">
   <meta property="og:image" content="assets/images/logo.jpg">
   
-  <link rel="stylesheet" href="styles.css?v=6.0">
+  <link rel="stylesheet" href="styles.css?v=8.0">
 </head>
 <body>
 
@@ -20,15 +20,15 @@
     <div class="container nav-layout">
       <div class="brand">AIS <span>Technologies</span></div>
       <ul class="nav-links">
-        <li><a href="#flypack">Flypack Architecture</a></li>
+        <li><a href="#about">About &amp; Vision</a></li>
+        <li><a href="#tactical-node">Tactical Node</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#profile">Profile</a></li>
       </ul>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- 1. HERO -->
     <section class="hero-section">
       <div class="container hero-container">
         <span class="badge">Tactical Edge &amp; Infrastructure Engineering</span>
@@ -37,20 +37,51 @@
           Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution built for mission-critical deployments.
         </p>
         <div class="hero-actions">
-          <a href="#flypack" class="btn btn-primary">Inspect System Node</a>
-          <a href="#capabilities" class="btn btn-secondary">Capabilities</a>
+          <a href="#tactical-node" class="btn btn-primary">Inspect System Node</a>
+          <a href="#about" class="btn btn-secondary">Company Vision</a>
         </div>
       </div>
     </section>
 
-    <!-- Flypack & Deliverables Section -->
-    <section id="flypack" class="section">
+    <!-- 2. ENTERPRISE FOUNDATION / WHO WE ARE & VISION (MOVED TO TOP) -->
+    <section id="about" class="section section-dark">
+      <div class="container">
+        <div class="profile-layout">
+          <div class="profile-narrative">
+            <span class="badge">Enterprise Foundation</span>
+            <h2 style="font-size:2.2rem; margin:10px 0 16px 0; letter-spacing:-0.02em;">Applied Integration Systems</h2>
+            <h4 style="color:var(--primary); font-size:1.1rem; margin:0 0 14px 0; font-weight:600;">Mission-Critical Rigor. Turnkey Engineering.</h4>
+            <p>
+              AIS Technologies specializes in precision systems integration, tactical edge video infrastructure, and high-reliability digital distribution platforms. Founded on rigorous military signal support principles, we bridge the gap between heavy enterprise IT networking and rapid-deployment broadcast engineering.
+            </p>
+            <p>
+              <strong>Our Vision:</strong> To deliver resilient, autonomous edge solutions that operate seamlessly under austere conditions—from secure command-post video telemetry to distributed mesh facilities—ensuring operators maintain clear, low-latency situational awareness without dependence on fragile infrastructure.
+            </p>
+          </div>
+          <div class="profile-card">
+            <h3>Operational Baseline</h3>
+            <ul class="baseline-list">
+              <li><span>Primary Disciplines</span> <strong>AV/VTC &amp; Edge Video</strong></li>
+              <li><span>Security Protocol</span> <strong>Hardened WireGuard / Mesh</strong></li>
+              <li><span>Storage Architecture</span> <strong>Supervised fMP4 Auto-Prune</strong></li>
+              <li><span>Signal Integrity</span> <strong>SMPTE 12G-SDI &amp; WebRTC</strong></li>
+              <li><span>Telemetry</span> <strong>Active Socket &amp; Port Probes</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. UNIFIED TACTICAL NODE & DELIVERABLES SPECIFICATION -->
+    <section id="tactical-node" class="section">
       <div class="container">
         <div class="flypack-card">
+          
+          <!-- Unified Header -->
           <div class="card-bar">
             <div>
-              <span class="tag">Tactical Node Specification</span>
-              <h3>Universal Edge Operations Console (UEOC)</h3>
+              <span class="badge">Core Tactical Specification</span>
+              <h3 style="font-size:1.5rem; margin-top:6px;">Universal Edge Operations Console (UEOC)</h3>
             </div>
             <span class="status-live">Verified Operational</span>
           </div>
@@ -58,7 +89,7 @@
             A ruggedized, modular video ingestion and multiplexing gateway engineered for zero-latency field fanout, automated local retention, and authenticated wireline transmission.
           </p>
 
-          <!-- Top-Level Schematic Viewer -->
+          <!-- Part A: Schematics & Topology Viewer -->
           <div class="viewer-box">
             <div class="viewer-controls">
               <div class="tab-group">
@@ -72,8 +103,8 @@
             </div>
           </div>
 
-          <!-- Bottom Deliverables Station -->
-          <div id="ueoc-deliverables">
+          <!-- Part B: Unified Station Deliverables Deck -->
+          <div id="ueoc-deliverables" style="margin-top:35px; border-top:1px solid var(--border-color); padding-top:25px;">
             <div class="ueoc-header-bar">
               <div>
                 <span class="badge" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.3);">Verified Module Deliverables</span>
@@ -84,27 +115,27 @@
               </div>
             </div>
 
-            <!-- Station Tabs -->
+            <!-- Horizontal Tab Bar -->
             <div class="ueoc-tab-bar">
-              <button type="button" onclick="openUeocTab(event, 'p-video')" class="ueoc-tab-btn active">
+              <button type="button" id="tabbtn-p-video" onclick="openUeocTab(event, 'p-video')" class="ueoc-tab-btn active">
                 <span>01 // VIDEO INGEST &amp; STORAGE</span>
                 <span class="ueoc-badge badge-online">ONLINE</span>
               </button>
-              <button type="button" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
+              <button type="button" id="tabbtn-p-drone" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
                 <span>02 // AERIAL &amp; DRONE INGEST</span>
                 <span class="ueoc-badge badge-queued">QUEUED</span>
               </button>
-              <button type="button" onclick="openUeocTab(event, 'p-resilience')" class="ueoc-tab-btn">
+              <button type="button" id="tabbtn-p-resilience" onclick="openUeocTab(event, 'p-resilience')" class="ueoc-tab-btn">
                 <span>03 // RESILIENCY &amp; WATCHDOG</span>
                 <span class="ueoc-badge badge-staged">STAGED</span>
               </button>
-              <button type="button" onclick="openUeocTab(event, 'p-field')" class="ueoc-tab-btn">
+              <button type="button" id="tabbtn-p-field" onclick="openUeocTab(event, 'p-field')" class="ueoc-tab-btn">
                 <span>04 // FIELD RUN-SHEET</span>
                 <span class="ueoc-badge badge-staged">DOC</span>
               </button>
             </div>
 
-            <!-- Station Content Panels -->
+            <!-- Tab Panels -->
             <div class="ueoc-panel-deck">
               
               <!-- Tab 1: Video Core -->
@@ -278,11 +309,12 @@
 
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Capabilities -->
+    <!-- 4. CAPABILITIES -->
     <section id="capabilities" class="section section-dark">
       <div class="container">
         <div class="section-heading text-center">
@@ -341,41 +373,118 @@
         </div>
       </div>
     </section>
-
-    <!-- Profile -->
-    <section id="profile" class="section">
-      <div class="container">
-        <div class="profile-layout">
-          <div class="profile-narrative">
-            <span class="badge">Enterprise Foundation</span>
-            <h2 style="font-size:2rem; margin:10px 0 16px 0;">Applied Integration Systems</h2>
-            <p>
-              AIS Technologies specializes in precision systems integration, tactical edge video infrastructure, and mission-ready digital distribution platforms.
-            </p>
-            <p>
-              From custom rack integration to live command-post video telemetry, our systems are built with automated service resilience, hardened security controls, and proven field reliability.
-            </p>
-          </div>
-          <div class="profile-card">
-            <h3>Operational Baseline</h3>
-            <ul class="baseline-list">
-              <li><span>Primary Disciplines</span> <strong>AV/VTC &amp; Edge Video</strong></li>
-              <li><span>Security Protocol</span> <strong>Hardened WireGuard / Mesh</strong></li>
-              <li><span>Storage Architecture</span> <strong>Supervised fMP4 Auto-Prune</strong></li>
-              <li><span>Telemetry</span> <strong>Active Socket &amp; Port Probes</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       &copy; 2026 AIS Technologies (Applied Integration Systems). All rights reserved.
     </div>
   </footer>
 
-  <script src="scripts.js?v=6.0"></script>
+  <!-- Self-Contained Inline Client Runtime Script -->
+  <script>
+    // 1. Schematic Viewer Switcher (Hardware vs Software)
+    window.switchSchematic = function(tabId) {
+      var btns = document.querySelectorAll('.tab-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('active');
+      }
+      var activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      var diags = document.querySelectorAll('.diagram-img');
+      for (var j = 0; j < diags.length; j++) {
+        diags[j].classList.remove('active');
+        diags[j].style.display = 'none';
+      }
+      var activeDiag = document.getElementById('diag-' + tabId);
+      if (activeDiag) {
+        activeDiag.classList.add('active');
+        activeDiag.style.display = 'block';
+      }
+    };
+
+    // 2. Deliverables Station Tabs (01 Video, 02 Aerial, 03 Resiliency, 04 Field)
+    window.openUeocTab = function(evt, panelId) {
+      var panels = document.querySelectorAll('.ueoc-panel');
+      for (var i = 0; i < panels.length; i++) {
+        panels[i].classList.remove('active');
+        panels[i].style.display = 'none';
+      }
+
+      var tabBtns = document.querySelectorAll('.ueoc-tab-btn');
+      for (var j = 0; j < tabBtns.length; j++) {
+        tabBtns[j].classList.remove('active');
+      }
+
+      var targetPanel = document.getElementById(panelId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        targetPanel.style.display = 'block';
+      }
+
+      if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+      }
+    };
+
+    // 3. Protocol Matrix vs Retention Engine Sub-Toggle
+    window.switchSubView = function(view) {
+      var table = document.getElementById('ueoc-sub-table');
+      var calc = document.getElementById('ueoc-sub-calc');
+      var btnT = document.getElementById('sub-btn-table');
+      var btnC = document.getElementById('sub-btn-calc');
+
+      if (view === 'table') {
+        if (table) table.style.display = 'block';
+        if (calc) calc.style.display = 'none';
+        if (btnT) btnT.classList.add('active');
+        if (btnC) btnC.classList.remove('active');
+      } else {
+        if (table) table.style.display = 'none';
+        if (calc) calc.style.display = 'block';
+        if (btnC) btnC.classList.add('active');
+        if (btnT) btnT.classList.remove('active');
+        runStorageMath();
+      }
+    };
+
+    // 4. Dynamic Storage Retention Engine
+    window.runStorageMath = function() {
+      var camsInput = document.getElementById('cams-range');
+      var bitInput = document.getElementById('bitrate-range');
+      var daysInput = document.getElementById('days-range');
+
+      if (!camsInput || !bitInput || !daysInput) return;
+
+      var cams = parseInt(camsInput.value, 10);
+      var mbps = parseFloat(bitInput.value);
+      var days = parseInt(daysInput.value, 10);
+
+      var camsLabel = document.getElementById('cams-num');
+      var bitrateLabel = document.getElementById('bitrate-num');
+      var daysLabel = document.getElementById('days-num');
+
+      if (camsLabel) camsLabel.textContent = cams + ' Channel' + (cams > 1 ? 's' : '');
+      if (bitrateLabel) bitrateLabel.textContent = mbps + ' Mbps';
+      if (daysLabel) daysLabel.textContent = days + ' Days';
+
+      var ratePerHour = ((mbps * 3600) / 8000) * cams;
+      var totalGB = Math.round(ratePerHour * 24 * days);
+
+      var outRate = document.getElementById('out-rate-hr');
+      var outTotal = document.getElementById('out-total-gb');
+
+      if (outRate) outRate.textContent = ratePerHour.toFixed(2) + ' GB/hr';
+      if (outTotal) outTotal.textContent = totalGB.toLocaleString() + ' GB';
+    };
+
+    // Initial setup on document ready
+    document.addEventListener('DOMContentLoaded', function() {
+      runStorageMath();
+      switchSchematic('hardware');
+    });
+  </script>
 </body>
 </html>
