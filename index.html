@@ -43,7 +43,7 @@
       </div>
     </section>
 
-    <!-- 2. ENTERPRISE FOUNDATION / WHO WE ARE & VISION -->
+    <!-- 2. ENTERPRISE FOUNDATION / VISION -->
     <section id="about" class="section section-dark">
       <div class="container">
         <div class="profile-layout">
@@ -110,15 +110,8 @@
                 <span class="badge" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.3);">Verified Module Deliverables</span>
                 <h3 style="font-size:1.3rem; margin:6px 0 0 0; text-transform:uppercase;">Node Deliverables &amp; Module Specifications</h3>
               </div>
-              
-              <!-- Dynamic Modal Trigger & Mesh Status -->
-              <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                <button type="button" onclick="openFeedModal()" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.75rem;">
-                  + Add Feed
-                </button>
-                <div style="font-size:0.75rem; color:#64748b; text-align:right;">
-                  NODE: <strong style="color:#cbd5e1;">UEOC-NODE-01</strong> | MESH: <strong style="color:#10b981;">TAILSCALE ENCRYPTED</strong>
-                </div>
+              <div style="font-size:0.75rem; color:#64748b; text-align:right;">
+                NODE: <strong style="color:#cbd5e1;">UEOC-NODE-01</strong> | MESH: <strong style="color:#10b981;">TAILSCALE ENCRYPTED</strong>
               </div>
             </div>
 
@@ -130,7 +123,7 @@
               </button>
               <button type="button" id="tabbtn-p-drone" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
                 <span>02 // AERIAL &amp; DRONE INGEST</span>
-                <span class="ueoc-badge badge-queued">QUEUED</span>
+                <span class="ueoc-badge badge-online">DEPLOYED</span>
               </button>
               <button type="button" id="tabbtn-p-resilience" onclick="openUeocTab(event, 'p-resilience')" class="ueoc-tab-btn">
                 <span>03 // RESILIENCY &amp; WATCHDOG</span>
@@ -259,18 +252,53 @@
               <!-- Tab 2: Aerial & Drone -->
               <div id="p-drone" class="ueoc-panel">
                 <div style="border:1px solid rgba(14, 116, 144, 0.4); background:rgba(15, 23, 42, 0.6); padding:18px; border-radius:6px;">
-                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
                     <div>
                       <h4 style="color:#38bdf8; margin:0 0 4px 0; font-size:0.9rem; text-transform:uppercase; font-family:monospace;">
-                        Module 02 // Aerial Ingest &amp; Downlink Gateway
+                        Module 02 // Aerial Ingest &amp; Tactical Downlink
                       </h4>
                       <p style="font-size:0.75rem; color:#94a3b8; margin:0;">
-                        Low-latency RTMP controller uplink with automated zero-transcode WebRTC demuxing and synchronized fMP4 archival.
+                        Direct RTMP transmitter ingest paired with ultra-low latency WebRTC fanout to the operational Homarr console.
                       </p>
                     </div>
-                    <span class="ueoc-badge badge-online">VERIFIED STAGED</span>
+                    <span class="ueoc-badge badge-online">INGEST ENGINE ONLINE</span>
                   </div>
 
+                  <!-- Simulated Operator HUD Frame -->
+                  <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; overflow:hidden; margin-bottom:14px; box-shadow:inset 0 0 20px rgba(0,0,0,0.8);">
+                    <!-- Monitor Top Banner -->
+                    <div style="background:#0b1120; border-bottom:1px solid #1e293b; padding:6px 12px; display:flex; justify-content:space-between; align-items:center; font-family:monospace; font-size:0.7rem;">
+                      <div style="display:flex; gap:12px; align-items:center;">
+                        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444;"></span>
+                        <strong style="color:#f8fafc;">FEED: /drone1</strong>
+                        <span style="color:#64748b;">|</span>
+                        <span style="color:#38bdf8;">HOMARR HUD TILE</span>
+                      </div>
+                      <div style="display:flex; gap:10px; color:#94a3b8;">
+                        <span>LATENCY: <strong style="color:#34d399;">142ms</strong></span>
+                        <span>RES: <strong style="color:#f8fafc;">1080p30</strong></span>
+                        <span>RETENTION: <strong style="color:#38bdf8;">ACTIVE</strong></span>
+                      </div>
+                    </div>
+
+                    <!-- Screen Graphic Area -->
+                    <div style="height:220px; position:relative; background:radial-gradient(ellipse at center, rgba(14,116,144,0.15) 0%, rgba(2,6,23,0.95) 75%); display:flex; align-items:center; justify-content:center;">
+                      <!-- Corner Reticles -->
+                      <div style="position:absolute; top:12px; left:12px; width:16px; height:16px; border-top:2px solid #38bdf8; border-left:2px solid #38bdf8;"></div>
+                      <div style="position:absolute; top:12px; right:12px; width:16px; height:16px; border-top:2px solid #38bdf8; border-right:2px solid #38bdf8;"></div>
+                      <div style="position:absolute; bottom:12px; left:12px; width:16px; height:16px; border-bottom:2px solid #38bdf8; border-left:2px solid #38bdf8;"></div>
+                      <div style="position:absolute; bottom:12px; right:12px; width:16px; height:16px; border-bottom:2px solid #38bdf8; border-right:2px solid #38bdf8;"></div>
+                      
+                      <!-- Center Target & Telemetry -->
+                      <div style="text-align:center; font-family:monospace; color:#64748b;">
+                        <div style="font-size:2rem; color:rgba(56,189,248,0.3); line-height:1;">+</div>
+                        <div style="font-size:0.75rem; color:#cbd5e1; margin-top:6px; letter-spacing:0.05em;">TACTICAL DOWNLINK ENGAGED</div>
+                        <div style="font-size:0.65rem; color:#64748b; margin-top:2px;">WHEP WebRTC Session Dispatched to Field Operator Console</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Socket & Path Matrix -->
                   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; font-size:0.75rem; font-family:monospace; margin-bottom:14px;">
                     <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
                       <div style="color:#64748b; font-size:0.65rem;">INGEST SOCKET</div>
@@ -291,7 +319,7 @@
                   </div>
 
                   <div style="background:#05080f; border:1px solid #1e293b; padding:12px; border-radius:4px; font-size:0.75rem; color:#cbd5e1; line-height:1.6; font-family:monospace;">
-                    <strong style="color:#f8fafc;">Field Ground Check:</strong> Confirm controller is linked to field node Wi-Fi/mesh. Set broadcast RTMP endpoint to path <code style="color:#38bdf8;">/drone1</code>. Verify live WebRTC frame delivery in Homarr HUD within 350ms of stream publish.
+                    <strong style="color:#f8fafc;">Field Operating Procedure:</strong> Connect drone controller to field node mesh. Direct stream output to <code style="color:#38bdf8;">/drone1</code> over port <code style="color:#38bdf8;">1935</code>. Video surfaces instantaneously inside the private Homarr console while fMP4 segments persist simultaneously to the storage partition.
                   </div>
                 </div>
               </div>
@@ -322,7 +350,7 @@
               <div id="p-field" class="ueoc-panel">
                 <div style="border:1px solid #1e293b; background:#05080f; padding:16px; border-radius:6px;">
                   <h4 style="color:#f8fafc; margin:0 0 6px 0; font-size:0.85rem; text-transform:uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
-                  <p style="font-size:0.8rem; color:#94a3b8; margin:0 0 14px 0;">Step-by-step field checklist for rapid mesh deployment, Larix configuration, and Homarr verification.</p>
+                  <p style="font-size:0.8rem; color:#94a3b8; margin:0 0 14px 0;">Step-by-step field checklist for rapid mesh deployment, transmitter configuration, and Homarr verification.</p>
                   <div style="background:#0b1120; border:1px solid #1e293b; padding:14px; border-radius:4px; font-size:0.8rem; line-height:1.7; color:#cbd5e1;">
                     1. Verify field node power &amp; Tailscale mesh uplink status.<br>
                     2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
@@ -398,54 +426,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ==========================================
-         DYNAMIC INGEST MODAL
-         ========================================== -->
-    <div id="feed-modal-backdrop" style="display: none; position: fixed; inset: 0; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; padding: 1rem;">
-      <div style="background: #0b1120; border: 1px solid #1e293b; border-radius: 8px; width: 100%; max-width: 480px; padding: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;">
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 12px; margin-bottom: 18px;">
-          <div>
-            <span class="badge" style="font-size: 0.65rem;">API Orchestration</span>
-            <h3 style="margin: 4px 0 0 0; font-size: 1.15rem; color: #f8fafc;">Deploy Ingest Path</h3>
-          </div>
-          <button type="button" onclick="closeFeedModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.25rem; cursor: pointer;">&times;</button>
-        </div>
-
-        <form id="add-feed-form" onsubmit="submitNewFeed(event)" style="display: flex; flex-direction: column; gap: 14px;">
-          <div>
-            <label style="display: block; font-size: 0.75rem; color: #94a3b8; margin-bottom: 4px;">Path Identifier (e.g., drone2, gate-cam)</label>
-            <input type="text" id="feed-name" required placeholder="drone2" pattern="^[a-zA-Z0-9_\-]+$" style="width: 100%; background: #05080f; border: 1px solid #334155; color: #fff; padding: 8px 12px; border-radius: 4px; font-family: inherit; font-size: 0.8rem;">
-          </div>
-
-          <div>
-            <label style="display: block; font-size: 0.75rem; color: #94a3b8; margin-bottom: 4px;">Ingest Method</label>
-            <select id="feed-type" onchange="toggleSourceInput()" style="width: 100%; background: #05080f; border: 1px solid #334155; color: #fff; padding: 8px 12px; border-radius: 4px; font-family: inherit; font-size: 0.8rem;">
-              <option value="publisher">Push Source (Drone RTMP / Larix RTSP)</option>
-              <option value="pull">Pull Source (Static IP Camera RTSP / Stream URL)</option>
-            </select>
-          </div>
-
-          <div id="source-url-group" style="display: none;">
-            <label style="display: block; font-size: 0.75rem; color: #94a3b8; margin-bottom: 4px;">Source RTSP / Stream URL</label>
-            <input type="text" id="feed-source-url" placeholder="rtsp://admin:pass@192.168.1.50:554/live" style="width: 100%; background: #05080f; border: 1px solid #334155; color: #fff; padding: 8px 12px; border-radius: 4px; font-family: inherit; font-size: 0.8rem;">
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 8px; padding: 6px 0;">
-            <input type="checkbox" id="feed-record" checked style="accent-color: #38bdf8; cursor: pointer;">
-            <label for="feed-record" style="font-size: 0.75rem; color: #cbd5e1; cursor: pointer;">Enable rolling fMP4 retention (14-day auto-prune)</label>
-          </div>
-
-          <div id="modal-feedback" style="display: none; font-size: 0.75rem; padding: 8px 12px; border-radius: 4px; font-family: inherit;"></div>
-
-          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
-            <button type="button" onclick="closeFeedModal()" style="background: transparent; border: 1px solid #334155; color: #94a3b8; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-family: inherit;">Cancel</button>
-            <button type="submit" id="modal-submit-btn" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.8rem;">Deploy Path</button>
-          </div>
-        </form>
-      </div>
-    </div>
   </main>
 
   <!-- Footer -->
@@ -455,7 +435,7 @@
     </div>
   </footer>
 
-  <!-- Self-Contained Client Runtime & API Script -->
+  <!-- Clean Client Runtime Script -->
   <script>
     // 1. Schematic Viewer Switcher (Hardware vs Software)
     window.switchSchematic = function(tabId) {
@@ -551,91 +531,6 @@
 
       if (outRate) outRate.textContent = ratePerHour.toFixed(2) + ' GB/hr';
       if (outTotal) outTotal.textContent = totalGB.toLocaleString() + ' GB';
-    };
-
-    // 5. Dynamic Ingest Modal Handlers & MediaMTX API Dispatcher
-    window.openFeedModal = function() {
-      var modal = document.getElementById('feed-modal-backdrop');
-      if (modal) {
-        modal.style.display = 'flex';
-        var nameInput = document.getElementById('feed-name');
-        if (nameInput) nameInput.focus();
-      }
-    };
-
-    window.closeFeedModal = function() {
-      var modal = document.getElementById('feed-modal-backdrop');
-      if (modal) modal.style.display = 'none';
-      var fb = document.getElementById('modal-feedback');
-      if (fb) fb.style.display = 'none';
-      var form = document.getElementById('add-feed-form');
-      if (form) form.reset();
-      toggleSourceInput();
-    };
-
-    window.toggleSourceInput = function() {
-      var type = document.getElementById('feed-type').value;
-      var group = document.getElementById('source-url-group');
-      if (group) group.style.display = (type === 'pull') ? 'block' : 'none';
-    };
-
-    window.submitNewFeed = async function(e) {
-      e.preventDefault();
-      var name = document.getElementById('feed-name').value.trim();
-      var type = document.getElementById('feed-type').value;
-      var sourceUrl = document.getElementById('feed-source-url').value.trim();
-      var record = document.getElementById('feed-record').checked;
-      var fb = document.getElementById('modal-feedback');
-      var btn = document.getElementById('modal-submit-btn');
-
-      btn.disabled = true;
-      btn.textContent = 'Deploying...';
-      if (fb) fb.style.display = 'none';
-
-      var payload = {
-        source: (type === 'pull' && sourceUrl) ? sourceUrl : 'publisher'
-      };
-
-      if (record) {
-        payload.record = true;
-        payload.recordPath = '/mnt/storage/recordings/%Y-%m-%d/%path_%H-%M-%S_%z';
-        payload.recordFormat = 'fmp4';
-        payload.recordPartDuration = '1s';
-        payload.recordSegmentDuration = '15m';
-        payload.recordDeleteAfter = '14d';
-      }
-
-      var apiHost = window.location.hostname || 'localhost';
-      var endpoint = 'http://' + apiHost + ':9997/v3/config/paths/add/' + encodeURIComponent(name);
-
-      try {
-        var res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          fb.style.display = 'block';
-          fb.style.background = 'rgba(6, 78, 59, 0.4)';
-          fb.style.border = '1px solid rgba(52, 211, 153, 0.3)';
-          fb.style.color = '#34d399';
-          fb.innerHTML = '✓ Path Active:<br>RTMP Ingest: <code>:1935/' + name + '</code><br>WebRTC Egress: <code>:8889/' + name + '</code>';
-          setTimeout(function() { closeFeedModal(); }, 2500);
-        } else {
-          var errData = await res.json().catch(function() { return {}; });
-          throw new Error(errData.error || ('HTTP ' + res.status));
-        }
-      } catch (err) {
-        fb.style.display = 'block';
-        fb.style.background = 'rgba(127, 29, 29, 0.4)';
-        fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-        fb.style.color = '#f87171';
-        fb.textContent = 'API Error: ' + err.message + '. Is port :9997 exposed?';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Deploy Path';
-      }
     };
 
     // Initial setup on document ready
