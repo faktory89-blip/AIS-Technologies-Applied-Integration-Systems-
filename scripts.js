@@ -101,3 +101,66 @@ window.runStorageMath = function() {
 document.addEventListener('DOMContentLoaded', function() {
   runStorageMath();
 });
+
+// ==========================================================================
+// ASYNCHRONOUS FORMSPREE RFQ HANDLER (AJAX)
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('rfq-form');
+  const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('rfq-submit-btn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevents redirecting to Formspree page
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'TRANSMITTING INQUIRY...';
+    }
+
+    if (status) {
+      status.style.color = '#38bdf8';
+      status.innerText = 'Routing telemetry to procurement queue...';
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/myekvlw', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        if (status) {
+          status.style.color = '#34d399';
+          status.innerHTML = '✓ TRANSMISSION CONFIRMED // Inquiry logged. Engineering team will respond via provided channel.';
+        }
+        form.reset();
+      } else {
+        const errorData = await response.json();
+        console.error('Formspree Server Error:', errorData);
+        if (status) {
+          status.style.color = '#ef4444';
+          status.innerHTML = 'Transmission failed. Direct inquiries: <a href="mailto:rfq@appliedintegrationsystems.com" style="color: #38bdf8;">rfq@appliedintegrationsystems.com</a>';
+        }
+      }
+    } catch (err) {
+      console.error('Network Error:', err);
+      if (status) {
+        status.style.color = '#ef4444';
+        status.innerHTML = 'Network route offline. Transmit directly to: <a href="mailto:rfq@appliedintegrationsystems.com" style="color: #38bdf8;">rfq@appliedintegrationsystems.com</a>';
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Transmit Secure Inquiry';
+      }
+    }
+  });
+});
