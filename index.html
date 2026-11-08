@@ -11,17 +11,18 @@
   <meta property="og:title" content="AIS Technologies | Precision Systems Engineering &amp; Integration">
   <meta property="og:image" content="assets/images/logo.jpg">
   
-  <link rel="stylesheet" href="styles.css?v=8.0">
+  <link rel="stylesheet" href="styles.css?v=11.0">
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Site Navigation -->
   <header class="site-header">
     <div class="container nav-layout">
       <div class="brand">AIS <span>Technologies</span></div>
       <ul class="nav-links">
-        <li><a href="#about">About &amp; Vision</a></li>
-        <li><a href="#tactical-node">Tactical Node</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#ueoc-overview">Console Platform</a></li>
+        <li><a href="#deliverables">Deliverables &amp; Schematics</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
       </ul>
     </div>
@@ -37,344 +38,413 @@
           Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution built for mission-critical deployments.
         </p>
         <div class="hero-actions">
-          <a href="#tactical-node" class="btn btn-primary">Inspect System Node</a>
-          <a href="#about" class="btn btn-secondary">Company Vision</a>
+          <a href="#ueoc-overview" class="btn btn-primary">Inspect Console Platform</a>
+          <a href="#deliverables" class="btn btn-secondary">System Deliverables</a>
         </div>
       </div>
     </section>
 
-    <!-- 2. ENTERPRISE FOUNDATION / VISION -->
-    <section id="about" class="section section-dark">
+    <!-- 3. PRODUCT OVERVIEW & PURPOSE -->
+    <section id="ueoc-overview" class="section">
       <div class="container">
-        <div class="profile-layout">
-          <div class="profile-narrative">
-            <span class="badge">Enterprise Foundation</span>
-            <h2 style="font-size:2.2rem; margin:10px 0 16px 0; letter-spacing:-0.02em;">Applied Integration Systems</h2>
-            <h4 style="color:var(--primary); font-size:1.1rem; margin:0 0 14px 0; font-weight:600;">Mission-Critical Rigor. Turnkey Engineering.</h4>
-            <p>
-              AIS Technologies specializes in precision systems integration, tactical edge video infrastructure, and high-reliability digital distribution platforms. Founded on rigorous military signal support principles, we bridge the gap between heavy enterprise IT networking and rapid-deployment broadcast engineering.
-            </p>
-            <p>
-              <strong>Our Vision:</strong> To deliver resilient, autonomous edge solutions that operate seamlessly under austere conditions—from secure command-post video telemetry to distributed mesh facilities—ensuring operators maintain clear, low-latency situational awareness without dependence on fragile infrastructure.
-            </p>
+        
+        <!-- Header Block -->
+        <div class="ueoc-header-block">
+          <div class="badge-row">
+            <span class="badge">Tactical Edge Hardware</span>
+            <span class="ueoc-badge badge-online">MIL-STD COMPLIANT // TAA READY</span>
           </div>
-          <div class="profile-card">
-            <h3>Operational Baseline</h3>
-            <ul class="baseline-list">
-              <li><span>Primary Disciplines</span> <strong>AV/VTC &amp; Edge Video</strong></li>
-              <li><span>Security Protocol</span> <strong>Hardened WireGuard / Mesh</strong></li>
-              <li><span>Storage Architecture</span> <strong>Supervised fMP4 Auto-Prune</strong></li>
-              <li><span>Signal Integrity</span> <strong>SMPTE 12G-SDI &amp; WebRTC</strong></li>
-              <li><span>Telemetry</span> <strong>Active Socket &amp; Port Probes</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. UNIFIED TACTICAL NODE & DELIVERABLES SPECIFICATION -->
-    <section id="tactical-node" class="section">
-      <div class="container">
-        <div class="flypack-card">
-          
-          <!-- Unified Header -->
-          <div class="card-bar">
-            <div>
-              <span class="badge">Core Tactical Specification</span>
-              <h3 style="font-size:1.5rem; margin-top:6px;">Universal Edge Operations Console (UEOC)</h3>
-            </div>
-            <span class="status-live">Verified Operational</span>
-          </div>
-          <p class="card-summary">
-            A ruggedized, modular video ingestion and multiplexing gateway engineered for zero-latency field fanout, automated local retention, and authenticated wireline transmission.
+          <h2 class="ueoc-title">Universal Edge Operations Console (UEOC)</h2>
+          <p class="ueoc-lead">
+            Turnkey tactical 4U flypack bridging UAV drone streams, perimeter IP cameras, and baseband SDI video into an encrypted, sub-second field operations console without cloud reliance.
           </p>
+        </div>
 
-          <!-- Compact Schematic Cards -->
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 20px 0;">
-  
-  <!-- Hardware Card -->
-  <div onclick="openLightbox('assets/images/Hardware Interconnect & Signal Flow.svg', 'Hardware Interconnect')" 
-       style="background: #0b1120; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; cursor: pointer;">
-    <div style="padding: 10px 14px; background: #0f172a; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.75rem;">
-      <strong style="color: #f8fafc;">01 // HARDWARE INTERCONNECT</strong>
-      <span style="color: #38bdf8; font-size: 0.65rem; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px;">ZOOM</span>
-    </div>
-    <div style="height: 140px; background: #05080f; display: flex; align-items: center; justify-content: center; padding: 10px;">
-      <img src="assets/images/Hardware Interconnect & Signal Flow.svg" alt="Hardware Interconnect" style="max-height: 100%; max-width: 100%; object-fit: contain;">
-    </div>
-  </div>
+        <!-- 4 Clean Tactical Cards (2x2 Grid) -->
+        <div class="ueoc-grid">
+          
+          <div class="ueoc-card">
+            <div class="card-meta text-cyan">01 // MULTI-SOURCE INGEST</div>
+            <h3>Universal Feed Consolidation</h3>
+            <p>Direct ingestion of drone downlinks (RTMP), perimeter sensors (RTSP), and broadcast SDI without format conversion lag.</p>
+          </div>
 
-  <!-- Software Card -->
-  <div onclick="openLightbox('assets/images/Software Profile & Network Orchestration.svg', 'Network Orchestration')" 
-       style="background: #0b1120; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; cursor: pointer;">
-    <div style="padding: 10px 14px; background: #0f172a; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 0.75rem;">
-      <strong style="color: #f8fafc;">02 // NETWORK ORCHESTRATION</strong>
-      <span style="color: #38bdf8; font-size: 0.65rem; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px;">ZOOM</span>
-    </div>
-    <div style="height: 140px; background: #05080f; display: flex; align-items: center; justify-content: center; padding: 10px;">
-      <img src="assets/images/Software Profile & Network Orchestration.svg" alt="Software Profile" style="max-height: 100%; max-width: 100%; object-fit: contain;">
-    </div>
-  </div>
+          <div class="ueoc-card">
+            <div class="card-meta text-green">02 // FIELD MONITORING</div>
+            <h3>Sub-Second Operator HUD</h3>
+            <p>Synchronized low-latency WebRTC egress streaming across private Tailscale and WireGuard mesh tunnels to command displays.</p>
+          </div>
 
-</div>
+          <div class="ueoc-card">
+            <div class="card-meta text-purple">03 // FORENSIC ARCHIVE</div>
+            <h3>Local Evidence Vault</h3>
+            <p>Guaranteed forensic integrity via segmented rolling fMP4 recording to high-endurance NVMe with 14-day automated prune cycles.</p>
+          </div>
 
-          <!-- Part B: Unified Station Deliverables Deck -->
-          <div id="ueoc-deliverables" style="margin-top:35px; border-top:1px solid var(--border-color); padding-top:25px;">
-            <div class="ueoc-header-bar">
+          <div class="ueoc-card">
+            <div class="card-meta text-amber">04 // TACTICAL RELAY</div>
+            <h3>NLOS &amp; MANET Retrans</h3>
+            <p>Forward-deployed IP retransmission gateway extending isolated UAV feeds across TrellisWare, Silvus, and SATCOM backhauls.</p>
+          </div>
+
+        </div>
+
+        <!-- Tight Telemetry Specs Ribbon -->
+        <div class="specs-ribbon">
+          <div class="spec-item">
+            <span class="spec-label">CHASSIS</span>
+            <span class="spec-val">4U Shock-Mount Flypack</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">POWER</span>
+            <span class="spec-val">Pure Sine UPS / 12-24V DC</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">STORAGE</span>
+            <span class="spec-val">Enterprise NVMe (Automated Prune)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RETRANS I/O</span>
+            <span class="spec-val text-amber">POE+ 802.3at / Dual RF Ports</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">CRYPTO</span>
+            <span class="spec-val text-green">WireGuard / Air-Gap Native</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. PRODUCT OVERVIEW & PURPOSE -->
+    <section id="ueoc-overview" class="section">
+      <div class="container">
+        <div class="section-header-block">
+          <div class="status-badge-row">
+            <span class="badge">Tactical Hardware Platform</span>
+            <span class="ueoc-badge badge-online">FIELD READY // MIL-STD COMPLIANT</span>
+          </div>
+          <h2>Universal Edge Operations Console (UEOC)</h2>
+          <h4 class="platform-subtitle">Autonomous Field Video Ingestion, Secure Mesh Fanout, and Forensic Evidence Capture.</h4>
+          <p class="platform-description">
+            The UEOC is a turnkey tactical edge flypack designed for mobile command posts, incident management teams, and forward operations. It consolidates disparate video feeds—including tactical UAV drones, perimeter security cameras, and baseband SDI video—into a unified, sub-second monitoring console without reliance on public cloud infrastructure or vulnerable commercial cellular connections.
+          </p>
+        </div>
+
+        <!-- 4 Core Purpose Cards -->
+        <div class="purpose-grid">
+          <div class="purpose-card">
+            <div class="purpose-tag">01 // AUSTERE FIELD INGEST</div>
+            <h3>Consolidate Any Feed</h3>
+            <p>
+              Directly ingest live UAV drone uplinks (RTMP), IP cameras (RTSP), and baseband broadcast feeds into a single ruggedized transport node without format conversion headaches.
+            </p>
+          </div>
+
+          <div class="purpose-card">
+            <div class="purpose-tag tag-green">02 // SUB-SECOND MONITORING</div>
+            <h3>Instant Operator HUD</h3>
+            <p>
+              Distributes synchronized, low-latency WebRTC video directly to command laptops, tablets, and field monitors across encrypted WireGuard and Tailscale private mesh tunnels.
+            </p>
+          </div>
+
+          <div class="purpose-card">
+            <div class="purpose-tag tag-purple">03 // ZERO-LOSS AUDITING</div>
+            <h3>Automated Local Vault</h3>
+            <p>
+              Guarantees forensic evidence preservation with rolling fMP4 segmented recording to high-endurance local NVMe storage, backed by automated 14-day disk-retention pruning.
+            </p>
+          </div>
+
+          <div class="purpose-card">
+            <div class="purpose-tag tag-amber">04 // LONG-RANGE RETRANS &amp; RELAY</div>
+            <h3>Tactical Mesh &amp; NLOS Relay</h3>
+            <p>
+              Acts as a forward-deployed retransmission gateway. Bridges isolated UAV feeds and ground sensors across long-range MANET radios, PTP microwave, or tactical SATCOM directly to remote command elements.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hardware Specs Summary Bar -->
+        <div class="hardware-specs-bar">
+          <div><span class="spec-label">FORM FACTOR:</span> <strong>4U Ruggedized Flypack</strong></div>
+          <div><span class="spec-label">POWER:</span> <strong>Pure Sine UPS / 12-24V DC Field Ready</strong></div>
+          <div><span class="spec-label">RETRANS I/O:</span> <strong class="text-amber">POE+ 802.3at / Dual RF Bulkheads</strong></div>
+          <div><span class="spec-label">SECURITY:</span> <strong class="text-green">FIPS-Capable Mesh / Air-Gap Operable</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. DELIVERABLES, SCHEMATICS & OPERATIONS (TABBED DECK) -->
+    <section id="deliverables" class="section section-dark">
+      <div class="container">
+        
+        <div class="console-header-bar">
+          <div>
+            <span class="badge">Verified Deliverables</span>
+            <h2>System Deliverables &amp; Module Specifications</h2>
+            <div class="console-subtitle">Technical schematics, live socket routing tables, operator HUD preview, and field checklists.</div>
+          </div>
+          <div class="console-node-tag">
+            NODE: <strong>UEOC-NODE-01</strong> | MESH: <strong>TAILSCALE ENCRYPTED</strong>
+          </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="ueoc-tab-bar">
+          <button type="button" id="tabbtn-p-schematics" onclick="openUeocTab(event, 'p-schematics')" class="ueoc-tab-btn active">
+            <span>01 // SYSTEM SCHEMATICS</span>
+            <span class="ueoc-badge badge-online">VERIFIED</span>
+          </button>
+          <button type="button" id="tabbtn-p-video" onclick="openUeocTab(event, 'p-video')" class="ueoc-tab-btn">
+            <span>02 // PROTOCOL MATRIX &amp; STORAGE</span>
+            <span class="ueoc-badge badge-online">ONLINE</span>
+          </button>
+          <button type="button" id="tabbtn-p-drone" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
+            <span>03 // AERIAL HUD &amp; DOWNLINK</span>
+            <span class="ueoc-badge badge-online">DEPLOYED</span>
+          </button>
+          <button type="button" id="tabbtn-p-field" onclick="openUeocTab(event, 'p-field')" class="ueoc-tab-btn">
+            <span>04 // FIELD RUN-SHEET</span>
+            <span class="ueoc-badge badge-staged">DOC</span>
+          </button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="ueoc-panel-deck">
+          
+          <!-- TAB 1: SYSTEM SCHEMATICS (COMPACT CARDS WITH LIGHTBOX) -->
+          <div id="p-schematics" class="ueoc-panel active">
+            <div class="panel-header-row">
               <div>
-                <span class="badge" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.3);">Verified Module Deliverables</span>
-                <h3 style="font-size:1.3rem; margin:6px 0 0 0; text-transform:uppercase;">Node Deliverables &amp; Module Specifications</h3>
-              </div>
-              <div style="font-size:0.75rem; color:#64748b; text-align:right;">
-                NODE: <strong style="color:#cbd5e1;">UEOC-NODE-01</strong> | MESH: <strong style="color:#10b981;">TAILSCALE ENCRYPTED</strong>
+                <strong>System Architecture &amp; Interconnect Topologies</strong>
+                <div class="panel-desc">Click either schematic card to open high-resolution pan/zoom inspection mode.</div>
               </div>
             </div>
 
-            <!-- Horizontal Tab Bar -->
-            <div class="ueoc-tab-bar">
-              <button type="button" id="tabbtn-p-video" onclick="openUeocTab(event, 'p-video')" class="ueoc-tab-btn active">
-                <span>01 // VIDEO INGEST &amp; STORAGE</span>
-                <span class="ueoc-badge badge-online">ONLINE</span>
-              </button>
-              <button type="button" id="tabbtn-p-drone" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
-                <span>02 // AERIAL &amp; DRONE INGEST</span>
-                <span class="ueoc-badge badge-online">DEPLOYED</span>
-              </button>
-              <button type="button" id="tabbtn-p-resilience" onclick="openUeocTab(event, 'p-resilience')" class="ueoc-tab-btn">
-                <span>03 // RESILIENCY &amp; WATCHDOG</span>
-                <span class="ueoc-badge badge-staged">STAGED</span>
-              </button>
-              <button type="button" id="tabbtn-p-field" onclick="openUeocTab(event, 'p-field')" class="ueoc-tab-btn">
-                <span>04 // FIELD RUN-SHEET</span>
-                <span class="ueoc-badge badge-staged">DOC</span>
-              </button>
+            <div class="schematic-grid">
+              <!-- Hardware Card -->
+              <div class="schematic-card" onclick="openLightbox('assets/images/Hardware Interconnect & Signal Flow.svg', 'Hardware Interconnect & Signal Flow Topology')">
+                <div class="schematic-card-header">
+                  <span>01 // HARDWARE INTERCONNECT</span>
+                  <span class="zoom-tag">CLICK TO ZOOM</span>
+                </div>
+                <div class="schematic-preview-box">
+                  <img src="assets/images/Hardware Interconnect & Signal Flow.svg" alt="Hardware Interconnect Schematic">
+                </div>
+                <div class="schematic-card-footer">
+                  SMPTE 12G-SDI routing, line-level audio conversions, and Neutrik hardware patch architecture.
+                </div>
+              </div>
+
+              <!-- Software Card -->
+              <div class="schematic-card" onclick="openLightbox('assets/images/Software Profile & Network Orchestration.svg', 'Software Profile & Network Orchestration Architecture')">
+                <div class="schematic-card-header">
+                  <span>02 // NETWORK ORCHESTRATION</span>
+                  <span class="zoom-tag">CLICK TO ZOOM</span>
+                </div>
+                <div class="schematic-preview-box">
+                  <img src="assets/images/Software Profile & Network Orchestration.svg" alt="Software Profile Schematic">
+                </div>
+                <div class="schematic-card-footer">
+                  Isolated container boundaries, encrypted mesh sockets, and low-latency WebRTC fanout.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: PROTOCOL MATRIX & RETENTION CALCULATOR -->
+          <div id="p-video" class="ueoc-panel">
+            <div class="panel-header-row">
+              <div>
+                <strong>Core Video Transport &amp; Storage Matrix</strong>
+                <div class="panel-desc">Zero-transcode WebRTC fanout, MANET radio retransmission, and rolling 14-day fMP4 retention.</div>
+              </div>
+              <div class="toggle-buttons">
+                <button type="button" onclick="switchSubView('table')" id="sub-btn-table" class="sub-toggle-btn active">Protocol Matrix</button>
+                <button type="button" onclick="switchSubView('calc')" id="sub-btn-calc" class="sub-toggle-btn">Retention Engine</button>
+              </div>
             </div>
 
-            <!-- Tab Panels -->
-            <div class="ueoc-panel-deck">
-              
-              <!-- Tab 1: Video Core -->
-              <div id="p-video" class="ueoc-panel active">
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+            <!-- Table View -->
+            <div id="ueoc-sub-table" class="ueoc-table-wrap">
+              <table class="ueoc-table">
+                <thead>
+                  <tr>
+                    <th>Service Role</th>
+                    <th>Protocol</th>
+                    <th>Transport</th>
+                    <th>Port Scope</th>
+                    <th>Security Protocol</th>
+                    <th style="text-align:right;">Target Latency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Field Camera Primary Ingest</td>
+                    <td><span class="text-blue">RTSP</span></td>
+                    <td>TCP (H.264 / AAC)</td>
+                    <td class="text-cyan">8554 / TCP</td>
+                    <td><span class="auth-pill">Digest Token / Auth</span></td>
+                    <td class="text-green text-right">&lt; 150 ms</td>
+                  </tr>
+                  <tr>
+                    <td>Aerial &amp; Drone Feed Uplink</td>
+                    <td><span class="text-amber">RTMP</span></td>
+                    <td>TCP (FLV Multiplex)</td>
+                    <td class="text-cyan">1935 / TCP</td>
+                    <td><span class="auth-pill">Publish Token Key</span></td>
+                    <td class="text-amber text-right">&lt; 350 ms</td>
+                  </tr>
+                  <tr>
+                    <td>Tactical Web Egress</td>
+                    <td><span class="text-green">WebRTC</span></td>
+                    <td>UDP / ICE / DTLS</td>
+                    <td class="text-cyan">8889 / 8189</td>
+                    <td><span class="mesh-pill">Tailscale Encrypted</span></td>
+                    <td class="text-green text-right">&lt; 180 ms</td>
+                  </tr>
+                  <tr>
+                    <td>Tactical MANET / Radio Relay</td>
+                    <td><span class="text-amber">SRT / UDP</span></td>
+                    <td>IP Mesh (COFDM / PTP)</td>
+                    <td class="text-cyan">9000 / UDP</td>
+                    <td><span class="auth-pill">AES-256 / Mesh Token</span></td>
+                    <td class="text-amber text-right">&lt; 250 ms</td>
+                  </tr>
+                  <tr>
+                    <td>BLOS / Satellite Backhaul</td>
+                    <td><span class="text-purple">WHEP / WebRTC</span></td>
+                    <td>TCP/UDP (Starlink / BGAN)</td>
+                    <td class="text-cyan">8889 / 443</td>
+                    <td><span class="mesh-pill">Tailscale Encrypted</span></td>
+                    <td class="text-muted text-right">Variable (~400 ms)</td>
+                  </tr>
+                  <tr>
+                    <td>Forensic Archive Vault</td>
+                    <td><span class="text-purple">HTTP / TLS</span></td>
+                    <td>TCP (fMP4 Vault)</td>
+                    <td class="text-cyan">8085 / TCP</td>
+                    <td><span class="auth-pill">RBAC / Operator Auth</span></td>
+                    <td class="text-muted text-right">On-Demand</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Retention Calculator View -->
+            <div id="ueoc-sub-calc" style="display:none;">
+              <div class="calc-box">
+                <div class="calc-inputs">
                   <div>
-                    <strong style="color:#f8fafc; font-size:0.95rem;">Core Video Transport &amp; Multiplexing Architecture</strong>
-                    <div style="font-size:0.75rem; color:#94a3b8; margin-top:2px;">Real-time socket multiplexing, zero-latency WebRTC fanout, and automated rolling fMP4 retention.</div>
+                    <div class="calc-label-row">
+                      <span>Active Field Channels</span>
+                      <span id="cams-num" class="text-cyan font-bold">2 Channels</span>
+                    </div>
+                    <input type="range" id="cams-range" min="1" max="8" value="2" oninput="runStorageMath()" class="calc-slider">
                   </div>
                   <div>
-                    <button type="button" onclick="switchSubView('table')" id="sub-btn-table" class="sub-toggle-btn active">Protocol Matrix</button>
-                    <button type="button" onclick="switchSubView('calc')" id="sub-btn-calc" class="sub-toggle-btn">Retention Engine</button>
+                    <div class="calc-label-row">
+                      <span>Bitrate (Per Channel)</span>
+                      <span id="bitrate-num" class="text-cyan font-bold">4.5 Mbps</span>
+                    </div>
+                    <input type="range" id="bitrate-range" min="1" max="15" step="0.5" value="4.5" oninput="runStorageMath()" class="calc-slider">
+                  </div>
+                  <div>
+                    <div class="calc-label-row">
+                      <span>Retention Window</span>
+                      <span id="days-num" class="text-cyan font-bold">14 Days</span>
+                    </div>
+                    <input type="range" id="days-range" min="3" max="30" value="14" oninput="runStorageMath()" class="calc-slider">
                   </div>
                 </div>
-
-                <!-- Matrix Table -->
-                <div id="ueoc-sub-table" class="ueoc-table-wrap">
-                  <table class="ueoc-table">
-                    <thead>
-                      <tr>
-                        <th>Service Role</th>
-                        <th>Protocol</th>
-                        <th>Transport</th>
-                        <th>Port Scope</th>
-                        <th>Security &amp; Mesh</th>
-                        <th style="text-align:right;">Target Latency</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style="color:#fff; font-weight:600;">Field Camera Primary Ingest</td>
-                        <td><span style="color:#60a5fa; font-weight:600;">RTSP</span></td>
-                        <td>TCP (H.264 / AAC)</td>
-                        <td style="color:#38bdf8;">8554 / TCP</td>
-                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">Digest Token / Auth</span></td>
-                        <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 150 ms</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#fff; font-weight:600;">Aerial &amp; Drone Feed Uplink</td>
-                        <td><span style="color:#fbbf24; font-weight:600;">RTMP</span></td>
-                        <td>TCP (FLV Multiplex)</td>
-                        <td style="color:#38bdf8;">1935 / TCP</td>
-                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">Publish Key / Token</span></td>
-                        <td style="text-align:right; color:#fbbf24; font-weight:600;">&lt; 350 ms</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#fff; font-weight:600;">Tactical Web Egress</td>
-                        <td><span style="color:#34d399; font-weight:600;">WebRTC</span></td>
-                        <td>UDP / ICE / DTLS</td>
-                        <td style="color:#38bdf8;">8889 / 8189</td>
-                        <td><span style="background:rgba(14,116,144,0.3); color:#38bdf8; padding:3px 6px; border-radius:4px;">Tailscale Encrypted</span></td>
-                        <td style="text-align:right; color:#34d399; font-weight:600;">&lt; 180 ms</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#fff; font-weight:600;">Forensic Evidence &amp; Archive</td>
-                        <td><span style="color:#c084fc; font-weight:600;">HTTP / TLS</span></td>
-                        <td>TCP (fMP4 Vault)</td>
-                        <td style="color:#38bdf8;">8085 / TCP</td>
-                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">RBAC / Operator Auth</span></td>
-                        <td style="text-align:right; color:#94a3b8;">On-Demand</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#fff; font-weight:600;">Subsystem Health &amp; Ingest Heartbeat</td>
-                        <td><span style="color:#cbd5e1; font-weight:600;">REST API</span></td>
-                        <td>TCP (JSON Metric)</td>
-                        <td style="color:#38bdf8;">9997 / TCP</td>
-                        <td><span style="background:#1e293b; padding:3px 6px; border-radius:4px;">Host Internal Only</span></td>
-                        <td style="text-align:right; color:#34d399; font-weight:600;">10s Poll</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <!-- Retention Calculator -->
-                <div id="ueoc-sub-calc" style="display:none;">
-                  <div class="calc-box">
-                    <div style="display:flex; flex-direction:column; gap:12px;">
-                      <div>
-                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
-                          <span>Active Field Channels</span>
-                          <span id="cams-num" style="color:#38bdf8; font-weight:700;">2 Channels</span>
-                        </div>
-                        <input type="range" id="cams-range" min="1" max="8" value="2" oninput="runStorageMath()" class="calc-slider">
-                      </div>
-                      <div>
-                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
-                          <span>Stream Bitrate (Per Channel)</span>
-                          <span id="bitrate-num" style="color:#38bdf8; font-weight:700;">4.5 Mbps</span>
-                        </div>
-                        <input type="range" id="bitrate-range" min="1" max="15" step="0.5" value="4.5" oninput="runStorageMath()" class="calc-slider">
-                      </div>
-                      <div>
-                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px;">
-                          <span>Rolling Archive Window</span>
-                          <span id="days-num" style="color:#38bdf8; font-weight:700;">14 Days</span>
-                        </div>
-                        <input type="range" id="days-range" min="3" max="30" value="14" oninput="runStorageMath()" class="calc-slider">
-                      </div>
-                    </div>
-                    <div style="background:#0b1120; border:1px solid #1e293b; border-radius:6px; padding:16px; display:flex; flex-direction:column; justify-content:space-between;">
-                      <div style="font-size:0.65rem; color:#64748b; text-transform:uppercase;">Projected Storage Vault</div>
-                      <div>
-                        <div id="out-total-gb" style="font-size:1.8rem; font-weight:800; color:#38bdf8; margin:6px 0;">1,360 GB</div>
-                        <div style="font-size:0.75rem; color:#94a3b8;">Est. Rate: <span id="out-rate-hr" style="color:#fff;">4.05 GB/hr</span></div>
-                      </div>
-                      <div style="font-size:0.7rem; color:#34d399; background:rgba(6,78,59,0.4); border:1px solid rgba(52,211,153,0.3); padding:4px 8px; border-radius:4px; margin-top:8px;">
-                        ✓ Compliant with Dedicated Mount Quota
-                      </div>
-                    </div>
+                <div class="calc-results">
+                  <div class="calc-header-tag">Required Storage Quota</div>
+                  <div>
+                    <div id="out-total-gb" class="calc-total-gb">1,360 GB</div>
+                    <div class="calc-rate-hr">Est. Rate: <span id="out-rate-hr" class="text-white">4.05 GB/hr</span></div>
+                  </div>
+                  <div class="calc-verified-badge">
+                    ✓ Dedicated Mount Allocation Verified
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <!-- Tab 2: Aerial & Drone -->
-              <div id="p-drone" class="ueoc-panel">
-                <div style="border:1px solid rgba(14, 116, 144, 0.4); background:rgba(15, 23, 42, 0.6); padding:18px; border-radius:6px;">
-                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-                    <div>
-                      <h4 style="color:#38bdf8; margin:0 0 4px 0; font-size:0.9rem; text-transform:uppercase; font-family:monospace;">
-                        Module 02 // Aerial Ingest &amp; Tactical Downlink
-                      </h4>
-                      <p style="font-size:0.75rem; color:#94a3b8; margin:0;">
-                        Direct RTMP transmitter ingest paired with ultra-low latency WebRTC fanout to the operational Homarr console.
-                      </p>
-                    </div>
-                    <span class="ueoc-badge badge-online">INGEST ENGINE ONLINE</span>
-                  </div>
+          <!-- TAB 3: AERIAL HUD & LIVE DOWNLINK -->
+          <div id="p-drone" class="ueoc-panel">
+            <div class="panel-header-row">
+              <div>
+                <strong class="font-mono text-cyan">Module 02 // Drone Ingest &amp; HUD Downlink</strong>
+                <div class="panel-desc">Uplink RTMP streams from mobile/UAV transmitters to the private field dashboard.</div>
+              </div>
+              <span class="ueoc-badge badge-online">INGEST ENGINE ONLINE</span>
+            </div>
 
-                  <!-- Simulated Operator HUD Frame -->
-                  <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; overflow:hidden; margin-bottom:14px; box-shadow:inset 0 0 20px rgba(0,0,0,0.8);">
-                    <!-- Monitor Top Banner -->
-                    <div style="background:#0b1120; border-bottom:1px solid #1e293b; padding:6px 12px; display:flex; justify-content:space-between; align-items:center; font-family:monospace; font-size:0.7rem;">
-                      <div style="display:flex; gap:12px; align-items:center;">
-                        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444; box-shadow:0 0 8px #ef4444;"></span>
-                        <strong style="color:#f8fafc;">FEED: /drone1</strong>
-                        <span style="color:#64748b;">|</span>
-                        <span style="color:#38bdf8;">HOMARR HUD TILE</span>
-                      </div>
-                      <div style="display:flex; gap:10px; color:#94a3b8;">
-                        <span>LATENCY: <strong style="color:#34d399;">142ms</strong></span>
-                        <span>RES: <strong style="color:#f8fafc;">1080p30</strong></span>
-                        <span>RETENTION: <strong style="color:#38bdf8;">ACTIVE</strong></span>
-                      </div>
-                    </div>
-
-                    <!-- Screen Graphic Area -->
-                    <div style="height:220px; position:relative; background:radial-gradient(ellipse at center, rgba(14,116,144,0.15) 0%, rgba(2,6,23,0.95) 75%); display:flex; align-items:center; justify-content:center;">
-                      <!-- Corner Reticles -->
-                      <div style="position:absolute; top:12px; left:12px; width:16px; height:16px; border-top:2px solid #38bdf8; border-left:2px solid #38bdf8;"></div>
-                      <div style="position:absolute; top:12px; right:12px; width:16px; height:16px; border-top:2px solid #38bdf8; border-right:2px solid #38bdf8;"></div>
-                      <div style="position:absolute; bottom:12px; left:12px; width:16px; height:16px; border-bottom:2px solid #38bdf8; border-left:2px solid #38bdf8;"></div>
-                      <div style="position:absolute; bottom:12px; right:12px; width:16px; height:16px; border-bottom:2px solid #38bdf8; border-right:2px solid #38bdf8;"></div>
-                      
-                      <!-- Center Target & Telemetry -->
-                      <div style="text-align:center; font-family:monospace; color:#64748b;">
-                        <div style="font-size:2rem; color:rgba(56,189,248,0.3); line-height:1;">+</div>
-                        <div style="font-size:0.75rem; color:#cbd5e1; margin-top:6px; letter-spacing:0.05em;">TACTICAL DOWNLINK ENGAGED</div>
-                        <div style="font-size:0.65rem; color:#64748b; margin-top:2px;">WHEP WebRTC Session Dispatched to Field Operator Console</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Socket & Path Matrix -->
-                  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; font-size:0.75rem; font-family:monospace; margin-bottom:14px;">
-                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
-                      <div style="color:#64748b; font-size:0.65rem;">INGEST SOCKET</div>
-                      <div style="color:#f8fafc; font-weight:700; margin-top:4px;">rtmp://NODE:1935/drone1</div>
-                    </div>
-                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
-                      <div style="color:#64748b; font-size:0.65rem;">EGRESS WHEP / WEBRTC</div>
-                      <div style="color:#38bdf8; font-weight:700; margin-top:4px;">http://NODE:8889/drone1</div>
-                    </div>
-                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
-                      <div style="color:#64748b; font-size:0.65rem;">CODEC CONSTRAINTS</div>
-                      <div style="color:#34d399; font-weight:700; margin-top:4px;">H.264 (GOP 1-2s) / AAC</div>
-                    </div>
-                    <div style="background:#05080f; padding:10px; border:1px solid #1e293b; border-radius:4px;">
-                      <div style="color:#64748b; font-size:0.65rem;">ROLLING STORAGE</div>
-                      <div style="color:#cbd5e1; font-weight:700; margin-top:4px;">fMP4 / 14-Day Auto-Prune</div>
-                    </div>
-                  </div>
-
-                  <div style="background:#05080f; border:1px solid #1e293b; padding:12px; border-radius:4px; font-size:0.75rem; color:#cbd5e1; line-height:1.6; font-family:monospace;">
-                    <strong style="color:#f8fafc;">Field Operating Procedure:</strong> Connect drone controller to field node mesh. Direct stream output to <code style="color:#38bdf8;">/drone1</code> over port <code style="color:#38bdf8;">1935</code>. Video surfaces instantaneously inside the private Homarr console while fMP4 segments persist simultaneously to the storage partition.
-                  </div>
+            <div class="hud-monitor-box">
+              <div class="hud-monitor-bar">
+                <div class="hud-feed-tag">
+                  <span class="hud-red-dot"></span>
+                  <strong>FEED: /drone1</strong>
+                  <span class="text-muted">|</span>
+                  <span class="text-cyan">HOMARR HUD VIEW</span>
+                </div>
+                <div class="hud-telemetry-row">
+                  <span>LATENCY: <strong class="text-green">142ms</strong></span>
+                  <span>RES: <strong>1080p30</strong></span>
+                  <span>RETENTION: <strong class="text-cyan">ACTIVE</strong></span>
                 </div>
               </div>
 
-              <!-- Tab 3: Resiliency & Watchdog -->
-              <div id="p-resilience" class="ueoc-panel">
-                <div style="border:1px solid #1e293b; background:#05080f; padding:16px; border-radius:6px;">
-                  <h4 style="color:#f8fafc; margin:0 0 6px 0; font-size:0.85rem; text-transform:uppercase;">Module 03: Systemd Mount Enforcement &amp; Storage Watchdog</h4>
-                  <p style="font-size:0.8rem; color:#94a3b8; margin:0 0 14px 0;">Automated host resiliency ensuring storage drives mount prior to container initialization, backed by automated 15-minute quota audits.</p>
-                  <div style="display:flex; flex-direction:column; gap:8px; font-size:0.75rem;">
-                    <div style="display:flex; justify-content:space-between; padding:8px 12px; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
-                      <span>systemd RequiresMountsFor</span>
-                      <span style="color:#34d399;">/mnt/storage [ACTIVE]</span>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; padding:8px 12px; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
-                      <span>fstab Mount Guard</span>
-                      <span style="color:#34d399;">nofail, x-systemd.automount</span>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; padding:8px 12px; background:#0b1120; border:1px solid #1e293b; border-radius:4px;">
-                      <span>Auto-Prune Watchdog Timer</span>
-                      <span style="color:#34d399;">15m Interval (Threshold: 90%)</span>
-                    </div>
-                  </div>
+              <div class="hud-screen">
+                <div class="reticle reticle-tl"></div>
+                <div class="reticle reticle-tr"></div>
+                <div class="reticle reticle-bl"></div>
+                <div class="reticle reticle-br"></div>
+                
+                <div class="hud-screen-center">
+                  <div class="hud-crosshair">+</div>
+                  <div class="hud-downlink-text">TACTICAL DOWNLINK ENGAGED</div>
+                  <div class="hud-sync-text">WHEP WebRTC Session Synchronized to Field HUD</div>
                 </div>
               </div>
+            </div>
 
-              <!-- Tab 4: Field Run-Sheet -->
-              <div id="p-field" class="ueoc-panel">
-                <div style="border:1px solid #1e293b; background:#05080f; padding:16px; border-radius:6px;">
-                  <h4 style="color:#f8fafc; margin:0 0 6px 0; font-size:0.85rem; text-transform:uppercase;">Module 04: Tactical Field Deployment Run-Sheet</h4>
-                  <p style="font-size:0.8rem; color:#94a3b8; margin:0 0 14px 0;">Step-by-step field checklist for rapid mesh deployment, transmitter configuration, and Homarr verification.</p>
-                  <div style="background:#0b1120; border:1px solid #1e293b; padding:14px; border-radius:4px; font-size:0.8rem; line-height:1.7; color:#cbd5e1;">
-                    1. Verify field node power &amp; Tailscale mesh uplink status.<br>
-                    2. Bind transmitter endpoints using assigned stream authentication tokens.<br>
-                    3. Confirm WebRTC sub-second egress on port :8889 via Homarr console.<br>
-                    4. Verify write synchronization on external storage partition via Filebrowser.
-                  </div>
-                </div>
+            <div class="metric-chips-grid">
+              <div class="metric-chip">
+                <div class="chip-label">INGEST SOCKET</div>
+                <div class="chip-val">rtmp://NODE:1935/drone1</div>
               </div>
+              <div class="metric-chip">
+                <div class="chip-label">EGRESS WHEP</div>
+                <div class="chip-val text-cyan">http://NODE:8889/drone1</div>
+              </div>
+              <div class="metric-chip">
+                <div class="chip-label">ENCODING</div>
+                <div class="chip-val text-green">H.264 (GOP 1s) / AAC</div>
+              </div>
+              <div class="metric-chip">
+                <div class="chip-label">ROLLING STORAGE</div>
+                <div class="chip-val">fMP4 / 14-Day Auto-Prune</div>
+              </div>
+            </div>
 
+            <p class="procedure-note">
+              <strong>Procedure:</strong> Bind controller RTMP to <code>:1935/drone1</code>. Stream populates immediately inside the private Homarr HUD while simultaneous fMP4 segments write to external disk.
+            </p>
+          </div>
+
+          <!-- TAB 4: FIELD RUN-SHEET -->
+          <div id="p-field" class="ueoc-panel">
+            <h4 class="uppercase-header">Tactical Field Run-Sheet</h4>
+            <p class="panel-desc">Field operator verification sequence for rapid mesh deployment.</p>
+            <div class="runsheet-box">
+              1. Power node and confirm Tailscale mesh handshake via status LED.<br>
+              2. Point drone controller or field camera RTMP stream to path <code>/drone1</code>.<br>
+              3. Verify sub-second WebRTC frame rendering inside the Homarr HUD console.<br>
+              4. Confirm rolling disk writing on storage mount via Filebrowser.
             </div>
           </div>
 
@@ -382,8 +452,8 @@
       </div>
     </section>
 
-    <!-- 4. CAPABILITIES -->
-    <section id="capabilities" class="section section-dark">
+    <!-- 5. CAPABILITIES -->
+    <section id="capabilities" class="section">
       <div class="container">
         <div class="section-heading text-center">
           <span class="badge">Integration Disciplines</span>
@@ -400,11 +470,6 @@
               <li>Low-latency WebRTC &amp; RTSP fanout</li>
               <li>Edge retention &amp; automated disk watchdogs</li>
             </ul>
-            <div class="pills-row">
-              <span class="pill">MediaMTX</span>
-              <span class="pill">WebRTC</span>
-              <span class="pill">fMP4</span>
-            </div>
           </div>
 
           <div class="cap-card">
@@ -416,11 +481,6 @@
               <li>Docker &amp; systemd mount dependencies</li>
               <li>Uptime Kuma active service telemetry</li>
             </ul>
-            <div class="pills-row">
-              <span class="pill">Docker</span>
-              <span class="pill">Tailscale</span>
-              <span class="pill">Linux</span>
-            </div>
           </div>
 
           <div class="cap-card">
@@ -432,16 +492,24 @@
               <li>Pure sine UPS battery failover</li>
               <li>Thermal-managed sealed enclosures</li>
             </ul>
-            <div class="pills-row">
-              <span class="pill">Neutrik</span>
-              <span class="pill">Pelican</span>
-              <span class="pill">UPS</span>
-            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- SCHEMATIC FULLSCREEN LIGHTBOX -->
+  <div id="schematic-lightbox" class="lightbox-backdrop" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <div class="lightbox-header">
+        <span id="lightbox-title">Schematic Viewer</span>
+        <button type="button" onclick="closeLightbox()">&times;</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightbox-img" src="" alt="Enlarged Diagram">
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -450,109 +518,6 @@
     </div>
   </footer>
 
-  <!-- Clean Client Runtime Script -->
-  <script>
-    // 1. Schematic Viewer Switcher (Hardware vs Software)
-    window.switchSchematic = function(tabId) {
-      var btns = document.querySelectorAll('.tab-btn');
-      for (var i = 0; i < btns.length; i++) {
-        btns[i].classList.remove('active');
-      }
-      var activeBtn = document.getElementById('btn-' + tabId);
-      if (activeBtn) activeBtn.classList.add('active');
-
-      var diags = document.querySelectorAll('.diagram-img');
-      for (var j = 0; j < diags.length; j++) {
-        diags[j].classList.remove('active');
-        diags[j].style.display = 'none';
-      }
-      var activeDiag = document.getElementById('diag-' + tabId);
-      if (activeDiag) {
-        activeDiag.classList.add('active');
-        activeDiag.style.display = 'block';
-      }
-    };
-
-    // 2. Deliverables Station Tabs (01 Video, 02 Aerial, 03 Resiliency, 04 Field)
-    window.openUeocTab = function(evt, panelId) {
-      var panels = document.querySelectorAll('.ueoc-panel');
-      for (var i = 0; i < panels.length; i++) {
-        panels[i].classList.remove('active');
-        panels[i].style.display = 'none';
-      }
-
-      var tabBtns = document.querySelectorAll('.ueoc-tab-btn');
-      for (var j = 0; j < tabBtns.length; j++) {
-        tabBtns[j].classList.remove('active');
-      }
-
-      var targetPanel = document.getElementById(panelId);
-      if (targetPanel) {
-        targetPanel.classList.add('active');
-        targetPanel.style.display = 'block';
-      }
-
-      if (evt && evt.currentTarget) {
-        evt.currentTarget.classList.add('active');
-      }
-    };
-
-    // 3. Protocol Matrix vs Retention Engine Sub-Toggle
-    window.switchSubView = function(view) {
-      var table = document.getElementById('ueoc-sub-table');
-      var calc = document.getElementById('ueoc-sub-calc');
-      var btnT = document.getElementById('sub-btn-table');
-      var btnC = document.getElementById('sub-btn-calc');
-
-      if (view === 'table') {
-        if (table) table.style.display = 'block';
-        if (calc) calc.style.display = 'none';
-        if (btnT) btnT.classList.add('active');
-        if (btnC) btnC.classList.remove('active');
-      } else {
-        if (table) table.style.display = 'none';
-        if (calc) calc.style.display = 'block';
-        if (btnC) btnC.classList.add('active');
-        if (btnT) btnT.classList.remove('active');
-        runStorageMath();
-      }
-    };
-
-    // 4. Dynamic Storage Retention Engine
-    window.runStorageMath = function() {
-      var camsInput = document.getElementById('cams-range');
-      var bitInput = document.getElementById('bitrate-range');
-      var daysInput = document.getElementById('days-range');
-
-      if (!camsInput || !bitInput || !daysInput) return;
-
-      var cams = parseInt(camsInput.value, 10);
-      var mbps = parseFloat(bitInput.value);
-      var days = parseInt(daysInput.value, 10);
-
-      var camsLabel = document.getElementById('cams-num');
-      var bitrateLabel = document.getElementById('bitrate-num');
-      var daysLabel = document.getElementById('days-num');
-
-      if (camsLabel) camsLabel.textContent = cams + ' Channel' + (cams > 1 ? 's' : '');
-      if (bitrateLabel) bitrateLabel.textContent = mbps + ' Mbps';
-      if (daysLabel) daysLabel.textContent = days + ' Days';
-
-      var ratePerHour = ((mbps * 3600) / 8000) * cams;
-      var totalGB = Math.round(ratePerHour * 24 * days);
-
-      var outRate = document.getElementById('out-rate-hr');
-      var outTotal = document.getElementById('out-total-gb');
-
-      if (outRate) outRate.textContent = ratePerHour.toFixed(2) + ' GB/hr';
-      if (outTotal) outTotal.textContent = totalGB.toLocaleString() + ' GB';
-    };
-
-    // Initial setup on document ready
-    document.addEventListener('DOMContentLoaded', function() {
-      runStorageMath();
-      switchSchematic('hardware');
-    });
-  </script>
+  <script src="scripts.js?v=10.0"></script>
 </body>
 </html>
