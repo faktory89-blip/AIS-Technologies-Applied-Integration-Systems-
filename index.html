@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AIS Technologies | Precision Systems Engineering &amp; Integration</title>
   <meta name="description" content="Turnkey tactical edge platforms, enterprise AV/VTC commissioning, and custom digital signal distribution for commercial and defense applications.">
+  <link rel="stylesheet" href="styles.css?v=15.0">
   
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appliedintegrationsystems.com/">
@@ -12,11 +13,11 @@
   <meta property="og:image" content="assets/images/logo.jpg">
   
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
-  <link rel="stylesheet" href="styles.css?v=13.0">
+  <link rel="stylesheet" href="styles.css?v=14.0">
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Site Navigation -->
   <header class="site-header">
     <div class="container nav-layout">
       <div class="brand">AIS <span>Technologies</span></div>
@@ -45,7 +46,7 @@
       </div>
     </section>
 
-    <!-- 2. COMPANY PROFILE & VISION -->
+    <!-- 2. ENTERPRISE FOUNDATION / COMPANY VISION -->
     <section id="about" class="section section-dark">
       <div class="container">
         <div class="profile-layout">
@@ -86,93 +87,68 @@
         <!-- UNIFIED PROJECT: UNIVERSAL EDGE OPERATIONS CONSOLE -->
         <div id="ueoc-project" class="project-showcase-box">
           
-          <!-- Unified Project Header -->
-          <div class="project-header">
-            <div class="project-meta-top">
-              <span class="badge-tag">PROJECT 01 // FLAGSHIP DEPLOYMENT</span>
-              <span class="ueoc-badge badge-online">MIL-STD COMPLIANT // TAA READY</span>
-            </div>
-            <h2 class="project-title">Universal Edge Operations Console (UEOC)</h2>
-            <p class="project-lead">
-              Turnkey tactical 4U shock-mount flypack bridging UAV drone streams, perimeter IP cameras, baseband SDI video, and tactical radio retransmission into an encrypted, sub-second field operations console without cloud reliance.
-            </p>
-          </div>
-
-          <!-- 4 Core Overview Cards (Clicking switches tab below) -->
-          <div class="ueoc-grid">
-            <div class="ueoc-card" onclick="openUeocTab(event, 'p-video')">
-              <div class="card-meta text-cyan">01 // MULTI-SOURCE INGEST</div>
-              <h3>Universal Feed Consolidation</h3>
-              <p>Direct ingestion of drone downlinks (RTMP), perimeter sensors (RTSP), and broadcast SDI without format conversion lag.</p>
+          <!-- Unified Project Briefing -->
+          <div class="project-hero-row">
+            <div class="project-summary">
+              <div class="project-meta-top">
+                <span class="badge-tag">PROJECT 01 // FLAGSHIP DEPLOYMENT</span>
+                <span class="ueoc-badge badge-online">MIL-STD COMPLIANT // TAA READY</span>
+              </div>
+              <h2 class="project-title">Universal Edge Operations Console (UEOC)</h2>
+              <p class="project-lead">
+                Turnkey tactical 4U shock-mount flypack bridging UAV drone streams, perimeter IP cameras, baseband SDI video, and tactical radio retransmission into an air-gapped, sub-second field operations console without cloud reliance.
+              </p>
             </div>
 
-            <div class="ueoc-card" onclick="openUeocTab(event, 'p-drone')">
-              <div class="card-meta text-green">02 // FIELD MONITORING</div>
-              <h3>Sub-Second Operator HUD</h3>
-              <p>Synchronized low-latency WebRTC egress streaming across private Tailscale and WireGuard mesh tunnels to command displays.</p>
-            </div>
-
-            <div class="ueoc-card" onclick="openUeocTab(event, 'p-video')">
-              <div class="card-meta text-purple">03 // FORENSIC ARCHIVE</div>
-              <h3>Local Evidence Vault</h3>
-              <p>Guaranteed forensic integrity via segmented rolling fMP4 recording to high-endurance NVMe with 14-day automated prune cycles.</p>
-            </div>
-
-            <div class="ueoc-card" onclick="openUeocTab(event, 'p-field')">
-              <div class="card-meta text-amber">04 // TACTICAL RELAY</div>
-              <h3>NLOS &amp; MANET Retrans</h3>
-              <p>Forward-deployed IP retransmission gateway extending isolated UAV feeds across TrellisWare, Silvus, and SATCOM backhauls.</p>
-            </div>
-          </div>
-
-          <!-- Telemetry Specs Ribbon -->
-          <div class="specs-ribbon">
-            <div class="spec-item">
-              <span class="spec-label">CHASSIS</span>
-              <span class="spec-val">4U Shock-Mount Flypack</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">POWER</span>
-              <span class="spec-val">Pure Sine UPS / 12-24V DC</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">STORAGE</span>
-              <span class="spec-val">Enterprise NVMe (Automated Prune)</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">RETRANS I/O</span>
-              <span class="spec-val text-amber">POE+ 802.3at / Dual RF Ports</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">CRYPTO</span>
-              <span class="spec-val text-green">WireGuard / Air-Gap Native</span>
+            <!-- Compact Telemetry Specs Ribbon -->
+            <div class="specs-ribbon-compact">
+              <div class="spec-item">
+                <span class="spec-label">CHASSIS</span>
+                <span class="spec-val">4U Shock-Mount Flypack</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">POWER</span>
+                <span class="spec-val">Pure Sine UPS / 12-24V DC</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">STORAGE</span>
+                <span class="spec-val">Enterprise NVMe (Auto-Prune)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">RETRANS I/O</span>
+                <span class="spec-val text-amber">POE+ 802.3at / Dual RF Ports</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">CRYPTO</span>
+                <span class="spec-val text-green">WireGuard / Air-Gap Native</span>
+              </div>
             </div>
           </div>
 
-          <!-- Deliverables & Schematics Tabs (Directly part of UEOC) -->
+          <!-- Integrated Deliverables & Interactive Modules -->
           <div class="integrated-deliverables">
             <div class="deliverables-bar">
-              <div class="bar-title">
-                <strong>CONSOLE SPECIFICATIONS &amp; SCHEMATICS</strong>
-                <span>Interactive module tabs &amp; system documentation</span>
+              <div>
+                <span class="bar-title">SYSTEM MODULES &amp; DELIVERABLES</span>
+                <div class="bar-subtitle">Select a module below to inspect full-screen schematics, routing matrix, drone HUD, or field run-sheets.</div>
               </div>
               <div class="console-node-tag">
-                NODE: <strong>UEOC-NODE-01</strong> | MESH: <strong>ENCRYPTED</strong>
+                NODE: <strong>UEOC-NODE-01</strong> | STATUS: <strong class="text-green">ONLINE</strong>
               </div>
             </div>
 
-            <!-- Tab Buttons -->
+            <!-- Tab Navigation Buttons -->
             <div class="ueoc-tab-bar">
               <button type="button" id="tabbtn-p-schematics" onclick="openUeocTab(event, 'p-schematics')" class="ueoc-tab-btn active">
-                <span>01 // SYSTEM SCHEMATICS</span>
+                <span>01 // SCHEMATICS</span>
                 <span class="ueoc-badge badge-online">VERIFIED</span>
               </button>
               <button type="button" id="tabbtn-p-video" onclick="openUeocTab(event, 'p-video')" class="ueoc-tab-btn">
-                <span>02 // PROTOCOL MATRIX &amp; STORAGE</span>
+                <span>02 // PROTOCOL MATRIX</span>
                 <span class="ueoc-badge badge-online">ONLINE</span>
               </button>
               <button type="button" id="tabbtn-p-drone" onclick="openUeocTab(event, 'p-drone')" class="ueoc-tab-btn">
-                <span>03 // AERIAL HUD &amp; DOWNLINK</span>
+                <span>03 // AERIAL HUD</span>
                 <span class="ueoc-badge badge-online">DEPLOYED</span>
               </button>
               <button type="button" id="tabbtn-p-field" onclick="openUeocTab(event, 'p-field')" class="ueoc-tab-btn">
@@ -189,7 +165,7 @@
                 <div class="panel-header-row">
                   <div>
                     <strong>System Architecture &amp; Interconnect Topologies</strong>
-                    <div class="panel-desc">Click either schematic card to open high-resolution pan/zoom inspection mode.</div>
+                    <div class="panel-desc">Click either card to open high-resolution pan/zoom inspection mode.</div>
                   </div>
                 </div>
 
@@ -574,6 +550,6 @@
     </div>
   </footer>
 
-  <script src="scripts.js?v=13.0"></script>
+  <script src="scripts.js?v=14.0"></script>
 </body>
 </html>
