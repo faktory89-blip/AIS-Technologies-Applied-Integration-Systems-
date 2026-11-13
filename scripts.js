@@ -164,3 +164,115 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// === LIGHTBOX HIGH-RES PAN & ZOOM ENGINE (UP TO 5X) ===
+(function initLightboxZoom() {
+  let scale = 1, panX = 0, panY = 0, isDragging = false, startX = 0, startY = 0, initialPinchDist = 0, initialScale = 1;
+  const getImg = () => document.getElementById('lightbox-img');
+
+  const applyTransform = () => {
+    const img = getImg();
+    if (!img) return;
+    img.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + scale + ')';
+    img.style.cursor = scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in';
+  };
+
+  window.resetLightboxZoom = function() {
+    scale = 1; panX = 0; panY = 0;
+    applyTransform();
+  };
+
+  const origOpen = window.openLightbox;
+  window.openLightbox = function(src, title) {
+    if (origOpen) origOpen(src, title);
+    window.resetLightboxZoom();
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const img = getImg();
+    if (!img) return;
+    img.style.transition = 'transform 0.08s ease-out';
+    img.style.transformOrigin = 'center center';
+    img.style.userSelect = 'none';
+    img.draggable = false;
+
+    img.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (scale > 1) {
+        window.resetLightboxZoom();
+      } else {
+        scale = 2.5;
+        applyTransform();
+      }
+    });
+
+    img.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const delta = e.deltaY < 0 ? 0.35 : -0.35;
+      scale = Math.min(5, Math.max(1, +(scale + delta).toFixed(2)));
+      if (scale === 1) { panX = 0; panY = 0; }
+      applyTransform();
+    }, { passive: false });
+
+    img.addEventListener('mousedown', (e) => {
+      if (scale <= 1) return;
+      e.preventDefault();
+      isDragging = true;
+      startX = e.clientX - panX;
+      startY = e.clientY - panY;
+      applyTransform();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      panX = e.clientX - startX;
+      panY = e.clientY - startY;
+      applyTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      applyTransform();
+    });
+
+    img.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+        initialPinchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        initialScale = scale;
+      } else if (e.touches.length === 1 && scale > 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX - panX;
+        startY = e.touches[0].clientY - panY;
+      }
+    }, { passive: true });
+
+    img.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 2 && initialPinchDist > 0) {
+        e.preventDefault();
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        scale = Math.min(5, Math.max(1, +(initialScale * (dist / initialPinchDist)).toFixed(2)));
+        if (scale === 1) { panX = 0; panY = 0; }
+        applyTransform();
+      } else if (e.touches.length === 1 && isDragging && scale > 1) {
+        e.preventDefault();
+        panX = e.touches[0].clientX - startX;
+        panY = e.touches[0].clientY - startY;
+        applyTransform();
+      }
+    }, { passive: false });
+
+    img.addEventListener('touchend', () => {
+      isDragging = false;
+      initialPinchDist = 0;
+    });
+  });
+})();
