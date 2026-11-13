@@ -153,6 +153,10 @@
                 <span>04 // FIELD RUN-SHEET</span>
                 <span class="ueoc-badge badge-staged">DOC</span>
               </button>
+              <button type="button" id="tabbtn-p-cop" onclick="openUeocTab(event, 'p-cop')" class="ueoc-tab-btn">
+                <span>05 // LIVE COP CONSOLE</span>
+                <span class="ueoc-badge badge-online">COMPLETE</span>
+              </button>
             </div>
 
             <!-- Tab Panels Deck -->
@@ -409,7 +413,44 @@
           </div>
         </div>
 
-      </div>
+      
+           <!-- TAB 5: LIVE COP CONSOLE -->
+           <div id="p-cop" class="ueoc-panel">
+             <div class="panel-header-row">
+               <div>
+                 <strong>Tactical Common Operating Picture (COP) &amp; Route Solver</strong>
+                 <div class="panel-desc">Software core 100% operational // Click either card to open high-resolution pan/zoom inspection mode.</div>
+               </div>
+             </div>
+
+             <div class="schematic-grid">
+               <div class="schematic-card" onclick="openLightbox('assets/images/ueoc-cop-overview.png', 'UEOC 50/50 Split-Pane Tactical COP Console')">
+                 <div class="schematic-card-header">
+                   <span>01 // TACTICAL COP OVERVIEW</span>
+                   <span class="zoom-tag">CLICK TO ZOOM</span>
+                 </div>
+                 <div class="schematic-preview-box">
+                   <img src="assets/images/ueoc-cop-overview.png" alt="UEOC 50/50 Split-Pane Tactical COP Console">
+                 </div>
+                 <div class="schematic-card-footer">
+                   50/50 split-pane WebRTC ingest, offline Leaflet sitmap, and live skynet watchdog telemetry.
+                 </div>
+               </div>
+
+               <div class="schematic-card" onclick="openLightbox('assets/images/ueoc-route-solver.png', 'UEOC Hybrid Road-Snapped & Offline Vector Route Solver')">
+                 <div class="schematic-card-header">
+                   <span>02 // ROUTE &amp; INCIDENT SOLVER</span>
+                   <span class="zoom-tag">CLICK TO ZOOM</span>
+                 </div>
+                 <div class="schematic-preview-box">
+                   <img src="assets/images/ueoc-route-solver.png" alt="UEOC Hybrid Road-Snapped & Offline Vector Route Solver">
+                 </div>
+                 <div class="schematic-card-footer">
+                   Automated road-snapped &amp; offline vector routing, azimuth bearings, multimodal ETAs, and GeoJSON export.
+                 </div>
+               </div>
+             </div>
+           </div></div>
     </section>
 
     <!-- 4. CAPABILITIES -->
