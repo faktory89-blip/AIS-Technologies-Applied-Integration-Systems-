@@ -1,133 +1,166 @@
-:root {
-  --bg-dark: #05080f;
-  --card-bg: #0b111e;
-  --accent-cyan: #00f0ff;
-  --accent-green: #00e676;
-  --text-main: #e2e8f0;
-  --text-muted: #94a3b8;
-  --border-subtle: rgba(0, 240, 255, 0.22);
-}
+/**
+ * AIS Technologies - UEOC Platform Logic
+ */
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: var(--bg-dark);
-  color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
-  line-height: 1.6;
-}
-
-.site-header {
-  padding: 2.5rem 1.5rem 1.5rem;
-  text-align: center;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.site-header h1 {
-  margin: 0;
-  letter-spacing: 0.12em;
-  color: var(--accent-cyan);
-  font-size: 1.6rem;
-}
-
-.site-header .subtitle {
-  margin: 0.4rem 0 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.25rem;
-}
-
-.projects-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.project-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
-}
-
-.card-header h3 {
-  margin: 0.25rem 0 0.75rem;
-  font-size: 1.3rem;
-  color: #ffffff;
-}
-
-.status-badge.status-complete {
-  display: inline-block;
-  font-family: monospace;
-  font-size: 0.75rem;
-  color: var(--accent-green);
-  background: rgba(0, 230, 118, 0.12);
-  border: 1px solid rgba(0, 230, 118, 0.4);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-bottom: 6px;
-}
-
-.project-summary {
-  color: var(--text-muted);
-  margin-top: 0;
-}
-
-.media-gallery.two-up {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 14px 0;
-}
-
-.media-gallery .media-item {
-  margin: 0;
-  background: #060a10;
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.media-gallery .media-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  cursor: zoom-in;
-}
-
-.media-gallery .media-item figcaption {
-  padding: 6px 10px;
-  font-family: monospace;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.spec-list {
-  padding-left: 1.2rem;
-  margin: 1rem 0 0;
-}
-
-.spec-list li {
-  margin-bottom: 0.5rem;
-  color: var(--text-main);
-}
-
-.spec-list strong {
-  color: var(--accent-cyan);
-}
-
-@media (max-width: 768px) {
-  .media-gallery.two-up {
-    grid-template-columns: 1fr;
+// 1. Lightbox Open / Close Logic
+window.openLightbox = function(src, title) {
+  var modal = document.getElementById('schematic-lightbox');
+  var img = document.getElementById('lightbox-img');
+  var titleElem = document.getElementById('lightbox-title');
+  if (modal && img) {
+    img.src = src;
+    if (titleElem) titleElem.textContent = title;
+    modal.style.display = 'flex';
   }
-}
+};
+
+window.closeLightbox = function() {
+  var modal = document.getElementById('schematic-lightbox');
+  if (modal) modal.style.display = 'none';
+};
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// 2. Deliverables Station Tabs
+window.openUeocTab = function(evt, panelId) {
+  var panels = document.querySelectorAll('.ueoc-panel');
+  for (var i = 0; i < panels.length; i++) {
+    panels[i].classList.remove('active');
+    panels[i].style.display = 'none';
+  }
+
+  var tabBtns = document.querySelectorAll('.ueoc-tab-btn');
+  for (var j = 0; j < tabBtns.length; j++) {
+    tabBtns[j].classList.remove('active');
+  }
+
+  var targetPanel = document.getElementById(panelId);
+  if (targetPanel) {
+    targetPanel.classList.add('active');
+    targetPanel.style.display = 'block';
+  }
+
+  if (evt && evt.currentTarget) {
+    evt.currentTarget.classList.add('active');
+  }
+};
+
+// 3. Sub-Toggle (Matrix vs Calc)
+window.switchSubView = function(view) {
+  var table = document.getElementById('ueoc-sub-table');
+  var calc = document.getElementById('ueoc-sub-calc');
+  var btnT = document.getElementById('sub-btn-table');
+  var btnC = document.getElementById('sub-btn-calc');
+
+  if (view === 'table') {
+    if (table) table.style.display = 'block';
+    if (calc) calc.style.display = 'none';
+    if (btnT) btnT.classList.add('active');
+    if (btnC) btnC.classList.remove('active');
+  } else {
+    if (table) table.style.display = 'none';
+    if (calc) calc.style.display = 'block';
+    if (btnC) btnC.classList.add('active');
+    if (btnT) btnT.classList.remove('active');
+    runStorageMath();
+  }
+};
+
+// 4. Storage Math Calculation
+window.runStorageMath = function() {
+  var camsInput = document.getElementById('cams-range');
+  var bitInput = document.getElementById('bitrate-range');
+  var daysInput = document.getElementById('days-range');
+
+  if (!camsInput || !bitInput || !daysInput) return;
+
+  var cams = parseInt(camsInput.value, 10);
+  var mbps = parseFloat(bitInput.value);
+  var days = parseInt(daysInput.value, 10);
+
+  var camsLabel = document.getElementById('cams-num');
+  var bitrateLabel = document.getElementById('bitrate-num');
+  var daysLabel = document.getElementById('days-num');
+
+  if (camsLabel) camsLabel.textContent = cams + ' Channel' + (cams > 1 ? 's' : '');
+  if (bitrateLabel) bitrateLabel.textContent = mbps + ' Mbps';
+  if (daysLabel) daysLabel.textContent = days + ' Days';
+
+  var ratePerHour = ((mbps * 3600) / 8000) * cams;
+  var totalGB = Math.round(ratePerHour * 24 * days);
+
+  var outRate = document.getElementById('out-rate-hr');
+  var outTotal = document.getElementById('out-total-gb');
+
+  if (outRate) outRate.textContent = ratePerHour.toFixed(2) + ' GB/hr';
+  if (outTotal) outTotal.textContent = totalGB.toLocaleString() + ' GB';
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  runStorageMath();
+});
+
+// ==========================================================================
+// ASYNCHRONOUS FORMSPREE RFQ HANDLER (AJAX)
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('rfq-form');
+  const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('rfq-submit-btn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevents redirecting to Formspree page
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'TRANSMITTING INQUIRY...';
+    }
+
+    if (status) {
+      status.style.color = '#38bdf8';
+      status.innerText = 'Routing telemetry to procurement queue...';
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/myekvlyw', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        if (status) {
+          status.style.color = '#34d399';
+          status.innerHTML = '✓ TRANSMISSION CONFIRMED // Inquiry logged. Engineering team will respond via provided channel.';
+        }
+        form.reset();
+      } else {
+        const errorData = await response.json();
+        console.error('Formspree Server Error:', errorData);
+        if (status) {
+          status.style.color = '#ef4444';
+          status.innerHTML = 'Transmission failed. Direct inquiries: <a href="mailto:rfq@appliedintegrationsystems.com" style="color: #38bdf8;">rfq@appliedintegrationsystems.com</a>';
+        }
+      }
+    } catch (err) {
+      console.error('Network Error:', err);
+      if (status) {
+        status.style.color = '#ef4444';
+        status.innerHTML = 'Network route offline. Transmit directly to: <a href="mailto:rfq@appliedintegrationsystems.com" style="color: #38bdf8;">rfq@appliedintegrationsystems.com</a>';
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Transmit Secure Inquiry';
+      }
+    }
+  });
+});
